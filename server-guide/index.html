@@ -139,6 +139,9 @@ ul.dash li::before { content: "—"; position: absolute; left: 0; color: var(--h
 .offer figure.shot.term img { border: 1px solid rgba(255,255,255,.08); }
 .divider { margin: 18px 0 0; color: var(--hero-accent); letter-spacing: .1em; text-align: center; }
 .pro-note { margin: -4px 0 10px; font-size: 14px; color: rgba(255,255,255,.6); }
+.phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: start; margin-top: 14px; }
+.phones figure.shot { margin: 0; min-width: 0; }
+.phones figure.shot img { max-width: 340px; width: 100%; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; }
 .honest { margin: 28px 0 0; font-size: 14px; color: rgba(255,255,255,.6); }
 .cta { margin-top: 18px; background: var(--hero-accent); color: #080a0f; border-radius: 14px; padding: 18px 20px; text-align: center; }
 .cta p { margin: 0; font-size: 17px; font-weight: 600; }
@@ -454,7 +457,12 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
         <li>Свой бот: Claude присылает тебе файлы и отчёты</li>
         <li>Голосовые и видео бот превращает в текст</li>
         <li>Задачи Claude можно давать прямо из Telegram, с телефона</li>
+        <li>Бот сообщит, когда Claude закончил работу или ждёт твоего решения — не нужно сидеть у компьютера</li>
       </ul>
+      <div class="phones">
+        <figure class="shot phone"><img src="img/pro/21-telegram-chat.jpg" alt="Чат с ботом: файлы от Claude и уведомления «Claude закончил и ждёт задачу»" width="785" height="1280" loading="lazy"><figcaption>Мой бот: Claude присылает файлы и пишет, когда закончил</figcaption></figure>
+        <figure class="shot phone"><img src="img/pro/22-telegram-bots.jpg" alt="Три бота в Telegram: файлы и отчёты, разбор Reels, насмотренность" width="796" height="450" loading="lazy"><figcaption>У меня три таких бота: файлы и отчёты, разбор чужих Reels, сбор образцов дизайна</figcaption></figure>
+      </div>
     </div>
 
     <div class="pro-group">
