@@ -108,6 +108,14 @@ figure.shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; 
 .fork ol.do { margin-top: 10px; }
 .fork p { margin: 0; }
 
+.sub-h { font-size: 18px; margin: 26px 0 12px; }
+.hint-phone { display: none; font-size: 13px; color: var(--muted); margin: -4px 0 12px; }
+@media (max-width: 700px) { .hint-phone { display: block; } }
+figure.shot.term { overflow-x: auto; border-radius: 10px; }
+figure.shot.term img { border-color: transparent; background: #141a21; }
+/* Terminal text is unreadable when shrunk to phone width: keep it legible and let the picture scroll sideways */
+@media (max-width: 700px) { figure.shot.term img { width: 720px; max-width: none; } }
+
 .next { background: var(--chip); border-radius: 14px; padding: 22px 24px; }
 .next p { margin: 0 0 10px; }
 .next p:last-child { margin: 0; }
@@ -142,6 +150,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
     <li><a href="#access"><span class="n">4</span>Доступ</a></li>
     <li><a href="#termius"><span class="n">5</span>Termius</a></li>
+    <li><a href="#login"><span class="n">6</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
   </ol>
 </nav>
@@ -278,11 +287,60 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     </div>
   </section>
 
+  <section id="login" class="block">
+    <div class="block-head"><h2>Шаг 6 — Вход в Claude</h2><span class="time">10 мин, на созвоне</span></div>
+    <p>Этот шаг делаем вместе на созвоне, когда я напишу «сервер готов». Войти в аккаунт Claude можешь только ты: в чужие аккаунты я не захожу.</p>
+
+    <h3 class="sub-h">Подключись к серверу</h3>
+    <ol class="do">
+      <li>В Termius нажми <b>New Host</b> (новый сервер).</li>
+      <li>Заполни поля:
+        <ul class="check">
+          <li><b>Address</b> — IP-адрес сервера</li>
+          <li><b>Label</b> — любое название, например «Мой Claude»</li>
+          <li><b>Username</b> (имя пользователя) — напиши <code>root</code>, так зовут главного пользователя сервера</li>
+          <li><b>Password</b> — пароль от сервера из твоих заметок (шаг 3)</li>
+        </ul>
+      </li>
+      <li>Сохрани и дважды нажми на новый сервер в списке. Если Termius спросит, доверять ли серверу, нажми <b>Continue</b> (продолжить).</li>
+      <li>Откроется чёрное окно с мигающим курсором. Ты на сервере.</li>
+    </ol>
+
+    <h3 class="sub-h">Запусти Claude</h3>
+    <p class="hint-phone">На телефоне картинки ниже можно листать пальцем вбок.</p>
+    <ol class="do" style="--start: 4">
+      <li>Напиши <code>claude</code> и нажми Enter.</li>
+      <li>Claude предложит выбрать оформление. Просто нажми Enter.</li>
+    </ol>
+    <figure class="shot term"><img src="img/claude/08-theme.png" alt="Экран выбора оформления, выбран Dark mode" width="1100" height="286" loading="lazy"></figure>
+    <ol class="do" style="--start: 6">
+      <li>Способ входа: первый вариант, <b>Claude account with subscription</b> (вход по подписке), уже выбран. Нажми Enter.</li>
+    </ol>
+    <figure class="shot term"><img src="img/claude/09-login-method.png" alt="Выбор способа входа, выбран Claude account with subscription" width="1100" height="205" loading="lazy"></figure>
+    <ol class="do" style="--start: 7">
+      <li>Появится длинная ссылка. Нажми клавишу <code>c</code>, и ссылка скопируется. Если не скопировалась, выдели её мышкой целиком и скопируй.</li>
+    </ol>
+    <figure class="shot term"><img src="img/claude/10-login-link.png" alt="Ссылка для входа и строка Paste code here" width="1301" height="245" loading="lazy"></figure>
+    <ol class="do" style="--start: 8">
+      <li>Открой ссылку в браузере на компьютере. Войди в свой аккаунт Claude, где оплачена подписка Claude Pro (не Termius), и нажми <b>Authorize</b> (разрешить).</li>
+      <li>Сайт покажет код. Скопируй его, вернись в Termius, вставь после <code>Paste code here</code> и нажми Enter.</li>
+      <li>Появится <b>Login successful</b>. На следующих вопросах тоже жми Enter: варианты по умолчанию подходят.</li>
+    </ol>
+    <div class="note warn">
+      <span class="lbl">Ссылку и код никому не отправляй</span>
+      <p>Даже мне. По ним входят в твой аккаунт Claude.</p>
+    </div>
+    <div class="note">
+      <span class="lbl">Без Termius</span>
+      <p>Открой PowerShell (Windows) или Терминал (Mac), напиши <code>ssh root@IP-адрес</code>, нажми Enter и введи пароль от сервера. Дальше всё так же, с пункта 5.</p>
+    </div>
+  </section>
+
   <section id="next" class="block">
     <div class="block-head"><h2>Что дальше</h2></div>
     <div class="next">
       <p>Я настрою сервер: защиту, Claude Code и всё нужное для работы.</p>
-      <p>Потом созвонимся минут на 15–20. Ты войдёшь в свой аккаунт Claude (сделать это можешь только ты, в чужие аккаунты я не захожу) и дашь Claude первую задачу.</p>
+      <p>Потом созвонимся минут на 15–20. Ты войдёшь в Claude (шаг 6) и дашь ему первую задачу.</p>
       <p><b>К созвону подписка Claude Pro должна быть оплачена.</b></p>
     </div>
   </section>
