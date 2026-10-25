@@ -127,7 +127,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 <header class="hero gutter">
   <p class="eyebrow">Настройка Claude Code</p>
   <h1>Подготовь <em>свой сервер</em></h1>
-  <p class="sub">Твоя часть — 15–20 минут. Остальное я сделаю сам</p>
+  <p class="sub">Твоя часть — 20–25 минут. Остальное я сделаю сам</p>
   <ul class="pills">
     <li>4vps.su</li><li>NL-cx31</li><li>Ubuntu 24.04</li><li>Нидерланды</li>
   </ul>
@@ -141,6 +141,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <li><a href="#server"><span class="n">2</span>Сервер</a></li>
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
     <li><a href="#access"><span class="n">4</span>Доступ</a></li>
+    <li><a href="#termius"><span class="n">5</span>Termius</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
   </ol>
 </nav>
@@ -151,7 +152,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <p>От тебя нужно две вещи: арендовать сервер и пустить меня на него. Защиту, установку Claude Code и всё нужное для работы я настрою сам.</p>
     <div class="note">
       <span class="lbl">Что понадобится</span>
-      <p>Почта, российская карта или СБП и 15–20 минут. Подписка Claude Pro понадобится позже, к созвону.</p>
+      <p>Почта, российская карта или СБП, компьютер на Windows или Mac и 20–25 минут. Подписка Claude Pro понадобится позже, к созвону.</p>
     </div>
   </section>
 
@@ -241,6 +242,39 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="note">
       <span class="lbl">Совет</span>
       <p>Пароль при вводе не видно, даже звёздочек нет. Так и должно быть: просто вставь и нажми Enter.</p>
+    </div>
+  </section>
+
+  <section id="termius" class="block">
+    <div class="block-head"><h2>Шаг 5 — Программа Termius</h2><span class="time">5 мин</span></div>
+    <p>Termius — бесплатная программа-«пульт» для сервера. Через неё на созвоне ты войдёшь в свой Claude. Поставь её заранее.</p>
+    <ol class="do">
+      <li>Открой страницу скачивания для своего компьютера:
+        <ul class="check">
+          <li><b>Windows</b> — <a href="https://termius.com/download/windows" target="_blank" rel="noopener">termius.com/download/windows</a></li>
+          <li><b>Mac</b> — <a href="https://termius.com/download/macos" target="_blank" rel="noopener">termius.com/download/macos</a></li>
+        </ul>
+      </li>
+      <li>Нажми синюю кнопку: <b>Download .EXE</b> на Windows или <b>Download .DMG</b> на Mac.</li>
+    </ol>
+    <figure class="shot"><img src="img/termius/06-termius-windows.png" alt="Страница Termius для Windows, кнопка Download .EXE обведена" width="1366" height="520" loading="lazy"><figcaption>Windows</figcaption></figure>
+    <figure class="shot"><img src="img/termius/07-termius-macos.png" alt="Страница Termius для Mac, кнопка Download .DMG обведена" width="1366" height="520" loading="lazy"><figcaption>Mac</figcaption></figure>
+    <ol class="do" style="--start: 2">
+      <li>Установи как обычную программу.
+        <ul class="check">
+          <li><b>Windows</b> — открой скачанный файл и жми «Далее», пока не появится «Готово».</li>
+          <li><b>Mac</b> — открой скачанный файл и перетащи значок Termius в папку «Программы».</li>
+        </ul>
+      </li>
+      <li>Открой Termius. Он предложит зарегистрироваться: войди через почту или Google, это бесплатно.</li>
+    </ol>
+    <div class="note">
+      <span class="lbl">Совет</span>
+      <p>Платный тариф не нужен. Если Termius предложит пробный период Pro, пропусти. На Mac программу можно поставить и через App Store: в поиске набери «Termius».</p>
+    </div>
+    <div class="note warn">
+      <span class="lbl">Если не скачивается</span>
+      <p>Ничего страшного. На созвоне обойдёмся тем, что уже есть в компьютере: PowerShell на Windows или Терминал на Mac (как в шаге 4).</p>
     </div>
   </section>
 
