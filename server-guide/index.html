@@ -142,6 +142,8 @@ ul.dash li::before { content: "—"; position: absolute; left: 0; color: var(--h
 .phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: start; margin-top: 14px; }
 .phones figure.shot { margin: 0; min-width: 0; }
 .phones figure.shot img { max-width: 340px; width: 100%; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; }
+.story p { margin: 0 0 10px; color: rgba(255,255,255,.85); }
+.story b { color: var(--hero-fg); }
 .honest { margin: 28px 0 0; font-size: 14px; color: rgba(255,255,255,.6); }
 .cta { margin-top: 18px; background: var(--hero-accent); color: #080a0f; border-radius: 14px; padding: 18px 20px; text-align: center; }
 .cta p { margin: 0; font-size: 17px; font-weight: 600; }
@@ -466,6 +468,25 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     </div>
 
     <div class="pro-group">
+      <h3>🚀 СВОИ БОТЫ И ПРИЛОЖЕНИЯ</h3>
+      <ul class="dash">
+        <li>Описываешь обычными словами, что нужно, — Claude сам собирает бота или мини-приложение в Telegram</li>
+        <li>Без программиста и без подписок на чужие сервисы</li>
+        <li>Всё на той же подписке Claude Pro, без доплат</li>
+      </ul>
+      <div class="phones">
+        <div class="story">
+          <p>🫰 <b>Мой пример.</b> Нашёл приложение для семейного бюджета — понравилось.</p>
+          <p>НО в нём не было функций, которые мне нужны. Платить за подписку без них я не стал.</p>
+          <p>Мы с Claude собрали своё приложение и добавили туда всё, чего мне не хватало. Теперь оно живёт у меня в Telegram.</p>
+          <p>🥳 Чужая подписка не нужна — всё работает на моей подписке Claude Pro.</p>
+          <p>🤫 <b>И ещё пример — прямо перед тобой.</b> Эту инструкцию тоже собрал Claude по моим указаниям: тексты, скриншоты, дизайн и публикацию в интернете.</p>
+        </div>
+        <figure class="shot phone"><img src="img/pro/23-family-budget.jpg" alt="Мини-приложение «Семейный бюджет» в Telegram: остаток, доходы, расходы, долги" width="651" height="1280" loading="lazy"><figcaption>Моё мини-приложение «Семейный бюджет» в Telegram. Суммы скрыл</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="pro-group">
       <h3>🧠 ВТОРОЙ МОЗГ</h3>
       <ul class="dash">
         <li>База знаний о тебе: голос, принципы, правила стиля</li>
@@ -513,7 +534,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
   </section>
 </main>
 
-<footer class="gutter">Александр — настройка Claude Code</footer>
+<footer class="gutter">Александр — настройка Claude Code<br>Инструкцию собрал Claude по моим указаниям</footer>
 
 <script>
 // Copy must run inside the click handler; fall back to selecting the text where the clipboard is refused
