@@ -167,6 +167,16 @@ ul.dash li::before { content: "—"; position: absolute; left: 0; color: var(--h
 .phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: start; margin-top: 14px; }
 .phones figure.shot { margin: 0; min-width: 0; }
 .phones figure.shot img { max-width: 340px; width: 100%; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; }
+.cmp { border: 1px solid rgba(255,255,255,.12); border-radius: 14px; overflow: hidden; margin: 4px 0 16px; }
+.cmp-row { display: grid; grid-template-columns: .9fr 1.4fr .8fr; gap: 10px; padding: 12px 16px; align-items: baseline; font-variant-numeric: tabular-nums; }
+.cmp-row + .cmp-row { border-top: 1px solid rgba(255,255,255,.08); }
+.cmp-head { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); background: rgba(255,255,255,.03); }
+.cmp-row .them { color: rgba(255,255,255,.55); text-decoration: line-through; text-decoration-color: rgba(224,36,43,.8); }
+.cmp-row .me { color: var(--hero-accent); font-weight: 800; font-size: 20px; }
+.comp-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.comp-shots figure.shot { margin: 0; }
+.comp-shots img { border-radius: 14px; border: 1px solid rgba(255,255,255,.1); }
+@media (max-width: 520px) { .cmp-row { grid-template-columns: .8fr 1.3fr .8fr; padding: 10px 12px; font-size: 14px; } .cmp-row .me { font-size: 17px; } .comp-shots { grid-template-columns: 1fr 1fr; } }
 .story p { margin: 0 0 10px; color: rgba(255,255,255,.85); }
 .story b { color: var(--hero-fg); }
 .honest { margin: 28px 0 0; font-size: 14px; color: rgba(255,255,255,.6); }
@@ -455,6 +465,21 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
       <span class="old">15&nbsp;000&nbsp;₽</span>
       <span class="new">7&nbsp;000&nbsp;₽</span>
       <span class="why">цена для первых клиентов, потом 15&nbsp;000&nbsp;₽</span>
+    </div>
+
+    <div class="pro-group market">
+      <h3>💸 СРАВНИ С РЫНКОМ</h3>
+      <div class="cmp">
+        <div class="cmp-row cmp-head"><span></span><span>У других на Авито</span><span>У меня</span></div>
+        <div class="cmp-row"><span>Базовая</span><span class="them">3&nbsp;900 – 8&nbsp;000&nbsp;₽</span><span class="me">990&nbsp;₽</span></div>
+        <div class="cmp-row"><span>Профи</span><span class="them">от 25&nbsp;000&nbsp;₽</span><span class="me">7&nbsp;000&nbsp;₽</span></div>
+      </div>
+      <div class="comp-shots">
+        <figure class="shot phone"><img src="img/pro/25-comp-3900.jpg" alt="Ответ исполнителя на Авито: стандартная настройка 3900 ₽" width="812" height="1280" loading="lazy"></figure>
+        <figure class="shot phone"><img src="img/pro/27-comp-5000.jpg" alt="Ответ исполнителя на Авито: 5000 ₽ на карту, 5500 ₽ на ИП" width="768" height="800" loading="lazy"></figure>
+        <figure class="shot phone"><img src="img/pro/26-comp-7000.jpg" alt="Ответ исполнителя на Авито: стоимость настройки 7 000 ₽" width="814" height="1280" loading="lazy"></figure>
+      </div>
+      <p class="pro-note">Ответы исполнителей на Авито за базовую настройку. Имена скрыл.</p>
     </div>
 
     <div class="pro-group">
