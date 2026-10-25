@@ -302,6 +302,7 @@ document.querySelectorAll('.copy').forEach(btn => {
 });
 
 // Highlight the step the reader is on, so the bar works as "where am I"
+const bar = document.querySelector('.steps ol');
 const links = [...document.querySelectorAll('.steps a')];
 const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
 const io = new IntersectionObserver(entries => {
@@ -310,7 +311,9 @@ const io = new IntersectionObserver(entries => {
     links.forEach(a => a.classList.remove('on'));
     const a = byId[e.target.id];
     a.classList.add('on');
-    a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    // Scroll only the bar: scrollIntoView would also touch the page and cut short a smooth jump to a step
+    const x = a.getBoundingClientRect().left - bar.getBoundingClientRect().left + bar.scrollLeft;
+    bar.scrollTo({ left: x - (bar.clientWidth - a.offsetWidth) / 2 });
   });
 }, { rootMargin: '-30% 0px -60% 0px' });
 document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
