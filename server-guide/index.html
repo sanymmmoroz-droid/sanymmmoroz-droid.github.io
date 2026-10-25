@@ -149,6 +149,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <li><a href="#server"><span class="n">2</span>Сервер</a></li>
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
     <li><a href="#access"><span class="n">4</span>Доступ</a></li>
+    <li><a href="#mypart"><span class="n">⚙</span>Моя часть</a></li>
     <li><a href="#termius"><span class="n">5</span>Termius</a></li>
     <li><a href="#login"><span class="n">6</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
@@ -258,6 +259,38 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     </div>
   </section>
 
+  <section id="mypart" class="block">
+    <div class="block-head"><h2>Что сделаю я</h2><span class="time">15–20 мин, без тебя</span></div>
+    <p>Когда получу IP-адрес, зайду на сервер по своему ключу и настрою всё одним скриптом. Ты в это время ставишь Termius (шаг 5).</p>
+    <ol class="do">
+      <li><b>Обновлю систему.</b> Поставлю свежие исправления безопасности.</li>
+      <li><b>Включу firewall</b> (защиту от лишних подключений). Снаружи будет открыт только вход для управления сервером, всё остальное закрыто.</li>
+      <li><b>Защищу от подбора пароля.</b> После 5 неверных попыток адрес блокируется на час. И включу автообновления: сервер сам ставит заплатки безопасности.</li>
+    </ol>
+    <figure class="shot term"><img src="img/setup/13-protection-code.png" alt="Фрагмент скрипта настройки: firewall и защита от подбора пароля" width="1100" height="461" loading="lazy"><figcaption>Часть настоящего скрипта, которым я настраиваю сервер</figcaption></figure>
+    <ol class="do" style="--start: 3">
+      <li><b>Установлю Claude Code.</b> Команда <code>claude</code> будет работать сразу.</li>
+      <li><b>Создам рабочие папки.</b> <code>workspace</code> для твоих проектов и <code>style</code> для образцов твоих текстов.</li>
+      <li><b>Защищу ключи и пароли.</b> Claude не сможет прочитать файлы с паролями и отправить секреты в интернет, даже если об этом попросит чужой навык. И проверю, что запрет срабатывает.</li>
+      <li><b>Научу Claude видеть сервер.</b> При каждом запуске он знает дату, сколько сервер работает без перезагрузки и сколько свободно памяти и диска.</li>
+      <li><b>Поставлю три навыка</b> (готовые инструкции, которые Claude выполняет по твоей просьбе):
+        <ul class="check">
+          <li><b>«привет»</b> — поздоровается и покажет, как дела у сервера;</li>
+          <li><b>«как сервер»</b> — проверит память, диск и нагрузку и предупредит, если что-то кончается;</li>
+          <li><b>«напиши пост»</b> — пост в твоём стиле. Правки «не так, потому что…» запоминает, чтобы в следующий раз писать сразу правильно.</li>
+        </ul>
+      </li>
+    </ol>
+    <figure class="shot term"><img src="img/setup/14-skill-post.png" alt="Навык «пост»: инструкция для Claude по шагам" width="1479" height="314" loading="lazy"><figcaption>Так выглядит навык «пост»: обычная инструкция по шагам, на русском</figcaption></figure>
+    <ol class="do" style="--start: 8">
+      <li><b>Проверю, что всё работает,</b> и напишу тебе «сервер готов».</li>
+    </ol>
+
+    <h3 class="sub-h">Как это выглядит в работе</h3>
+    <p>Просишь обычными словами, Claude сам создаёт файл и показывает результат. Это настоящий экран Claude Code:</p>
+    <figure class="shot term"><img src="img/claude/11-claude-at-work.png" alt="Claude Code создаёт файл plan.md с планом постов на неделю" width="1100" height="671" loading="lazy"><figcaption>Запрос: «Создай файл plan.md: план из 5 постов на неделю для эксперта по йоге». Ответ — за 9 секунд</figcaption></figure>
+  </section>
+
   <section id="termius" class="block">
     <div class="block-head"><h2>Шаг 5 — Программа Termius</h2><span class="time">5 мин</span></div>
     <p>Termius — бесплатная программа-«пульт» для сервера. Через неё ты войдёшь в свой Claude в шаге 6. Поставь её, пока я настраиваю сервер.</p>
@@ -328,8 +361,14 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <ol class="do" style="--start: 8">
       <li>Открой ссылку в браузере на компьютере. Войди в свой аккаунт Claude, где оплачена подписка Claude Pro (не Termius), и нажми <b>Authorize</b> (разрешить).</li>
       <li>Сайт покажет код. Скопируй его, вернись в Termius, вставь после <code>Paste code here</code> и нажми Enter.</li>
-      <li>Появится <b>Login successful</b>. На следующих вопросах тоже жми Enter: варианты по умолчанию подходят.</li>
+      <li>Появится <b>Login successful</b>. Нажми Enter — и на следующих вопросах тоже.</li>
+      <li><b>Кроме одного.</b> Claude спросит, доверять ли папке (<code>Accessing workspace</code>). Здесь уже выбран <b>No, exit</b>, и Enter закроет Claude. Нажми стрелку вниз, выбери <b>Yes, I trust this folder</b> и только потом Enter.</li>
     </ol>
+    <figure class="shot term"><img src="img/claude/12-trust-folder.png" alt="Вопрос Accessing workspace: варианты No, exit и Yes, I trust this folder" width="1301" height="387" loading="lazy"><figcaption>Выбери второй вариант: Yes, I trust this folder</figcaption></figure>
+    <div class="note">
+      <span class="lbl">Если Claude закрылся</span>
+      <p>Ничего не сломалось. Напиши <code>claude</code>, нажми Enter, дойди до вопроса про папку и выбери <b>Yes, I trust this folder</b>.</p>
+    </div>
     <div class="note warn">
       <span class="lbl">Ссылку и код никому не отправляй</span>
       <p>Даже мне. По ним входят в твой аккаунт Claude.</p>
