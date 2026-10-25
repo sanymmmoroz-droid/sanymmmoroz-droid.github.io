@@ -122,6 +122,21 @@ figure.shot.term img { border-color: transparent; background: #141a21; }
 
 /* offer: the one loud block on the page, in the hero's colors so it reads as a separate product */
 section.offer { margin-top: 48px; border-top: 0; background: var(--hero); color: var(--hero-fg); border-radius: 20px; padding: 36px max(20px, 4%) 32px; }
+/* banner: the offer's headline as a self-contained card, glow and grid in the site's teal */
+.offer-banner { position: relative; overflow: hidden; border-radius: 16px; padding: 34px 28px 30px; margin-bottom: 22px;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(0,229,204,.28), transparent 55%),
+    radial-gradient(90% 80% at 0% 100%, rgba(0,184,163,.18), transparent 60%),
+    linear-gradient(160deg, #0d141b, #080a0f);
+  border: 1px solid rgba(0,229,204,.35); box-shadow: 0 0 0 1px rgba(0,229,204,.08) inset, 0 18px 40px -20px rgba(0,229,204,.35); }
+.offer-banner::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 28px 28px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); mask-image: linear-gradient(90deg, transparent, #000 60%); }
+.offer-banner > * { position: relative; }
+.offer-banner h2 { font-size: clamp(28px, 5.6vw, 42px); line-height: 1.08; margin: 0; max-width: 22ch; }
+.offer-banner h2 em { font-style: normal; color: var(--hero-accent); }
+.banner-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.banner-chips span { font-size: 13px; color: var(--hero-accent); border: 1px solid rgba(0,229,204,.35); background: rgba(0,229,204,.08); border-radius: 999px; padding: 4px 12px; }
 .offer-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--hero-accent); margin: 0 0 10px; }
 .offer h2 { font-size: clamp(26px, 5vw, 34px); line-height: 1.15; font-weight: 800; margin: 0 0 16px; text-wrap: balance; }
 .offer-lead { margin: 0 0 10px; color: rgba(255,255,255,.82); }
@@ -418,26 +433,26 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
   </section>
 
   <section id="pro" class="block offer">
-    <p class="offer-eyebrow">Профессиональная настройка</p>
-    <h2>Claude, который работает как сотрудник</h2>
-    <p class="offer-lead">Базовая настройка — это Claude, который отвечает на твои вопросы.</p>
-    <p class="offer-lead">🫵 НО у меня на сервере он работает как сотрудник. Сам собирает отчёты и присылает их в Telegram. Каждую ночь делает бэкап. Знает мой бизнес и пишет моим голосом.</p>
-    <p class="offer-lead">🎁 <b>Такой же настрою тебе.</b> Ниже — что входит. Скриншоты — с моего сервера.</p>
-    <p class="divider">✦•┈๑⋅⋯ ⋯⋅๑┈•✦</p>
+    <div class="offer-banner">
+      <p class="offer-eyebrow">Профессиональная настройка</p>
+      <h2>Claude, который работает как <em>сотрудник</em></h2>
+      <div class="banner-chips" aria-hidden="true"><span>отчёты сам</span><span>бэкап каждую ночь</span><span>пишет твоим голосом</span></div>
+    </div>
+
+    <p class="offer-lead">🫵 Базовая настройка — Claude отвечает на вопросы. Профессиональная — он работает сам. Скриншоты ниже — с моего сервера.</p>
 
     <div class="price">
-      <span class="old">15 000 ₽</span>
-      <span class="new">7 000 ₽</span>
-      <span class="why">цена для первых клиентов, потом 15 000 ₽</span>
+      <span class="old">15&nbsp;000&nbsp;₽</span>
+      <span class="new">7&nbsp;000&nbsp;₽</span>
+      <span class="why">цена для первых клиентов, потом 15&nbsp;000&nbsp;₽</span>
     </div>
 
     <div class="pro-group">
       <h3>🛡 БЕЗОПАСНОСТЬ</h3>
       <ul class="dash">
-        <li>Защита паролей и ключей: Claude не сможет их прочитать или отправить в интернет. Даже если чужой навык (готовый набор команд) попросит — защита заблокирует</li>
-        <li>Бэкап (резервная копия) всего важного каждую ночь в закрытый GitHub. Пароли — в зашифрованном архиве</li>
-        <li>Пошаговая инструкция, как поднять всё на новом сервере, если со старым что-то случится</li>
-        <li>Тревога в Telegram, если на сервере кончается диск или память</li>
+        <li>Пароли и ключи под защитой: Claude не прочитает их и не отправит в интернет</li>
+        <li>Бэкап каждую ночь и инструкция, как переехать на новый сервер</li>
+        <li>Тревога в Telegram, если кончается место</li>
       </ul>
       <figure class="shot term"><img src="img/pro/15-guard.png" alt="Защита guard-secrets блокирует доступ к файлу с паролями" width="1000" height="123" loading="lazy"><figcaption>Настоящая блокировка: Claude полез к файлу с паролями — защита не пустила</figcaption></figure>
       <figure class="shot term"><img src="img/pro/16-backup.png" alt="Ночные бэкапы сервера и файлы восстановления" width="1000" height="225" loading="lazy"><figcaption>Бэкапы за последние ночи. RESTORE.md — инструкция восстановления, secrets.tar.age — зашифрованные пароли</figcaption></figure>
@@ -446,9 +461,8 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="pro-group">
       <h3>⏰ САМ ПРИСЫЛАЕТ ОТЧЁТЫ</h3>
       <ul class="dash">
-        <li>Утром — дайджест: о чём болит у твоей аудитории</li>
-        <li>Вечером — отчёт «что сделано за день»</li>
-        <li>Всё приходит в Telegram, сам ничего запускать не нужно</li>
+        <li>Утром — о чём болит у твоей аудитории</li>
+        <li>Вечером — что сделано за день</li>
       </ul>
       <figure class="shot term"><img src="img/pro/17-schedule.png" alt="Расписание задач на сервере" width="1000" height="286" loading="lazy"><figcaption>Расписание с моего сервера: пять задач, которые Claude делает сам</figcaption></figure>
     </div>
@@ -456,10 +470,9 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="pro-group">
       <h3>📲 TELEGRAM</h3>
       <ul class="dash">
-        <li>Свой бот: Claude присылает тебе файлы и отчёты</li>
-        <li>Голосовые и видео бот превращает в текст</li>
-        <li>Задачи Claude можно давать прямо из Telegram, с телефона</li>
-        <li>Бот сообщит, когда Claude закончил работу или ждёт твоего решения — не нужно сидеть у компьютера</li>
+        <li>Файлы и отчёты от Claude приходят в твой бот</li>
+        <li>Голосовые и видео — сразу в текст</li>
+        <li>Задачи с телефона и сообщение, когда Claude закончил</li>
       </ul>
       <div class="phones">
         <figure class="shot phone"><img src="img/pro/21-telegram-chat.jpg" alt="Чат с ботом: файлы от Claude и уведомления «Claude закончил и ждёт задачу»" width="785" height="1280" loading="lazy"><figcaption>Мой бот: Claude присылает файлы и пишет, когда закончил</figcaption></figure>
@@ -470,17 +483,13 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="pro-group">
       <h3>🚀 СВОИ БОТЫ И ПРИЛОЖЕНИЯ</h3>
       <ul class="dash">
-        <li>Описываешь обычными словами, что нужно, — Claude сам собирает бота или мини-приложение в Telegram</li>
-        <li>Без программиста и без подписок на чужие сервисы</li>
-        <li>Всё на той же подписке Claude Pro, без доплат</li>
+        <li>Описываешь словами — Claude собирает бота или мини-приложение</li>
+        <li>Без программиста и без чужих подписок</li>
       </ul>
       <div class="phones">
         <div class="story">
-          <p>🫰 <b>Мой пример.</b> Нашёл приложение для семейного бюджета — понравилось.</p>
-          <p>НО в нём не было функций, которые мне нужны. Платить за подписку без них я не стал.</p>
-          <p>Мы с Claude собрали своё приложение и добавили туда всё, чего мне не хватало. Теперь оно живёт у меня в Telegram.</p>
-          <p>🥳 Чужая подписка не нужна — всё работает на моей подписке Claude Pro.</p>
-          <p>🤫 <b>И ещё пример — прямо перед тобой.</b> Эту инструкцию тоже собрал Claude по моим указаниям: тексты, скриншоты, дизайн и публикацию в интернете.</p>
+          <p>🫰 <b>Мой пример.</b> Приложению для семейного бюджета не хватало нужных мне функций. Мы с Claude собрали своё — на подписке Claude Pro, без доплат.</p>
+          <p>🤫 <b>И эту инструкцию</b> тоже собрал Claude по моим указаниям.</p>
         </div>
         <figure class="shot phone"><img src="img/pro/23-family-budget.jpg" alt="Мини-приложение «Семейный бюджет» в Telegram: остаток, доходы, расходы, долги" width="651" height="1280" loading="lazy"><figcaption>Моё мини-приложение «Семейный бюджет» в Telegram. Суммы скрыл</figcaption></figure>
       </div>
@@ -489,22 +498,17 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="pro-group">
       <h3>🧠 ВТОРОЙ МОЗГ</h3>
       <ul class="dash">
-        <li>База знаний о тебе: голос, принципы, правила стиля</li>
-        <li>О бизнесе: аудитория, продукты, рынок</li>
-        <li>Claude читает её перед каждым текстом и пишет в твоём стиле. Правки «не так, потому что…» запоминает — с каждой неделей тексты всё ближе к твоим</li>
-        <li>Всё открывается в Obsidian — можно читать и править руками</li>
+        <li>База о тебе и бизнесе: голос, аудитория, продукты</li>
+        <li>Claude пишет в твоём стиле и учится на твоих правках</li>
       </ul>
       <figure class="shot term"><img src="img/pro/20-second-brain.png" alt="Структура второго мозга: голос, принципы, бизнес" width="1000" height="347" loading="lazy"><figcaption>Мой второй мозг. У тебя будет такой же, только про тебя</figcaption></figure>
     </div>
 
     <div class="pro-group">
-      <h3>⚡️ НАВЫКИ ПОД ТВОИ ЗАДАЧИ</h3>
-      <p class="pro-note">Навыки — готовые умения Claude под конкретную задачу.</p>
+      <h3>⚡️ НАВЫКИ</h3>
       <ul class="dash">
-        <li>Исследование рынка и болей аудитории — с источниками и датами</li>
-        <li>Сценарии Reels, воронки, один пост сразу на все площадки</li>
-        <li>SEO (чтобы сайт находили в Яндексе), отчёты, разбор решений «за и против»</li>
-        <li>Подберу и настрою под то, чем ты занимаешься</li>
+        <li>Готовые умения: исследование рынка, Reels, воронки, посты на все площадки</li>
+        <li>Подберу под то, чем ты занимаешься</li>
       </ul>
       <figure class="shot term"><img src="img/pro/18-skills.png" alt="Список навыков Claude на сервере" width="1000" height="286" loading="lazy"><figcaption>Часть навыков с моего сервера</figcaption></figure>
     </div>
@@ -512,9 +516,8 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="pro-group">
       <h3>🔌 ПОДКЛЮЧЕНИЯ</h3>
       <ul class="dash">
-        <li>Память: Claude помнит прошлые разговоры, не нужно объяснять заново</li>
-        <li>Поиск в интернете со свежими датами и подсказки по любым сервисам</li>
-        <li>По желанию — видео с твоим цифровым двойником (HeyGen, отдельная подписка)</li>
+        <li>Память между разговорами и поиск в интернете со свежими датами</li>
+        <li>По желанию — видео с цифровым двойником (HeyGen, отдельная подписка)</li>
       </ul>
       <figure class="shot term"><img src="img/pro/19-connections.png" alt="Подключённые к Claude сервисы" width="1000" height="205" loading="lazy"><figcaption>Сервисы, подключённые к моему Claude</figcaption></figure>
     </div>
@@ -522,11 +525,11 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <div class="pro-group">
       <h3>🎁 БОНУСОМ</h3>
       <ul class="dash">
-        <li>Помогу с упаковкой: с чего начать и как тебя позиционировать</li>
+        <li>Помогу с упаковкой: с чего начать и как себя позиционировать</li>
       </ul>
     </div>
 
-    <p class="honest">❗️ Честно про деньги: подписку Claude и сервер ты оплачиваешь сам, как и раньше. НО автоматические отчёты тоже тратят лимиты Claude — на минимальном тарифе их может не хватить, подскажу, когда стоит повысить. Платные сервисы вроде HeyGen — только если захочешь.</p>
+    <p class="honest">❗️ Подписку Claude и сервер ты оплачиваешь сам, как и раньше. Автоотчёты тратят лимиты Claude — подскажу, если тарифа не хватит.</p>
 
     <div class="cta">
       <p>Напиши мне в чат слово <b>ПРОФИ</b> — расскажу, как всё пройдёт</p>
