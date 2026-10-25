@@ -167,6 +167,10 @@ ul.dash li::before { content: "—"; position: absolute; left: 0; color: var(--h
 .phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: start; margin-top: 14px; }
 .phones figure.shot { margin: 0; min-width: 0; }
 .phones figure.shot img { max-width: 340px; width: 100%; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; }
+/* bridge from the price comparison to the feature list */
+.included { margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(0,229,204,.3); }
+.included .included-title { font-size: clamp(22px, 4.4vw, 28px); line-height: 1.2; font-weight: 800; margin: 0 0 8px; color: var(--hero-fg); text-wrap: balance; }
+.included p:last-child { margin: 0; color: rgba(255,255,255,.75); }
 .cmp { border: 1px solid rgba(255,255,255,.12); border-radius: 14px; overflow: hidden; margin: 4px 0 16px; }
 .cmp-row { display: grid; grid-template-columns: .9fr 1.4fr .8fr; gap: 10px; padding: 12px 16px; align-items: baseline; font-variant-numeric: tabular-nums; }
 .cmp-row + .cmp-row { border-top: 1px solid rgba(255,255,255,.08); }
@@ -480,6 +484,12 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
         <figure class="shot phone"><img src="img/pro/26-comp-7000.jpg" alt="Ответ исполнителя на Авито: стоимость настройки 7 000 ₽" width="814" height="1280" loading="lazy"></figure>
       </div>
       <p class="pro-note">Ответы исполнителей на Авито за базовую настройку. Имена скрыл.</p>
+    </div>
+
+    <div class="included">
+      <p class="offer-eyebrow">Что входит</p>
+      <h3 class="included-title">Что я настрою тебе за 7&nbsp;000&nbsp;₽</h3>
+      <p>Всё это уже работает у меня. Сделаю так же, только под тебя и твой бизнес.</p>
     </div>
 
     <div class="pro-group">
