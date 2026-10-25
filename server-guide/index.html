@@ -145,11 +145,11 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 <nav class="steps gutter" aria-label="Шаги">
   <ol>
     <li><a href="#start" class="on"><span class="n">0</span>Зачем</a></li>
+    <li><a href="#mypart"><span class="n">⚙</span>Моя часть</a></li>
     <li><a href="#register"><span class="n">1</span>Регистрация</a></li>
     <li><a href="#server"><span class="n">2</span>Сервер</a></li>
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
     <li><a href="#access"><span class="n">4</span>Доступ</a></li>
-    <li><a href="#mypart"><span class="n">⚙</span>Моя часть</a></li>
     <li><a href="#termius"><span class="n">5</span>Termius</a></li>
     <li><a href="#login"><span class="n">6</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
@@ -164,6 +164,38 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
       <span class="lbl">Что понадобится</span>
       <p>Почта, российская карта или СБП, компьютер на Windows или Mac и около 30 минут. Подписка Claude Pro понадобится в шаге 6, оплати её заранее.</p>
     </div>
+  </section>
+
+  <section id="mypart" class="block">
+    <div class="block-head"><h2>Что сделаю я</h2><span class="time">15–20 мин, без тебя</span></div>
+    <p>Когда получу IP-адрес, зайду на сервер по своему ключу и настрою всё одним скриптом.</p>
+    <ol class="do">
+      <li><b>Обновлю систему.</b> Поставлю свежие исправления безопасности.</li>
+      <li><b>Включу firewall</b> (защиту от лишних подключений). Снаружи будет открыт только вход для управления сервером, всё остальное закрыто.</li>
+      <li><b>Защищу от подбора пароля.</b> После 5 неверных попыток адрес блокируется на час. И включу автообновления: сервер сам ставит заплатки безопасности.</li>
+    </ol>
+    <figure class="shot term"><img src="img/setup/13-protection-code.png" alt="Фрагмент скрипта настройки: firewall и защита от подбора пароля" width="1100" height="461" loading="lazy"><figcaption>Часть настоящего скрипта, которым я настраиваю сервер</figcaption></figure>
+    <ol class="do" style="--start: 3">
+      <li><b>Установлю Claude Code.</b> Команда <code>claude</code> будет работать сразу.</li>
+      <li><b>Создам рабочие папки.</b> <code>workspace</code> для твоих проектов и <code>style</code> для образцов твоих текстов.</li>
+      <li><b>Защищу ключи и пароли.</b> Claude не сможет прочитать файлы с паролями и отправить секреты в интернет, даже если об этом попросит чужой навык. И проверю, что запрет срабатывает.</li>
+      <li><b>Научу Claude видеть сервер.</b> При каждом запуске он знает дату, сколько сервер работает без перезагрузки и сколько свободно памяти и диска.</li>
+      <li><b>Поставлю три навыка</b> (готовые инструкции, которые Claude выполняет по твоей просьбе):
+        <ul class="check">
+          <li><b>«привет»</b> — поздоровается и покажет, как дела у сервера;</li>
+          <li><b>«как сервер»</b> — проверит память, диск и нагрузку и предупредит, если что-то кончается;</li>
+          <li><b>«напиши пост»</b> — пост в твоём стиле. Правки «не так, потому что…» запоминает, чтобы в следующий раз писать сразу правильно.</li>
+        </ul>
+      </li>
+    </ol>
+    <figure class="shot term"><img src="img/setup/14-skill-post.png" alt="Навык «пост»: инструкция для Claude по шагам" width="1479" height="314" loading="lazy"><figcaption>Так выглядит навык «пост»: обычная инструкция по шагам, на русском</figcaption></figure>
+    <ol class="do" style="--start: 8">
+      <li><b>Проверю, что всё работает,</b> и напишу тебе «сервер готов».</li>
+    </ol>
+
+    <h3 class="sub-h">Как это выглядит в работе</h3>
+    <p>Просишь обычными словами, Claude сам создаёт файл и показывает результат. Это настоящий экран Claude Code:</p>
+    <figure class="shot term"><img src="img/claude/11-claude-at-work.png" alt="Claude Code создаёт файл plan.md с планом постов на неделю" width="1100" height="671" loading="lazy"><figcaption>Запрос: «Создай файл plan.md: план из 5 постов на неделю для эксперта по йоге». Ответ — за 9 секунд</figcaption></figure>
   </section>
 
   <section id="register" class="block">
@@ -257,38 +289,6 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
       <span class="lbl">Совет</span>
       <p>Пароль при вводе не видно, даже звёздочек нет. Так и должно быть: просто вставь и нажми Enter.</p>
     </div>
-  </section>
-
-  <section id="mypart" class="block">
-    <div class="block-head"><h2>Что сделаю я</h2><span class="time">15–20 мин, без тебя</span></div>
-    <p>Когда получу IP-адрес, зайду на сервер по своему ключу и настрою всё одним скриптом. Ты в это время ставишь Termius (шаг 5).</p>
-    <ol class="do">
-      <li><b>Обновлю систему.</b> Поставлю свежие исправления безопасности.</li>
-      <li><b>Включу firewall</b> (защиту от лишних подключений). Снаружи будет открыт только вход для управления сервером, всё остальное закрыто.</li>
-      <li><b>Защищу от подбора пароля.</b> После 5 неверных попыток адрес блокируется на час. И включу автообновления: сервер сам ставит заплатки безопасности.</li>
-    </ol>
-    <figure class="shot term"><img src="img/setup/13-protection-code.png" alt="Фрагмент скрипта настройки: firewall и защита от подбора пароля" width="1100" height="461" loading="lazy"><figcaption>Часть настоящего скрипта, которым я настраиваю сервер</figcaption></figure>
-    <ol class="do" style="--start: 3">
-      <li><b>Установлю Claude Code.</b> Команда <code>claude</code> будет работать сразу.</li>
-      <li><b>Создам рабочие папки.</b> <code>workspace</code> для твоих проектов и <code>style</code> для образцов твоих текстов.</li>
-      <li><b>Защищу ключи и пароли.</b> Claude не сможет прочитать файлы с паролями и отправить секреты в интернет, даже если об этом попросит чужой навык. И проверю, что запрет срабатывает.</li>
-      <li><b>Научу Claude видеть сервер.</b> При каждом запуске он знает дату, сколько сервер работает без перезагрузки и сколько свободно памяти и диска.</li>
-      <li><b>Поставлю три навыка</b> (готовые инструкции, которые Claude выполняет по твоей просьбе):
-        <ul class="check">
-          <li><b>«привет»</b> — поздоровается и покажет, как дела у сервера;</li>
-          <li><b>«как сервер»</b> — проверит память, диск и нагрузку и предупредит, если что-то кончается;</li>
-          <li><b>«напиши пост»</b> — пост в твоём стиле. Правки «не так, потому что…» запоминает, чтобы в следующий раз писать сразу правильно.</li>
-        </ul>
-      </li>
-    </ol>
-    <figure class="shot term"><img src="img/setup/14-skill-post.png" alt="Навык «пост»: инструкция для Claude по шагам" width="1479" height="314" loading="lazy"><figcaption>Так выглядит навык «пост»: обычная инструкция по шагам, на русском</figcaption></figure>
-    <ol class="do" style="--start: 8">
-      <li><b>Проверю, что всё работает,</b> и напишу тебе «сервер готов».</li>
-    </ol>
-
-    <h3 class="sub-h">Как это выглядит в работе</h3>
-    <p>Просишь обычными словами, Claude сам создаёт файл и показывает результат. Это настоящий экран Claude Code:</p>
-    <figure class="shot term"><img src="img/claude/11-claude-at-work.png" alt="Claude Code создаёт файл plan.md с планом постов на неделю" width="1100" height="671" loading="lazy"><figcaption>Запрос: «Создай файл plan.md: план из 5 постов на неделю для эксперта по йоге». Ответ — за 9 секунд</figcaption></figure>
   </section>
 
   <section id="termius" class="block">
