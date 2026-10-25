@@ -120,6 +120,29 @@ figure.shot.term img { border-color: transparent; background: #141a21; }
 .next p { margin: 0 0 10px; }
 .next p:last-child { margin: 0; }
 
+/* offer: the one loud block on the page, in the hero's colors so it reads as a separate product */
+section.offer { margin-top: 48px; border-top: 0; background: var(--hero); color: var(--hero-fg); border-radius: 20px; padding: 36px max(20px, 4%) 32px; }
+.offer-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--hero-accent); margin: 0 0 10px; }
+.offer h2 { font-size: clamp(26px, 5vw, 34px); line-height: 1.15; font-weight: 800; margin: 0 0 16px; text-wrap: balance; }
+.offer-lead { margin: 0 0 10px; color: rgba(255,255,255,.82); }
+.offer-lead b { color: var(--hero-fg); }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin: 24px 0 8px; padding: 18px 20px; border: 1px solid rgba(0,229,204,.35); border-radius: 14px; background: rgba(0,229,204,.07); }
+.price .old { font-size: 22px; color: rgba(255,255,255,.45); text-decoration: line-through; }
+.price .new { font-size: 38px; font-weight: 800; color: var(--hero-accent); font-variant-numeric: tabular-nums; }
+.price .why { font-size: 14px; color: rgba(255,255,255,.6); }
+.pro-group { margin-top: 28px; }
+.pro-group h3 { font-size: 17px; letter-spacing: .04em; margin: 0 0 10px; color: var(--hero-fg); }
+ul.dash { list-style: none; padding: 0; margin: 0 0 6px; display: grid; gap: 6px; }
+ul.dash li { position: relative; padding-left: 22px; color: rgba(255,255,255,.85); }
+ul.dash li::before { content: "—"; position: absolute; left: 0; color: var(--hero-accent); }
+.offer figure.shot figcaption { color: rgba(255,255,255,.5); }
+.offer figure.shot.term img { border: 1px solid rgba(255,255,255,.08); }
+.divider { margin: 18px 0 0; color: var(--hero-accent); letter-spacing: .1em; text-align: center; }
+.pro-note { margin: -4px 0 10px; font-size: 14px; color: rgba(255,255,255,.6); }
+.honest { margin: 28px 0 0; font-size: 14px; color: rgba(255,255,255,.6); }
+.cta { margin-top: 18px; background: var(--hero-accent); color: #080a0f; border-radius: 14px; padding: 18px 20px; text-align: center; }
+.cta p { margin: 0; font-size: 17px; font-weight: 600; }
+
 footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border-top: 1px solid var(--line); text-align: center; font-size: 13px; color: var(--muted); }
 
 @media (max-width: 520px) {
@@ -153,6 +176,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <li><a href="#termius"><span class="n">5</span>Termius</a></li>
     <li><a href="#login"><span class="n">6</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
+    <li><a href="#pro"><span class="n">★</span>Профи</a></li>
   </ol>
 </nav>
 
@@ -385,6 +409,98 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
       <p>Когда войдёшь в Claude, напиши ему «привет» и дай первую задачу своими словами. Например: «помоги составить план постов на неделю».</p>
       <p>Потом напиши мне «готово». Я удалю свой доступ к твоему серверу и пришлю подтверждение, что больше не могу на него зайти.</p>
       <p><b>Что-то не получается — напиши мне в чат и пришли скриншот экрана.</b> Разберёмся в переписке.</p>
+    </div>
+  </section>
+
+  <section id="pro" class="block offer">
+    <p class="offer-eyebrow">Профессиональная настройка</p>
+    <h2>Claude, который работает как сотрудник</h2>
+    <p class="offer-lead">Базовая настройка — это Claude, который отвечает на твои вопросы.</p>
+    <p class="offer-lead">🫵 НО у меня на сервере он работает как сотрудник. Сам собирает отчёты и присылает их в Telegram. Каждую ночь делает бэкап. Знает мой бизнес и пишет моим голосом.</p>
+    <p class="offer-lead">🎁 <b>Такой же настрою тебе.</b> Ниже — что входит. Скриншоты — с моего сервера.</p>
+    <p class="divider">✦•┈๑⋅⋯ ⋯⋅๑┈•✦</p>
+
+    <div class="price">
+      <span class="old">15 000 ₽</span>
+      <span class="new">7 000 ₽</span>
+      <span class="why">если базовая настройка уже есть</span>
+    </div>
+
+    <div class="pro-group">
+      <h3>🛡 БЕЗОПАСНОСТЬ</h3>
+      <ul class="dash">
+        <li>Защита паролей и ключей: Claude не сможет их прочитать или отправить в интернет. Даже если чужой навык (готовый набор команд) попросит — защита заблокирует</li>
+        <li>Бэкап (резервная копия) всего важного каждую ночь в закрытый GitHub. Пароли — в зашифрованном архиве</li>
+        <li>Пошаговая инструкция, как поднять всё на новом сервере, если со старым что-то случится</li>
+        <li>Тревога в Telegram, если на сервере кончается диск или память</li>
+      </ul>
+      <figure class="shot term"><img src="img/pro/15-guard.png" alt="Защита guard-secrets блокирует доступ к файлу с паролями" width="1000" height="123" loading="lazy"><figcaption>Настоящая блокировка: Claude полез к файлу с паролями — защита не пустила</figcaption></figure>
+      <figure class="shot term"><img src="img/pro/16-backup.png" alt="Ночные бэкапы сервера и файлы восстановления" width="1000" height="225" loading="lazy"><figcaption>Бэкапы за последние ночи. RESTORE.md — инструкция восстановления, secrets.tar.age — зашифрованные пароли</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>⏰ САМ ПРИСЫЛАЕТ ОТЧЁТЫ</h3>
+      <ul class="dash">
+        <li>Утром — дайджест: о чём болит у твоей аудитории</li>
+        <li>Вечером — отчёт «что сделано за день»</li>
+        <li>Всё приходит в Telegram, сам ничего запускать не нужно</li>
+      </ul>
+      <figure class="shot term"><img src="img/pro/17-schedule.png" alt="Расписание задач на сервере" width="1000" height="286" loading="lazy"><figcaption>Расписание с моего сервера: пять задач, которые Claude делает сам</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>📲 TELEGRAM</h3>
+      <ul class="dash">
+        <li>Свой бот: Claude присылает тебе файлы и отчёты</li>
+        <li>Голосовые и видео бот превращает в текст</li>
+        <li>Задачи Claude можно давать прямо из Telegram, с телефона</li>
+      </ul>
+    </div>
+
+    <div class="pro-group">
+      <h3>🧠 ВТОРОЙ МОЗГ</h3>
+      <ul class="dash">
+        <li>База знаний о тебе: голос, принципы, правила стиля</li>
+        <li>О бизнесе: аудитория, продукты, рынок</li>
+        <li>Claude читает её перед каждым текстом и пишет в твоём стиле. Правки «не так, потому что…» запоминает — с каждой неделей тексты всё ближе к твоим</li>
+        <li>Всё открывается в Obsidian — можно читать и править руками</li>
+      </ul>
+      <figure class="shot term"><img src="img/pro/20-second-brain.png" alt="Структура второго мозга: голос, принципы, бизнес" width="1000" height="347" loading="lazy"><figcaption>Мой второй мозг. У тебя будет такой же, только про тебя</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>⚡️ НАВЫКИ ПОД ТВОИ ЗАДАЧИ</h3>
+      <p class="pro-note">Навыки — готовые умения Claude под конкретную задачу.</p>
+      <ul class="dash">
+        <li>Исследование рынка и болей аудитории — с источниками и датами</li>
+        <li>Сценарии Reels, воронки, один пост сразу на все площадки</li>
+        <li>SEO (чтобы сайт находили в Яндексе), отчёты, разбор решений «за и против»</li>
+        <li>Подберу и настрою под то, чем ты занимаешься</li>
+      </ul>
+      <figure class="shot term"><img src="img/pro/18-skills.png" alt="Список навыков Claude на сервере" width="1000" height="286" loading="lazy"><figcaption>Часть навыков с моего сервера</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>🔌 ПОДКЛЮЧЕНИЯ</h3>
+      <ul class="dash">
+        <li>Память: Claude помнит прошлые разговоры, не нужно объяснять заново</li>
+        <li>Поиск в интернете со свежими датами и подсказки по любым сервисам</li>
+        <li>По желанию — видео с твоим цифровым двойником (HeyGen, отдельная подписка)</li>
+      </ul>
+      <figure class="shot term"><img src="img/pro/19-connections.png" alt="Подключённые к Claude сервисы" width="1000" height="205" loading="lazy"><figcaption>Сервисы, подключённые к моему Claude</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>🎁 БОНУСОМ</h3>
+      <ul class="dash">
+        <li>Помогу с упаковкой: с чего начать и как тебя позиционировать</li>
+      </ul>
+    </div>
+
+    <p class="honest">❗️ Честно про деньги: подписку Claude и сервер ты оплачиваешь сам, как и раньше. НО автоматические отчёты тоже тратят лимиты Claude — на минимальном тарифе их может не хватить, подскажу, когда стоит повысить. Платные сервисы вроде HeyGen — только если захочешь.</p>
+
+    <div class="cta">
+      <p>Напиши мне в чат слово <b>ПРОФИ</b> — расскажу, как всё пройдёт</p>
     </div>
   </section>
 </main>
