@@ -62,9 +62,15 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* step bar */
 .steps { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--hero); border-top: 2px solid rgba(0,229,204,.45); }
-.steps ol { display: flex; gap: 4px; margin: 0 auto; padding: 0; list-style: none; max-width: 960px; overflow-x: auto; scrollbar-width: none; }
+.steps ol { display: flex; gap: 4px; margin: 0 auto; padding: 0; list-style: none; max-width: 1240px; overflow-x: auto; scrollbar-width: none; }
+/* When the bar scrolls sideways, fade its edges so cut items read as "more this way", not as a bug */
+@media (max-width: 1280px) {
+  .steps ol { --l: 28px; --r: 28px; mask-image: linear-gradient(to right, transparent, #000 var(--l), #000 calc(100% - var(--r)), transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--l), #000 calc(100% - var(--r)), transparent); }
+  .steps ol.at-start { --l: 0px; }
+  .steps ol.at-end { --r: 0px; }
+}
 .steps ol::-webkit-scrollbar { display: none; }
-.steps a { display: flex; align-items: center; gap: 8px; white-space: nowrap; padding: 14px 14px 12px; color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; }
+.steps a { display: flex; align-items: center; gap: 8px; white-space: nowrap; padding: 14px 12px 12px; color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; }
 .steps a .n { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.1); font-size: 11px; font-weight: 700; }
 .steps a:hover { color: #fff; }
 .steps a:focus-visible { outline: 2px solid var(--hero-accent); outline-offset: -2px; }
@@ -76,6 +82,8 @@ main { max-width: 760px; margin: 0 auto; padding-block: 40px 24px; }
 .intro p { margin: 0 0 14px; }
 .intro { padding-bottom: 8px; }
 section.block { padding-top: 36px; margin-top: 28px; border-top: 1px solid var(--line); }
+/* The first block sits right under the step bar, so the divider and extra gap would only look like an empty band */
+main > section.block:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
 .block-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 18px; }
 .block-head h2 { font-size: 26px; line-height: 1.25; font-weight: 700; margin: 0; text-wrap: balance; }
 .time { font-size: 13px; color: var(--muted); background: var(--chip); border-radius: 999px; padding: 3px 12px; }
@@ -97,7 +105,7 @@ figure.shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; 
 .note.warn .lbl { color: var(--warn); }
 
 .code { position: relative; background: var(--code-bg); color: var(--code-fg); border-radius: 10px; margin: 12px 0 8px; }
-.code pre { margin: 0; padding: 16px 18px; padding-right: 110px; font-family: var(--f-mono); font-size: 13.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
+.code pre { margin: 0; padding: 16px 18px; padding-right: 130px; font-family: var(--f-mono); font-size: 13.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-all; }
 .copy { position: absolute; top: 10px; right: 10px; font: 600 13px var(--f-body); color: #080a0f; background: #00e5cc; border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
 .copy:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
@@ -229,8 +237,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 
 <nav class="steps gutter" aria-label="Шаги">
   <ol>
-    <li><a href="#start" class="on"><span class="n">0</span>Зачем</a></li>
-    <li><a href="#mypart"><span class="n">⚙</span>Моя часть</a></li>
+    <li><a href="#mypart" class="on"><span class="n">⚙</span>Моя часть</a></li>
     <li><a href="#register"><span class="n">1</span>Регистрация</a></li>
     <li><a href="#server"><span class="n">2</span>Сервер</a></li>
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
@@ -243,15 +250,6 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 </nav>
 
 <main class="gutter">
-  <section id="start" class="intro">
-    <p>Сервер — это компьютер в дата-центре, он работает круглосуточно. На нём будет жить твой Claude: ноутбук можно выключать, а задачи продолжат выполняться.</p>
-    <p>От тебя нужно две вещи: арендовать сервер и пустить меня на него. Защиту, установку Claude Code и всё нужное для работы я настрою сам.</p>
-    <div class="note">
-      <span class="lbl">Что понадобится</span>
-      <p>Почта, российская карта или СБП, компьютер на Windows или Mac и около 30 минут. Подписка Claude Pro понадобится в шаге 6, оплати её заранее.</p>
-    </div>
-  </section>
-
   <section id="mypart" class="block">
     <div class="finish">
       <span class="finish-mark" aria-hidden="true">⚙</span>
@@ -641,6 +639,14 @@ document.querySelectorAll('.copy').forEach(btn => {
 // Highlight the step the reader is on, so the bar works as "where am I"
 const bar = document.querySelector('.steps ol');
 const links = [...document.querySelectorAll('.steps a')];
+// Fade only the side that actually hides items, so the first item isn't dimmed at the start
+const edges = () => {
+  bar.classList.toggle('at-start', bar.scrollLeft < 4);
+  bar.classList.toggle('at-end', bar.scrollLeft + bar.clientWidth > bar.scrollWidth - 4);
+};
+bar.addEventListener('scroll', edges, { passive: true });
+addEventListener('resize', edges);
+edges();
 const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
