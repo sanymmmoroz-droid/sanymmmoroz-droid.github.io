@@ -142,7 +142,15 @@ section.block:has(> .finish.step) { border-top: 0; padding-top: 0; margin-top: 5
 .next p:last-child { margin: 0; }
 
 /* offer: the one loud block on the page, in the hero's colors so it reads as a separate product */
-section.offer { margin-top: 48px; border-top: 0; background: var(--hero); color: var(--hero-fg); border-radius: 20px; padding: 36px max(20px, 4%) 32px; }
+/* Offer runs edge to edge like the hero, so selling reads as a separate part of the page, not one more step.
+   Negative margins stretch it to the viewport; matching padding keeps its content in the instruction column */
+html, body { overflow-x: clip; }
+section.offer { margin: 0 calc(50% - 50vw); border-top: 0; background: var(--hero); color: var(--hero-fg); padding: 56px calc(50vw - 50%) 48px; }
+main:has(> section.offer:last-child) { padding-bottom: 0; }
+main:has(> section.offer:last-child) + footer { margin-top: 0; border-top: 0; }
+.handoff { display: flex; align-items: center; gap: 14px; margin: 64px 0 48px; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; white-space: nowrap; }
+.handoff::before, .handoff::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.handoff b { color: var(--accent-ink); }
 /* banner: the offer's headline as a self-contained card, glow and grid in the site's teal */
 .offer-banner { position: relative; overflow: hidden; border-radius: 16px; padding: 34px 28px 30px; margin-bottom: 22px;
   background:
@@ -532,6 +540,8 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
       <p><b>Что-то не получается — <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> и пришли скриншот экрана.</b> Разберёмся в переписке.</p>
     </div>
   </section>
+
+  <p class="handoff"><b>✓</b> Инструкция закончена</p>
 
   <section id="pro" class="block offer">
     <div class="offer-banner">
