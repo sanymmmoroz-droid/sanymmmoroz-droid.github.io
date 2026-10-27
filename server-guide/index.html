@@ -151,6 +151,14 @@ main:has(> section.offer:last-child) + footer { margin-top: 0; border-top: 0; }
 .handoff { display: flex; align-items: center; gap: 14px; margin: 64px 0 48px; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; white-space: nowrap; }
 .handoff::before, .handoff::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .handoff b { color: var(--accent-ink); }
+
+/* faq: native details so it works without JS and stays short until opened */
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 16px 32px 16px 0; font-weight: 600; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 12px; font-size: 22px; color: var(--accent-ink); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin: 0 0 16px; }
 /* banner: the offer's headline as a self-contained card, glow and grid in the site's teal */
 .offer-banner { position: relative; overflow: hidden; border-radius: 16px; padding: 34px 28px 30px; margin-bottom: 22px;
   background:
@@ -261,6 +269,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <li><a href="#login"><span class="n">6</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#pro"><span class="n">★</span>Профи</a></li>
+    <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
   </ol>
 </nav>
 
@@ -679,6 +688,34 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <a class="cta" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">
       <p>Напиши мне в Telegram слово <b>ПРОФИ</b> — расскажу, как всё пройдёт →</p>
     </a>
+  </section>
+
+  <section id="faq" class="block faq">
+    <div class="finish">
+      <span class="finish-mark" aria-hidden="true">?</span>
+      <div>
+        <p class="finish-eyebrow">Вопросы</p>
+        <h2>Частые вопросы</h2>
+        <p class="finish-sub">Что спрашивают до начала работы</p>
+      </div>
+    </div>
+    <details>
+      <summary>Claude попросит фото документов?</summary>
+      <p>Может, но не у всех. С июля 2026 года Anthropic выборочно просит фото документа и селфи: при плановых проверках или для отдельных функций.</p>
+      <p>Обещать, что проверки не будет, я не стану. Кто такое обещает, рискует твоим аккаунтом.</p>
+      <p>Что я делаю: настраиваю так, чтобы не давать лишних поводов. Claude работает на сервере с одним постоянным адресом, и входишь ты только оттуда. Сам так работаю каждый день.</p>
+      <p>Если проверку всё-таки попросят — <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне</a>, разберёмся.</p>
+    </details>
+    <details>
+      <summary>А если аккаунт заблокируют?</summary>
+      <p>Буду честен: такое бывает, и гарантий тут никто не даст. Поэтому говорю об этом заранее, а не после оплаты.</p>
+      <p>Всё, что мы настроим, лежит на твоём сервере, а не в аккаунте Claude. Если аккаунт придётся заменить, навыки и файлы останутся.</p>
+    </details>
+    <details>
+      <summary>Сколько ещё платить, кроме моей работы?</summary>
+      <p>Подписку Claude и сервер, оба каждый месяц. Платишь за них сам, деньги идут напрямую сервисам, не мне. Цены у них меняются, поэтому пишу актуальные в переписке.</p>
+      <p>Нет зарубежной карты — можно через посредника, подскажу варианты.</p>
+    </details>
   </section>
 </main>
 
