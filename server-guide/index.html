@@ -96,6 +96,8 @@ code { font-family: var(--f-mono); font-size: .88em; background: var(--chip); bo
 
 figure.shot { margin: 18px 0 24px; }
 figure.shot img { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid var(--shot-line); border-radius: 10px; }
+/* Narrow page crops would blur if stretched to the column */
+figure.shot.narrow img { max-width: 420px; }
 figure.shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
 
 .note { border-left: 4px solid var(--accent); background: var(--tip-bg); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; }
@@ -249,7 +251,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 <header class="hero gutter">
   <p class="eyebrow">Настройка Claude Code</p>
   <h1>Подготовь <em>свой сервер</em></h1>
-  <p class="sub">Твоя часть — около 30 минут. Остальное я сделаю сам</p>
+  <p class="sub">Твоя часть — около 40 минут. Остальное я сделаю сам</p>
   <ul class="pills">
     <li>4vps.su</li><li>NL-cx31</li><li>Ubuntu 24.04</li><li>Нидерланды</li>
   </ul>
@@ -265,8 +267,9 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <li><a href="#server"><span class="n">2</span>Сервер</a></li>
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
     <li><a href="#access"><span class="n">4</span>Доступ</a></li>
-    <li><a href="#termius"><span class="n">5</span>Termius</a></li>
-    <li><a href="#login"><span class="n">6</span>Вход в Claude</a></li>
+    <li><a href="#card"><span class="n">5</span>Карта</a></li>
+    <li><a href="#termius"><span class="n">6</span>Termius</a></li>
+    <li><a href="#login"><span class="n">7</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#pro"><span class="n">★</span>Профи</a></li>
     <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
@@ -434,16 +437,57 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     </div>
   </section>
 
-  <section id="termius" class="block">
+  <section id="card" class="block">
     <div class="finish step">
       <span class="finish-mark" aria-hidden="true">5</span>
       <div>
         <p class="finish-eyebrow">Шаг 5</p>
+        <h2>Зарубежная карта</h2>
+        <p class="finish-sub">10 мин</p>
+      </div>
+    </div>
+    <p>Уже платишь за Claude и оплата проходит — пропусти этот шаг.</p>
+    <p>Claude принимает только зарубежные карты: российские Visa, Mastercard и МИР не проходят. Выпусти карту в сервисе «Плати по миру». Всё онлайн, без документов. Пополняешь рублями по СБП.</p>
+    <p>Честно: выпуск карты платный, цена — на сайте сервиса. Первый год обслуживания бесплатный.</p>
+    <ol class="do">
+      <li>Открой <a class="tg" href="https://platipomiru.com/?code=C2OW0QE5" target="_blank" rel="noopener"><b>«Плати по миру» по этой ссылке</b></a> и нажми <b>«Оформить карту»</b>.</li>
+      <li>Выбери карту <b>«Для подписок»</b> и нажми <b>«Выпустить карту для подписок»</b>. Бери именно её: с неё оплачиваются нейросети, в том числе Claude.</li>
+    </ol>
+    <figure class="shot narrow"><img src="img/card/28-subscriptions.png" alt="Карта «Для подписок» на сайте «Плати по миру» обведена, внизу кнопка «Выпустить карту для подписок»" width="456" height="816" loading="lazy"></figure>
+    <div class="note">
+      <span class="lbl">+$5 на карту</span>
+      <p>Если это твоя первая карта в «Плати по миру» и ты выпускаешь её по этой ссылке, тебе на карту придут $5. Поэтому открывай сайт именно по ней.</p>
+    </div>
+    <ol class="do" style="--start: 2">
+      <li>Введи свою почту, нажми стрелку справа от поля и введи код из письма.</li>
+    </ol>
+    <figure class="shot narrow"><img src="img/card/29-email.png" alt="Страница оплаты карты: поле для почты обведено" width="580" height="262" loading="lazy"></figure>
+    <ol class="do" style="--start: 3">
+      <li>Поставь галочку согласия, нажми <b>«Перейти к оплате»</b> и оплати выпуск по СБП.</li>
+      <li>Пополни карту в личном кабинете с запасом, на $25–30. Подписка Claude Pro стоит $20, и к ней может добавиться налог.</li>
+      <li>Открой <b>claude.ai</b>, внизу слева нажми на своё имя → <b>Settings</b> (настройки) → <b>Billing</b> (оплата) → <b>Update</b> (изменить) у способа оплаты.</li>
+      <li>Введи номер карты, срок и CVC-код (три цифры). Всё это есть в личном кабинете «Плати по миру».</li>
+    </ol>
+    <div class="note warn">
+      <span class="lbl">Если оплата не прошла</span>
+      <p>Не пробуй много раз подряд и не меняй карты одну за другой: Claude может принять это за мошенничество и заблокировать аккаунт. Остановись и <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне</a>, разберёмся.</p>
+    </div>
+    <div class="note warn">
+      <span class="lbl">Данные карты никому не отправляй</span>
+      <p>Ни мне, ни в поддержку. Номер, срок и CVC вводи только на claude.ai.</p>
+    </div>
+  </section>
+
+  <section id="termius" class="block">
+    <div class="finish step">
+      <span class="finish-mark" aria-hidden="true">6</span>
+      <div>
+        <p class="finish-eyebrow">Шаг 6</p>
         <h2>Программа Termius</h2>
         <p class="finish-sub">5 мин</p>
       </div>
     </div>
-    <p>Termius — бесплатная программа-«пульт» для сервера. Через неё ты войдёшь в свой Claude в шаге 6. Поставь её, пока я настраиваю сервер.</p>
+    <p>Termius — бесплатная программа-«пульт» для сервера. Через неё ты войдёшь в свой Claude в шаге 7. Поставь её, пока я настраиваю сервер.</p>
     <ol class="do">
       <li>Открой страницу скачивания для своего компьютера:
         <ul class="check">
@@ -470,15 +514,15 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     </div>
     <div class="note warn">
       <span class="lbl">Если не скачивается</span>
-      <p>Ничего страшного. Обойдёмся тем, что уже есть в компьютере: PowerShell на Windows или Терминал на Mac. Как войти через них, написано в конце шага 6.</p>
+      <p>Ничего страшного. Обойдёмся тем, что уже есть в компьютере: PowerShell на Windows или Терминал на Mac. Как войти через них, написано в конце шага 7.</p>
     </div>
   </section>
 
   <section id="login" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">6</span>
+      <span class="finish-mark" aria-hidden="true">7</span>
       <div>
-        <p class="finish-eyebrow">Шаг 6</p>
+        <p class="finish-eyebrow">Шаг 7</p>
         <h2>Вход в Claude</h2>
         <p class="finish-sub">10 мин</p>
       </div>
@@ -714,7 +758,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
     <details>
       <summary>Сколько ещё платить, кроме моей работы?</summary>
       <p>Подписку Claude и сервер, оба каждый месяц. Платишь за них сам, деньги идут напрямую сервисам, не мне. Цены у них меняются, поэтому пишу актуальные в переписке.</p>
-      <p>Нет зарубежной карты — можно через посредника, подскажу варианты.</p>
+      <p>Нет зарубежной карты — как её выпустить, написано в <a href="#card">шаге 5</a>.</p>
     </details>
   </section>
 </main>
