@@ -249,7 +249,7 @@ main > section.offer:first-child { padding-top: 56px; }
 /* Stacked dark tariffs would merge into one band — a thin teal rule marks where the next one starts */
 section.offer + section.offer { border-top: 1px solid rgba(0,229,204,.45); }
 /* The section edge already separates the table, so the bridge rule would read as a second line */
-#compare .included { margin-top: 0; padding-top: 0; border-top: 0; }
+#compare .included, #extra .included { margin-top: 0; padding-top: 0; border-top: 0; }
 .offer a.tg { color: var(--hero-accent); }
 .story-lead { margin: 0 0 12px; color: rgba(255,255,255,.82); }
 .story-lead:last-child { margin: 14px 0 0; }
@@ -283,6 +283,7 @@ section.offer + section.offer { border-top: 1px solid rgba(0,229,204,.45); }
     <li><a href="#base" class="on"><span class="n">1</span>Базовая</a></li>
     <li><a href="#compare"><span class="n">⇄</span>Сравнение</a></li>
     <li><a href="#pro"><span class="n">★</span>Профи</a></li>
+    <li><a href="#extra"><span class="n">+</span>Ещё</a></li>
   </ol>
 </nav>
 
@@ -532,19 +533,57 @@ section.offer + section.offer { border-top: 1px solid rgba(0,229,204,.45); }
       <p>Напиши мне в Telegram слово <b>ПРОФИ</b> — расскажу, как всё пройдёт →</p>
     </a>
   </section>
+  <section id="extra" class="block offer">
+    <div class="included">
+      <p class="offer-eyebrow">🚀 Дополнительно</p>
+      <h3 class="included-title">Полное рабочее окружение</h3>
+      <p>Отдельная услуга, цена — по задаче. Могу настроить:</p>
+    </div>
+    <div class="pro-group">
+      <ul class="dash">
+        <li><b>Git и GitHub</b> — история всех правок и копия проектов, ничего не потеряется</li>
+        <li><b>Docker и Docker Compose</b> — запуск приложений и сервисов на сервере</li>
+        <li><b>Node.js, Python, PostgreSQL</b> — всё для своих скриптов и баз данных</li>
+        <li><b>tmux</b> — работа не прерывается, даже если закрыл ноутбук</li>
+        <li><b>MCP, Skills, Hooks, Agents, CLAUDE.md</b> — Claude подключается к твоим сервисам и работает по твоим правилам и сценариям</li>
+        <li><b>Доступ через браузер</b> — без терминала каждый раз</li>
+        <li><b>Доступ к файлам и папкам</b> на твоём компьютере</li>
+        <li><b>Синхронизация файлов</b> между Mac или Windows и сервером</li>
+        <li><b>Автоматическая обработка фото и видео</b> — у меня так монтируются Reels</li>
+        <li><b>Telegram-боты, n8n, API</b> и связки с твоими сервисами</li>
+        <li><b>Запуск твоих проектов на сервере</b>: свой домен и защищённое соединение HTTPS</li>
+      </ul>
+    </div>
+    <a class="cta" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">
+      <p>Напиши мне в Telegram, что нужно, — назову цену →</p>
+    </a>
+  </section>
 </main>
 
 <footer class="gutter">Александр — настройка Claude Code · <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">@MorozoW_NEURO</a><br>Страницу собрал Claude по моим указаниям</footer>
 
 <script>
 // Highlight the tariff the reader is on, same as the guide's step bar
+const bar = document.querySelector('.steps ol');
 const links = [...document.querySelectorAll('.steps a')];
+// Fade only the side that actually hides items, same as the guide
+const edges = () => {
+  bar.classList.toggle('at-start', bar.scrollLeft < 4);
+  bar.classList.toggle('at-end', bar.scrollLeft + bar.clientWidth > bar.scrollWidth - 4);
+};
+bar.addEventListener('scroll', edges, { passive: true });
+addEventListener('resize', edges);
+edges();
 const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
 const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (!e.isIntersecting) return;
   links.forEach(a => a.classList.remove('on'));
   // The hero has no tariff of its own: back at the top, the first tariff is the one ahead
-  byId[e.target.id || 'base'].classList.add('on');
+  const a = byId[e.target.id || 'base'];
+  a.classList.add('on');
+  // On phones the bar is wider than the screen: scroll only the bar so the lit item stays visible
+  const x = a.getBoundingClientRect().left - bar.getBoundingClientRect().left + bar.scrollLeft;
+  bar.scrollTo({ left: x - (bar.clientWidth - a.offsetWidth) / 2 });
 }), { rootMargin: '-30% 0px -60% 0px' });
 document.querySelectorAll('header, main section[id]').forEach(s => io.observe(s));
 </script>
