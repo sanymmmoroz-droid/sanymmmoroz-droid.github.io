@@ -270,6 +270,12 @@ footer a.tg { color: var(--hero-accent); }
 .offer-banner.env { margin: 34px 0 6px; }
 .offer-banner.env ul.dash.tiles { margin-bottom: 0; }
 .offer a.tg { color: var(--hero-accent); }
+/* The one condition of the basic tier must not hide among the tiles: a red-edged card right under the price */
+.notice { margin: 14px 0 8px; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,123,123,.45); border-left-width: 4px; background: rgba(214,69,69,.12); }
+.notice p { margin: 0 0 6px; color: rgba(255,255,255,.85); }
+.notice p:last-child { margin: 0; font-size: 15px; color: rgba(255,255,255,.7); }
+.notice b { color: #fff; }
+.notice-lbl { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #ff9b9b !important; }
 .story-lead { margin: 0 0 12px; color: rgba(255,255,255,.82); }
 .story-lead:last-child { margin: 14px 0 0; }
 .offer code { background: rgba(255,255,255,.1); }
@@ -286,8 +292,8 @@ footer a.tg { color: var(--hero-accent); }
 <body>
 
 <header class="hero gutter">
-  <p class="eyebrow">Настройка Claude Code</p>
-  <h1>Два тарифа <em>настройки</em></h1>
+  <p class="eyebrow">Два тарифа настройки</p>
+  <h1>Настройка <em>Claude Code</em></h1>
   <p class="sub">Базовая — Claude с руками на твоём сервере. Профи — работает как сотрудник</p>
   <ul class="pills">
     <li>Базовая · 990 ₽</li><li>Профи · 7 000 ₽</li>
@@ -318,6 +324,12 @@ footer a.tg { color: var(--hero-accent); }
     <div class="price">
       <span class="new">990&nbsp;₽</span>
       <span class="why">у других на Авито — от 3&nbsp;900&nbsp;₽</span>
+    </div>
+
+    <div class="notice">
+      <p class="notice-lbl">❗️ Важно до старта</p>
+      <p>Подписка Claude у тебя уже должна быть <b>оплачена</b>.</p>
+      <p>Нет подписки — помогу оформить и оплатить из России. Это отдельная услуга: зарубежная карта и оплата занимают у меня много времени, поэтому в 990&nbsp;₽ не входят.</p>
     </div>
 
     <div class="pro-group market">
