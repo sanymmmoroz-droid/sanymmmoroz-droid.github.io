@@ -271,12 +271,13 @@ footer a.tg { color: var(--hero-accent); }
 .offer-banner.env ul.dash.tiles { margin-bottom: 0; }
 /* Restore flow as three linked steps: the point is "it is quick", so it reads left to right at a glance */
 .offer-banner.restore { margin: 34px 0 6px; }
-.restore-steps { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.restore-steps { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .restore-steps li { position: relative; padding: 14px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid rgba(0,229,204,.25); font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.7); }
 .restore-steps b { display: block; margin: 8px 0 2px; font-size: 16px; color: var(--hero-fg); }
 .rs-n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--hero-accent); color: var(--hero); font-size: 13px; font-weight: 800; }
-.restore-steps li + li::before { content: "→"; position: absolute; left: -10px; top: 50%; transform: translate(-50%, -50%); color: var(--hero-accent); font-weight: 800; }
-@media (max-width: 520px) { .restore-steps { grid-template-columns: 1fr; } .restore-steps li + li::before { content: "↓"; left: 50%; top: -10px; } }
+/* Arrow sits in the middle of the gap: offset is half of the gap */
+.restore-steps li + li::before { content: "→"; position: absolute; left: -12px; top: 50%; transform: translate(-50%, -50%); color: var(--hero-accent); font-size: 16px; font-weight: 800; }
+@media (max-width: 520px) { .restore-steps { grid-template-columns: 1fr; gap: 22px; } .restore-steps li + li::before { content: "↓"; left: 50%; top: -11px; } }
 .offer a.tg { color: var(--hero-accent); }
 /* The one condition of the basic tier must not hide among the tiles: a red-edged card right under the price */
 .notice { margin: 14px 0 8px; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,123,123,.45); border-left-width: 4px; background: rgba(214,69,69,.12); }
