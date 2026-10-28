@@ -243,11 +243,25 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
   .code pre { padding-right: 18px; padding-top: 50px; }
   ol.do > li { padding-left: 36px; }
 }
-/* The guide's price card is built for the dark offer; the basic tariff sits on the light page and needs theme colors */
-.price.light { border-color: color-mix(in srgb, var(--accent) 45%, transparent); background: var(--tip-bg); }
-.price.light .new { color: var(--accent-ink); }
-.price.light .why { color: var(--fg); opacity: .75; font-size: 15px; }
-.cta.light { background: var(--accent); }
+/* Base tariff opens the page: the dark band must start right under the step bar, with its own top padding back */
+main:has(> section.offer:first-child) { padding-top: 0; }
+main > section.offer:first-child { padding-top: 56px; }
+/* Stacked dark tariffs would merge into one band — a thin teal rule marks where the next one starts */
+section.offer + section.offer { border-top: 1px solid rgba(0,229,204,.45); }
+/* The section edge already separates the table, so the bridge rule would read as a second line */
+#compare .included { margin-top: 0; padding-top: 0; border-top: 0; }
+.offer a.tg { color: var(--hero-accent); }
+.story-lead { margin: 0 0 12px; color: rgba(255,255,255,.82); }
+.story-lead:last-child { margin: 14px 0 0; }
+.offer code { background: rgba(255,255,255,.1); }
+.cmp.tiers .cmp-row { grid-template-columns: 1.6fr 1fr 1fr; }
+.cmp.tiers .cmp-row > span:not(:first-child) { text-align: center; }
+.cmp.tiers .yes { color: var(--hero-accent); font-weight: 800; }
+.cmp.tiers .no { color: rgba(255,255,255,.3); }
+.cmp.tiers .txt { color: rgba(255,255,255,.85); font-size: 14px; }
+.cmp.tiers .price-row { background: rgba(0,229,204,.07); }
+/* Two-line text cells made rows uneven: center everything so ✓ and words share one line */
+@media (max-width: 520px) { .cmp.tiers .cmp-row { grid-template-columns: 1.5fr 1fr 1fr; gap: 6px; align-items: center; } .cmp.tiers .cmp-row > span:first-child { font-size: 13.5px; line-height: 1.4; } .cmp.tiers .txt { font-size: 13px; line-height: 1.3; } .cmp.tiers .cmp-head { font-size: 13px; } .offer-banner.brain { padding-bottom: 28px; } }
 </style>
 </head>
 <body>
@@ -255,7 +269,7 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 <header class="hero gutter">
   <p class="eyebrow">Настройка Claude Code</p>
   <h1>Два тарифа <em>настройки</em></h1>
-  <p class="sub">Базовая — Claude отвечает на вопросы. Профи — работает сам</p>
+  <p class="sub">Базовая — Claude с руками на твоём сервере. Профи — работает как сотрудник</p>
   <ul class="pills">
     <li>Базовая · 990 ₽</li><li>Профи · 7 000 ₽</li>
   </ul>
@@ -267,66 +281,24 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
 <nav class="steps gutter" aria-label="Тарифы">
   <ol>
     <li><a href="#base" class="on"><span class="n">1</span>Базовая</a></li>
+    <li><a href="#compare"><span class="n">⇄</span>Сравнение</a></li>
     <li><a href="#pro"><span class="n">★</span>Профи</a></li>
   </ol>
 </nav>
 
 <main class="gutter">
-  <section id="base" class="block">
-    <div class="finish">
-      <span class="finish-mark" aria-hidden="true">⚙</span>
-      <div>
-        <p class="finish-eyebrow">Базовая настройка</p>
-        <h2>Claude на твоём сервере</h2>
-        <p class="finish-sub">Твоя часть — около 40 минут по инструкции. Остальное делаю я</p>
-      </div>
-    </div>
-
-    <div class="price light">
-      <span class="new">990&nbsp;₽</span>
-      <span class="why">на Авито за то же просят 3&nbsp;900 – 8&nbsp;000&nbsp;₽</span>
-    </div>
-
-    <h3 class="sub-h">Что я настрою</h3>
-    <ol class="do">
-      <li><b>Защищу сервер.</b> Свежие исправления безопасности, firewall, блокировка подбора пароля и автообновления.</li>
-      <li><b>Установлю Claude Code.</b> Команда <code>claude</code> работает сразу.</li>
-      <li><b>Создам рабочие папки.</b> <code>workspace</code> для твоих проектов и <code>style</code> для образцов твоих текстов.</li>
-      <li><b>Защищу ключи и пароли.</b> Claude не прочитает файлы с паролями и не отправит секреты в интернет.</li>
-      <li><b>Научу Claude видеть сервер.</b> При каждом запуске он знает дату, свободную память и диск.</li>
-      <li><b>Поставлю три навыка:</b>
-        <ul class="check">
-          <li><b>«привет»</b> — поздоровается и покажет, как дела у сервера;</li>
-          <li><b>«как сервер»</b> — проверит память, диск и нагрузку и предупредит, если что-то кончается;</li>
-          <li><b>«напиши пост»</b> — пост в твоём стиле, правки запоминает.</li>
-        </ul>
-      </li>
-      <li><b>Проверю, что всё работает,</b> и удалю свой доступ к серверу.</li>
-    </ol>
-
-    <h3 class="sub-h">Как это выглядит в работе</h3>
-    <figure class="shot term"><img src="../server-guide/img/claude/11-claude-at-work.png" alt="Claude Code создаёт файл plan.md с планом постов на неделю" width="1100" height="671" loading="lazy"><figcaption>Запрос: «Создай файл plan.md: план из 5 постов на неделю для эксперта по йоге». Ответ — за 9 секунд</figcaption></figure>
-
-    <p>Что нужно от тебя — по шагам в <a class="tg" href="../server-guide/">инструкции</a>: сервер, доступ для меня и вход в Claude.</p>
-
-    <a class="cta light" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">
-      <p>Напиши мне в Telegram слово <b>БАЗОВАЯ</b> →</p>
-    </a>
-  </section>
-
-  <section id="pro" class="block offer">
+  <section id="base" class="block offer">
     <div class="offer-banner">
-      <p class="offer-eyebrow">Профессиональная настройка</p>
-      <h2>Claude, который работает как <em>сотрудник</em></h2>
-      <div class="banner-chips" aria-hidden="true"><span>отчёты сам</span><span>бэкап каждую ночь</span><span>пишет твоим голосом</span></div>
+      <p class="offer-eyebrow">Базовая настройка</p>
+      <h2>Claude на <em>твоём сервере</em></h2>
+      <div class="banner-chips" aria-hidden="true"><span>сервер под ключ</span><span>вход без паролей</span><span>работает круглосуточно</span></div>
     </div>
 
-    <p class="offer-lead">🫵 Базовая настройка — Claude отвечает на вопросы. Профессиональная — он работает сам. Скриншоты ниже — с моего сервера.</p>
+    <p class="offer-lead">🫵 Claude Code на твоём сервере: защищён, настроен и сразу готов к работе. Уходишь с работающим Claude и инструкцией.</p>
 
     <div class="price">
-      <span class="old">15&nbsp;000&nbsp;₽</span>
-      <span class="new">7&nbsp;000&nbsp;₽</span>
-      <span class="why">цена для первых клиентов, потом 15&nbsp;000&nbsp;₽</span>
+      <span class="new">990&nbsp;₽</span>
+      <span class="why">у других на Авито — от 3&nbsp;900&nbsp;₽</span>
     </div>
 
     <div class="pro-group market">
@@ -342,6 +314,117 @@ footer { max-width: 760px; margin: 40px auto 0; padding-block: 22px 40px; border
         <figure class="shot phone"><img src="../server-guide/img/pro/26-comp-7000.jpg" alt="Ответ исполнителя на Авито: стоимость настройки 7 000 ₽" width="814" height="1280" loading="lazy"></figure>
       </div>
       <p class="pro-note">Ответы исполнителей на Авито за базовую настройку. Имена скрыл.</p>
+    </div>
+
+    <div class="included">
+      <p class="offer-eyebrow">Что входит</p>
+      <h3 class="included-title">Что я настрою тебе за 990&nbsp;₽</h3>
+      <p>Скриншоты ниже — с моего сервера и из моего настоящего скрипта.</p>
+    </div>
+
+    <div class="pro-group">
+      <h3>🖥 СЕРВЕР</h3>
+      <ul class="dash">
+        <li>Подберу сервер, если его ещё нет: по мощности, стране и бюджету. Помогу купить</li>
+        <li>Установлю Claude Code на сервер (арендованный компьютер, который работает круглосуточно) и подключу твою подписку</li>
+        <li>Поставлю всё, что нужно Claude Code для работы</li>
+      </ul>
+    </div>
+
+    <div class="pro-group">
+      <h3>🛡 БЕЗОПАСНОСТЬ</h3>
+      <ul class="dash">
+        <li>Безопасный вход по SSH — по ключу, без паролей</li>
+        <li>Firewall и защита от подбора пароля, сервер сам ставит заплатки</li>
+        <li>Claude не прочитает твои пароли и ключи и не отправит их в интернет</li>
+      </ul>
+      <figure class="shot term"><img src="../server-guide/img/setup/13-protection-code.png" alt="Фрагмент скрипта настройки: firewall и защита от подбора пароля" width="1100" height="461" loading="lazy"><figcaption>Часть скрипта, которым я настраиваю сервер</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>💻 TERMIUS</h3>
+      <ul class="dash">
+        <li>Подключу сервер к Termius (удобная программа для входа) на Windows или Mac</li>
+      </ul>
+    </div>
+
+    <div class="pro-group">
+      <h3>⚡️ ЗНАЕТ ТЕБЯ С ПЕРВОГО ДНЯ</h3>
+      <ul class="dash">
+        <li>Базовые настройки: Claude будет знать, кто ты и чем занимаешься</li>
+        <li>Пара готовых навыков, например пост в твоём стиле, чтобы начать сразу</li>
+      </ul>
+      <figure class="shot term"><img src="../server-guide/img/setup/14-skill-post.png" alt="Навык «пост»: инструкция для Claude по шагам" width="1479" height="314" loading="lazy"><figcaption>Так выглядит навык: обычная инструкция по шагам, на русском</figcaption></figure>
+    </div>
+
+    <div class="pro-group">
+      <h3>✅ ПРОВЕРКА И ИНСТРУКЦИЯ</h3>
+      <ul class="dash">
+        <li>Проверим всё на тестовой задаче — уходишь с работающим Claude</li>
+        <li>Объясню, как подключаться и работать дальше, и оставлю короткую инструкцию</li>
+      </ul>
+      <figure class="shot term"><img src="../server-guide/img/claude/11-claude-at-work.png" alt="Claude Code создаёт файл plan.md с планом постов на неделю" width="1100" height="671" loading="lazy"><figcaption>Запрос: «Создай файл plan.md: план из 5 постов на неделю для эксперта по йоге». Ответ — за 9 секунд</figcaption></figure>
+    </div>
+
+    <div class="pro-group offer-banner brain">
+      <p class="offer-eyebrow">🤔 Чем это лучше Claude на сайте</p>
+      <h3 class="banner-title">Тот же Claude, но <em>с руками</em></h3>
+      <p class="story-lead">На сайте Claude — просто чат. Спросил — ответил, дальше копируешь и делаешь сам. На сервере он умеет в разы больше:</p>
+      <ul class="dash">
+        <li>Сам делает задачу до конца: создаёт файлы, таблицы, отчёты, а не только советует</li>
+        <li>Помнит, кто ты, чем занимаешься и как ты пишешь — не надо объяснять каждый раз</li>
+        <li>Работает с твоими документами и проектами прямо на сервере</li>
+        <li>Выполняет задачи по расписанию, даже когда ты спишь</li>
+      </ul>
+      <p class="story-lead">Сервер работает круглосуточно. На своём компьютере ничего включать не нужно — подключился и работаешь.</p>
+    </div>
+
+    <p class="honest">❗️ Подписку Claude и сервер ты оплачиваешь сам. Что сделать с твоей стороны — по шагам в <a class="tg" href="../server-guide/">инструкции</a>.</p>
+
+    <a class="cta" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">
+      <p>Напиши мне в Telegram слово <b>БАЗОВАЯ</b> →</p>
+    </a>
+  </section>
+
+  <section id="compare" class="block offer">
+    <div class="included">
+      <p class="offer-eyebrow">Сравнение</p>
+      <h3 class="included-title">Чем Профи лучше Базовой</h3>
+    </div>
+    <div class="cmp tiers">
+      <div class="cmp-row cmp-head"><span></span><span>Базовая</span><span>Профи</span></div>
+      <div class="cmp-row"><span>Подберу сервер и помогу купить</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Claude Code и твоя подписка</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Защита сервера, вход по ключу</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Termius на Windows или Mac</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Знает, кто ты</span><span class="txt">основы</span><span class="txt">второй мозг</span></div>
+      <div class="cmp-row"><span>Навыки</span><span class="txt">пара готовых</span><span class="txt">под твой бизнес</span></div>
+      <div class="cmp-row"><span>Пишет твоим голосом и учится на правках</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Бэкап каждую ночь</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Тревога, если кончается место</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Отчёты утром и вечером</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Свой бот в Telegram: файлы, голосовые, задачи</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Свои боты и приложения</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Сам проверяет свою работу</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Память и поиск в интернете</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row"><span>Помощь с упаковкой</span><span class="no">—</span><span class="yes">✓</span></div>
+      <div class="cmp-row price-row"><span>Цена</span><span class="me">990&nbsp;₽</span><span class="me">7&nbsp;000&nbsp;₽</span></div>
+    </div>
+  </section>
+
+  <section id="pro" class="block offer">
+    <div class="offer-banner">
+      <p class="offer-eyebrow">Профессиональная настройка</p>
+      <h2>Claude, который работает как <em>сотрудник</em></h2>
+      <div class="banner-chips" aria-hidden="true"><span>отчёты сам</span><span>бэкап каждую ночь</span><span>пишет твоим голосом</span></div>
+    </div>
+
+    <p class="offer-lead">🫵 Базовая настройка — Claude отвечает на вопросы. Профессиональная — он работает сам. Скриншоты ниже — с моего сервера.</p>
+
+    <div class="price">
+      <span class="old">15&nbsp;000&nbsp;₽</span>
+      <span class="new">7&nbsp;000&nbsp;₽</span>
+      <span class="why">цена для первых клиентов, потом 15&nbsp;000&nbsp;₽</span>
     </div>
 
     <div class="included">
@@ -460,9 +543,10 @@ const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1),
 const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (!e.isIntersecting) return;
   links.forEach(a => a.classList.remove('on'));
-  byId[e.target.id].classList.add('on');
+  // The hero has no tariff of its own: back at the top, the first tariff is the one ahead
+  byId[e.target.id || 'base'].classList.add('on');
 }), { rootMargin: '-30% 0px -60% 0px' });
-document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
+document.querySelectorAll('header, main section[id]').forEach(s => io.observe(s));
 </script>
 </body>
 </html>
