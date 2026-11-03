@@ -326,8 +326,12 @@ footer a.tg { color: var(--hero-accent); }
       (function () {
         var box = document.currentScript.parentNode, v = box.querySelector("video"), b = box.querySelector(".intro-play");
         b.hidden = false;
-        b.addEventListener("click", function () { v.play(); });
-        v.addEventListener("play", function () { b.hidden = true; });
+        // Control bar would double the big button and cover the poster, so it appears only after the start.
+        v.controls = false;
+        function start() { v.play(); }
+        b.addEventListener("click", start);
+        v.addEventListener("click", function () { if (!v.controls) start(); });
+        v.addEventListener("play", function () { b.hidden = true; v.controls = true; });
       })();
     </script>
   </figure>
