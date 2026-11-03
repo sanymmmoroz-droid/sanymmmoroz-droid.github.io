@@ -300,19 +300,36 @@ footer a.tg { color: var(--hero-accent); }
 .hero:has(.intro) { padding-top: 24px; }
 .intro { max-width: 860px; margin: 0 auto 36px; }
 .intro video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0e0d0c; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); }
-.intro figcaption { margin-top: 10px; font-size: 14px; color: var(--hero-mute); }
-@media (max-width: 520px) { .hero:has(.intro) { padding-top: 16px; } .intro { margin-bottom: 28px; } }
+.intro-frame { position: relative; }
+.intro-play { position: absolute; left: 50%; top: 50%; width: 84px; height: 84px; margin: -42px 0 0 -42px; padding: 18px; border: 0; border-radius: 50%; background: var(--hero-accent); color: #080a0f; cursor: pointer; box-shadow: 0 6px 28px rgba(0,0,0,.5); transition: transform .15s ease; }
+.intro-play[hidden] { display: none; }
+.intro-play:hover { transform: scale(1.06); }
+.intro-play:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.intro figcaption { margin-top: 10px; font-size: 15px; color: rgba(255,255,255,.78); }
+@media (max-width: 520px) { .hero:has(.intro) { padding-top: 16px; } .intro { margin-bottom: 28px; } .intro-play { width: 64px; height: 64px; margin: -32px 0 0 -32px; padding: 14px; } }
 </style>
 </head>
 <body>
 
 <header class="hero gutter">
   <figure class="intro">
+    <div class="intro-frame">
     <video controls playsinline preload="none" poster="video/intro-poster.jpg" width="1280" height="720" aria-label="Видео о настройке Claude Code, 3 минуты 40 секунд">
       <source src="video/intro.mp4" type="video/mp4">
       <a href="video/intro.mp4">Открыть видео</a>
     </video>
+    <button class="intro-play" type="button" aria-label="Смотреть видео" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg></button>
+    </div>
     <figcaption>Почему настраивать у меня · 3 мин 40 с</figcaption>
+    <script>
+      // Native control is a tiny triangle in the corner; without JS it stays as the fallback, so the big button is shown only here.
+      (function () {
+        var box = document.currentScript.parentNode, v = box.querySelector("video"), b = box.querySelector(".intro-play");
+        b.hidden = false;
+        b.addEventListener("click", function () { v.play(); });
+        v.addEventListener("play", function () { b.hidden = true; });
+      })();
+    </script>
   </figure>
   <p class="eyebrow">Два тарифа настройки</p>
   <h1>Настройка <em>Claude Code</em></h1>
