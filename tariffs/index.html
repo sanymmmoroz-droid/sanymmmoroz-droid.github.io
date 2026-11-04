@@ -7,6 +7,7 @@
 <title>Тарифы настройки</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>document.documentElement.classList.add("js")</script>
 <style>
 html, body { margin: 0; }
 img { max-width: 100%; }
@@ -307,6 +308,140 @@ footer a.tg { color: var(--hero-accent); }
 .intro-play:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .intro figcaption { margin-top: 10px; font-size: 15px; color: rgba(255,255,255,.78); }
 @media (max-width: 520px) { .hero:has(.intro) { padding-top: 16px; } .intro { margin-bottom: 28px; } .intro-play { width: 64px; height: 64px; margin: -32px 0 0 -32px; padding: 14px; } }
+
+/* ===== Draft 04.11: motion and live layer on top of the approved look. Everything here is additive, so removing it returns the page as it was ===== */
+/* Content is hidden only when the script has run, so a failed script never leaves an empty page */
+.js .rv { opacity: 0; transform: translateY(22px); }
+.js .rv.in { opacity: 1; transform: none; transition: opacity .6s cubic-bezier(.2,.7,.2,1) var(--d, 0ms), transform .6s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
+
+/* hero: slow teal light behind the video, so the first screen is alive before anyone presses play */
+.hero { position: relative; overflow: hidden; }
+.hero > * { position: relative; }
+.hero::before { content: ""; position: absolute; left: 50%; top: -18%; width: min(1100px, 150vw); aspect-ratio: 1.5; margin-left: calc(min(1100px, 150vw) / -2); background: radial-gradient(closest-side, rgba(0,229,204,.2), transparent 72%); animation: drift 11s ease-in-out infinite alternate; pointer-events: none; }
+@keyframes drift { from { transform: translate3d(-9%, -3%, 0) scale(1); } to { transform: translate3d(9%, 5%, 0) scale(1.14); } }
+.intro video { box-shadow: 0 0 0 1px rgba(0,229,204,.14), 0 26px 70px -28px rgba(0,229,204,.55); }
+.intro-play::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--hero-accent); animation: ring 2.4s ease-out infinite; }
+@keyframes ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.55); opacity: 0; } }
+.tg-btn { transition: transform .18s ease, filter .18s ease; }
+.tg-btn:hover { transform: translateY(-2px); }
+.tg-btn:active { transform: scale(.97); }
+
+/* ticker: a teal running line, taken from Alexander's site sample No.5 */
+.ticker { overflow: hidden; background: var(--hero-accent); color: #080a0f; font-weight: 700; font-size: 14px; line-height: 1; padding-block: 11px; white-space: nowrap; }
+.ticker-track { display: inline-flex; animation: run 34s linear infinite; }
+.ticker span { padding-right: 34px; }
+.ticker span::after { content: "—"; padding-left: 34px; opacity: .45; }
+@keyframes run { to { transform: translateX(-50%); } }
+.steps { border-top: 0; }
+
+/* reading progress inside the sticky bar */
+.steps::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--hero-accent); transform-origin: left; transform: scaleX(var(--p, 0)); }
+
+/* banners: the glow follows the pointer on devices that have one */
+.offer-banner::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .25s; background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(0,229,204,.17), transparent 70%); }
+@media (hover: hover) { .offer-banner:hover::after { opacity: 1; } }
+
+/* tiles and pictures answer the pointer */
+ul.dash.tiles li { transition: transform .2s ease, border-color .2s ease, background-color .2s ease, opacity .6s ease var(--d, 0ms); }
+@media (hover: hover) { ul.dash.tiles li:hover { transform: translateY(-3px); border-color: rgba(0,229,204,.45); background: rgba(0,229,204,.06); } }
+.js ul.dash.tiles li.rv.in { transition: opacity .6s ease var(--d, 0ms), transform .6s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
+.js ul.dash.tiles li.rv.done { transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
+
+/* terminal screenshots become program windows, as in sample No.5 */
+figure.shot.term::before { content: ""; display: block; position: sticky; left: 0; height: 30px; border-radius: 10px 10px 0 0; background-color: #1d242d;
+  background-image: radial-gradient(circle 5px, #ff5f57 98%, transparent), radial-gradient(circle 5px, #febc2e 98%, transparent), radial-gradient(circle 5px, #28c840 98%, transparent);
+  background-size: 12px 12px; background-repeat: no-repeat; background-position: 12px center, 30px center, 48px center; }
+figure.shot.term img { border-top-left-radius: 0; border-top-right-radius: 0; }
+
+/* price: the old figure gets crossed out in front of the reader */
+.js .price .old { text-decoration: none; position: relative; }
+.js .price .old::after { content: ""; position: absolute; left: -3px; right: -3px; top: 54%; height: 2px; background: #e0242b; transform: scaleX(0); transform-origin: left; transition: transform .55s ease .35s; }
+.js .price.in .old::after { transform: scaleX(1); }
+.price .new { display: inline-block; }
+.js .price.in .new { animation: pop .5s cubic-bezier(.2,1.5,.4,1) .75s backwards; }
+@keyframes pop { from { transform: scale(.82); opacity: 0; } }
+
+/* market bars: the gap in price is seen, not read */
+.bars { display: grid; gap: 20px; margin: 4px 0 18px; padding: 20px; border-radius: 14px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); }
+.bar-name { font-weight: 700; margin-bottom: 8px; }
+.bar { display: grid; grid-template-columns: 82px 1fr; gap: 10px; align-items: center; margin-top: 8px; font-size: 13px; color: rgba(255,255,255,.6); }
+.bar-track { position: relative; height: 34px; border-radius: 8px; background: rgba(255,255,255,.05); overflow: hidden; }
+.bar-fill { position: absolute; top: 0; bottom: 0; left: var(--from, 0%); width: var(--w); display: flex; align-items: center; padding: 0 10px; white-space: nowrap; font-weight: 700; font-variant-numeric: tabular-nums; transform-origin: left; }
+.bar-fill.them { background: rgba(224,36,43,.4); color: #fff; font-size: 14px; justify-content: flex-end; }
+.bar-fill.me { background: var(--hero-accent); color: #080a0f; font-size: 15px; }
+.js .bars .bar-fill { transform: scaleX(0); }
+.js .bars.in .bar-fill { transform: none; transition: transform .9s cubic-bezier(.2,.7,.2,1) var(--d, .1s); }
+.bar-fill.overflow { border-radius: 0; }
+@media (max-width: 520px) { .bars { padding: 14px; } .bar { grid-template-columns: 62px 1fr; font-size: 12px; } .bar-fill.them { font-size: 12.5px; padding: 0 7px; } .bar-fill.me { font-size: 13px; padding: 0 6px; } }
+
+/* competitor replies lie like a loose stack on a table and straighten under the pointer */
+@media (min-width: 700px) {
+  .comp-shots figure { transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  .comp-shots figure:nth-child(1) { transform: rotate(-2deg); }
+  .comp-shots figure:nth-child(2) { transform: rotate(1.4deg) translateY(10px); }
+  .comp-shots figure:nth-child(3) { transform: rotate(-1deg); }
+  .comp-shots figure:hover { transform: scale(1.04); z-index: 1; position: relative; }
+}
+
+/* comparison: one switch that leaves only what the extra money buys */
+.cmp-switch { display: inline-flex; gap: 4px; padding: 4px; margin: 0 0 14px; border-radius: 999px; background: rgba(255,255,255,.07); }
+.cmp-switch button { font: 600 14px var(--f-body); color: rgba(255,255,255,.72); background: none; border: 0; border-radius: 999px; padding: 8px 16px; min-height: 40px; cursor: pointer; transition: background-color .2s, color .2s, transform .15s; }
+.cmp-switch button:active { transform: scale(.96); }
+.cmp-switch button[aria-pressed="true"] { background: var(--hero-accent); color: #080a0f; }
+.cmp-switch button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.cmp.tiers .cmp-row.same { display: grid; }
+.cmp.tiers.only-diff .cmp-row.same { display: none; }
+.cmp.tiers.only-diff .cmp-row:not(.same):not(.cmp-head) { animation: rowin .35s ease backwards; }
+@keyframes rowin { from { opacity: 0; transform: translateX(-10px); } }
+.cmp.tiers .cmp-row { transition: background-color .15s; }
+@media (hover: hover) { .cmp.tiers .cmp-row:not(.cmp-head):not(.price-row):hover { background: rgba(0,229,204,.05); } }
+
+/* restore: the three steps light up one after another, the point is how short the road is */
+.js .restore-steps.rv { opacity: 1; transform: none; }
+.js .restore-steps li { opacity: .3; transition: opacity .45s ease var(--d), border-color .45s ease var(--d), background-color .45s ease var(--d); }
+.js .restore-steps.in li { opacity: 1; }
+.js .restore-steps.in li:last-child { border-color: var(--hero-accent); background: rgba(0,229,204,.1); }
+
+/* the day: the live block of the page */
+.day { margin: 4px 0 18px; padding: 22px 20px 18px; border-radius: 16px; background: linear-gradient(160deg, #0d141b, #080a0f); border: 1px solid rgba(0,229,204,.35); }
+.day-title { margin: 0 0 4px; font-size: clamp(22px, 4.4vw, 30px); line-height: 1.15; font-weight: 800; color: var(--hero-fg); text-wrap: balance; }
+.day-sub { margin: 0 0 16px; color: rgba(255,255,255,.72); }
+.day-live { display: none; }
+.js .day-live { display: block; }
+.day-now { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 12px; }
+.day-clock { font-size: clamp(38px, 9vw, 54px); line-height: 1; font-weight: 800; color: var(--hero-accent); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.day-when { font-size: 14px; color: rgba(255,255,255,.62); }
+.day-back { font: 600 13px var(--f-body); color: var(--hero-accent); background: none; border: 0; padding: 6px 0; min-height: 32px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.day-track { position: relative; height: 52px; touch-action: pan-y; }
+.day-sky { position: absolute; left: 0; right: 0; top: 18px; height: 16px; border-radius: 8px; background: linear-gradient(90deg, #0b1a2c 0%, #0b1a2c 22%, #1f6f78 34%, #36c9b8 50%, #1f6f78 72%, #0b1a2c 86%, #0b1a2c 100%); }
+.day-mark { position: absolute; top: 15px; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: #080a0f; border: 3px solid var(--hero-accent); transition: transform .2s, background-color .2s; pointer-events: none; }
+.day-mark.past { background: var(--hero-accent); }
+.day-mark.hit { transform: scale(1.3); }
+.day-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; background: none; -webkit-appearance: none; appearance: none; cursor: grab; }
+.day-range:active { cursor: grabbing; }
+.day-range::-webkit-slider-runnable-track { height: 52px; background: none; }
+.day-range::-moz-range-track { height: 52px; background: none; }
+.day-range::-webkit-slider-thumb { -webkit-appearance: none; width: 8px; height: 52px; border-radius: 4px; background: #fff; box-shadow: 0 0 0 3px rgba(0,229,204,.4); }
+.day-range::-moz-range-thumb { width: 8px; height: 52px; border: 0; border-radius: 4px; background: #fff; box-shadow: 0 0 0 3px rgba(0,229,204,.4); }
+.day-range:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 8px; }
+.day-hours { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,.5); font-variant-numeric: tabular-nums; margin-bottom: 12px; }
+.day-next { min-height: 76px; margin: 0 0 14px; padding: 13px 15px; border-radius: 12px; background: rgba(0,229,204,.09); color: rgba(255,255,255,.85); }
+.day-next b { display: block; color: var(--hero-fg); font-size: 17px; }
+.day-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.day-list li { display: grid; grid-template-columns: 56px 1fr; gap: 10px; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,.04); font-size: 15px; line-height: 1.45; color: rgba(255,255,255,.75); transition: background-color .2s, opacity .2s; }
+.day-list time { color: var(--hero-accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.day-list b { color: var(--hero-fg); }
+.day-list li.past { opacity: .55; }
+.day-list li.next { background: rgba(0,229,204,.13); opacity: 1; }
+.day-foot { margin: 12px 0 0; font-size: 13px; color: rgba(255,255,255,.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .rv, .js .rv.in { opacity: 1; transform: none; transition: none; }
+  .js .bars .bar-fill { transform: none; }
+  .js .restore-steps li { opacity: 1; transition: none; }
+  .js .price .old::after { transform: scaleX(1); transition: none; }
+  .js .price.in .new, .hero::before, .intro-play::after, .ticker-track, .cmp.tiers.only-diff .cmp-row { animation: none !important; }
+}
 </style>
 </head>
 <body>
@@ -346,6 +481,8 @@ footer a.tg { color: var(--hero-accent); }
   <span class="tg-handle">@MorozoW_NEURO — вопросы и заявка на настройку</span>
 </header>
 
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>сервер под ключ</span><span>вход без паролей</span><span>работает круглосуточно</span><span>бэкап каждую ночь</span><span>отчёты сам</span><span>пишет твоим голосом</span><span>страховка от блокировки</span><span>второй мозг</span><span>сервер под ключ</span><span>вход без паролей</span><span>работает круглосуточно</span><span>бэкап каждую ночь</span><span>отчёты сам</span><span>пишет твоим голосом</span><span>страховка от блокировки</span><span>второй мозг</span></div></div>
+
 <nav class="steps gutter" aria-label="Тарифы">
   <ol>
     <li><a href="#base" class="on"><span class="n">1</span>Базовая</a></li>
@@ -377,10 +514,17 @@ footer a.tg { color: var(--hero-accent); }
 
     <div class="pro-group market">
       <h3>💸 СРАВНИ С РЫНКОМ</h3>
-      <div class="cmp">
-        <div class="cmp-row cmp-head"><span></span><span>У других на Авито</span><span>У меня</span></div>
-        <div class="cmp-row"><span>Базовая</span><span class="them">3&nbsp;900 – 8&nbsp;000&nbsp;₽</span><span class="me">1&nbsp;500&nbsp;₽</span></div>
-        <div class="cmp-row"><span>Профи</span><span class="them">от 25&nbsp;000&nbsp;₽</span><span class="me">9&nbsp;000&nbsp;₽</span></div>
+      <div class="bars">
+        <div>
+          <div class="bar-name">Базовая</div>
+          <div class="bar"><span>На Авито</span><div class="bar-track"><div class="bar-fill them" style="--from:48.75%;--w:51.25%">3&nbsp;900 – 8&nbsp;000&nbsp;₽</div></div></div>
+          <div class="bar"><span>У меня</span><div class="bar-track"><div class="bar-fill me" style="--w:max(18.75%,76px);--d:.5s">1&nbsp;500&nbsp;₽</div></div></div>
+        </div>
+        <div>
+          <div class="bar-name">Профи</div>
+          <div class="bar"><span>На Авито</span><div class="bar-track"><div class="bar-fill them" style="--w:100%">от 25&nbsp;000&nbsp;₽</div></div></div>
+          <div class="bar"><span>У меня</span><div class="bar-track"><div class="bar-fill me" style="--w:36%;--d:.5s">9&nbsp;000&nbsp;₽</div></div></div>
+        </div>
       </div>
       <div class="comp-shots">
         <figure class="shot phone"><img src="../server-guide/img/pro/25-comp-3900.jpg" alt="Ответ исполнителя на Авито: стандартная настройка 3900 ₽" width="812" height="1280" loading="lazy"></figure>
@@ -541,6 +685,24 @@ footer a.tg { color: var(--hero-accent); }
         <li>Утром — о чём болит у твоей аудитории</li>
         <li>Вечером — что сделано за день</li>
       </ul>
+      <div class="day">
+        <h4 class="day-title">Сутки твоего сервера</h4>
+        <p class="day-sub">Ты занят своим, а он работает по расписанию. Потяни ползунок и посмотри, что и когда он сделает сам.</p>
+        <div class="day-live">
+          <div class="day-now"><span class="day-clock">12:00</span><span class="day-when">сейчас у тебя на часах</span><button class="day-back" type="button" hidden>вернуть моё время</button></div>
+          <div class="day-track"><div class="day-sky"></div><input class="day-range" type="range" min="0" max="1439" step="5" value="720" aria-label="Время суток"></div>
+          <div class="day-hours"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+          <p class="day-next" aria-live="polite"></p>
+        </div>
+        <ol class="day-list">
+          <li><time>03:00</time><div><b>Проверка места.</b> <span>Кончается — придёт тревога в Telegram</span></div></li>
+          <li><time>06:00</time><div><b>Бэкап.</b> <span>Навыки, второй мозг, проекты и правила уходят в твой приватный GitHub</span></div></li>
+          <li><time>09:00</time><div><b>Утренний отчёт.</b> <span>О чём болит у твоей аудитории</span></div></li>
+          <li><time>15:00</time><div><b>Снова проверка места.</b> <span>Каждые 6 часов, без твоего участия</span></div></li>
+          <li><time>21:00</time><div><b>Вечерний отчёт.</b> <span>Что сделано за день</span></div></li>
+        </ol>
+        <p class="day-foot">Время московское, как на моём сервере. Сдвину под твой часовой пояс.</p>
+      </div>
       <figure class="shot term"><img src="../server-guide/img/pro/17-schedule.png" alt="Расписание задач на сервере" width="1000" height="286" loading="lazy"><figcaption>Расписание с моего сервера: пять задач, которые Claude делает сам</figcaption></figure>
     </div>
 
@@ -650,6 +812,113 @@ footer a.tg { color: var(--hero-accent); }
 Морозов Александр Иванович · ИНН 226101655852<br>
 Страницу собрал Claude по моим указаниям</footer>
 
+<script>
+// Draft 04.11: motion and live layer. Every element keeps its text in the HTML, so without this script the page reads the same.
+(() => {
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Entrances: parts of a section arrive one after another, once
+  const groups = ['.offer-banner > .offer-eyebrow', '.offer-banner h2', '.offer-banner .banner-title', '.banner-chips', '.offer-lead', '.story-lead', '.price', '.notice', '.pro-group > h3:not(.banner-title)', '.included', 'ul.dash.tiles li', 'figure.shot', '.bars', '.cmp.tiers', '.restore-steps', '.day', '.story', '.honest', 'a.cta'];
+  const items = [...document.querySelectorAll(groups.join(','))].filter(el => !el.closest('.hero'));
+  items.forEach(el => {
+    el.classList.add('rv');
+    if (el.matches('li')) el.style.setProperty('--d', Math.min([...el.parentNode.children].indexOf(el), 5) * 70 + 'ms');
+  });
+  document.querySelectorAll('.restore-steps').forEach(l => [...l.children].forEach((li, i) => li.style.setProperty('--d', i * 550 + 'ms')));
+  if (still || !('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('in', 'done')); }
+  else {
+    const seen = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      seen.unobserve(e.target);
+      // Tiles hand their transition back to the hover effect once they have arrived
+      setTimeout(() => e.target.classList.add('done'), 1100);
+    }), { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(el => seen.observe(el));
+  }
+
+  // Reading progress in the sticky bar
+  const steps = document.querySelector('.steps');
+  let queued = false;
+  const paint = () => { queued = false; const max = document.documentElement.scrollHeight - innerHeight; steps.style.setProperty('--p', max > 0 ? Math.min(scrollY / max, 1) : 0); };
+  addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(paint); } }, { passive: true });
+  paint();
+
+  // Pointer glow on banners
+  document.querySelectorAll('.offer-banner').forEach(b => b.addEventListener('pointermove', e => {
+    const r = b.getBoundingClientRect();
+    b.style.setProperty('--mx', e.clientX - r.left + 'px');
+    b.style.setProperty('--my', e.clientY - r.top + 'px');
+  }));
+
+  // Comparison switch: rows both tariffs share can be hidden
+  const table = document.querySelector('.cmp.tiers');
+  table.querySelectorAll('.cmp-row').forEach(row => {
+    const c = row.children;
+    if (c.length === 3 && c[1].classList.contains('yes') && c[2].classList.contains('yes')) row.classList.add('same');
+  });
+  const sw = document.createElement('div');
+  sw.className = 'cmp-switch';
+  sw.setAttribute('role', 'group');
+  sw.setAttribute('aria-label', 'Что показать в сравнении');
+  sw.innerHTML = '<button type="button" aria-pressed="true">Всё</button><button type="button" aria-pressed="false">Только разница</button>';
+  table.before(sw);
+  sw.querySelectorAll('button').forEach((b, i) => b.addEventListener('click', () => {
+    sw.querySelectorAll('button').forEach((x, j) => x.setAttribute('aria-pressed', String(i === j)));
+    table.classList.toggle('only-diff', i === 1);
+  }));
+
+  // The day: where the visitor's clock stands among the jobs the server does alone
+  const day = document.querySelector('.day');
+  const EVENTS = [...day.querySelectorAll('.day-list li')].map(li => {
+    const [h, m] = li.querySelector('time').textContent.split(':').map(Number);
+    return { at: h * 60 + m, li, title: li.querySelector('b').textContent, text: li.querySelector('span').textContent };
+  });
+  const range = day.querySelector('.day-range'), clock = day.querySelector('.day-clock'), when = day.querySelector('.day-when');
+  const nextBox = day.querySelector('.day-next'), back = day.querySelector('.day-back'), track = day.querySelector('.day-track');
+  const marks = EVENTS.map(ev => {
+    const m = document.createElement('span');
+    m.className = 'day-mark';
+    m.style.left = ev.at / 1439 * 100 + '%';
+    track.insertBefore(m, range);
+    return m;
+  });
+  const pad = n => String(n).padStart(2, '0');
+  const nowMin = () => { const d = new Date(); return d.getHours() * 60 + d.getMinutes(); };
+  const plural = (n, a, b, c) => { const t = n % 10, h = n % 100; return (t === 1 && h !== 11) ? a : (t >= 2 && t <= 4 && (h < 10 || h >= 20)) ? b : c; };
+  const inTime = min => {
+    const h = Math.floor(min / 60), m = min % 60, out = [];
+    if (h) out.push(h + ' ' + plural(h, 'час', 'часа', 'часов'));
+    if (m) out.push(m + ' ' + plural(m, 'минуту', 'минуты', 'минут'));
+    return out.length ? 'Через ' + out.join(' ') : 'Прямо сейчас';
+  };
+  let live = true;
+  const render = t => {
+    range.value = t;
+    clock.textContent = pad(Math.floor(t / 60)) + ':' + pad(t % 60);
+    when.textContent = live ? 'сейчас у тебя на часах' : 'выбранное время';
+    back.hidden = live;
+    const next = EVENTS.find(e => e.at >= t) || EVENTS[0];
+    const left = (next.at - t + 1440) % 1440;
+    EVENTS.forEach((e, i) => {
+      e.li.classList.toggle('past', e.at < t);
+      e.li.classList.toggle('next', e === next);
+      marks[i].classList.toggle('past', e.at < t);
+      marks[i].classList.toggle('hit', e === next);
+    });
+    nextBox.innerHTML = '';
+    nextBox.append(inTime(left) + ' твой сервер сделает сам:');
+    const b = document.createElement('b');
+    b.textContent = next.title + ' ' + next.text;
+    nextBox.append(b);
+    range.setAttribute('aria-valuetext', clock.textContent + '. ' + b.textContent);
+  };
+  range.addEventListener('input', () => { live = false; render(+range.value); });
+  back.addEventListener('click', () => { live = true; render(nowMin()); });
+  setInterval(() => { if (live) render(nowMin()); }, 30000);
+  render(nowMin());
+})();
+</script>
 <script>
 // Highlight the tariff the reader is on, same as the guide's step bar
 const bar = document.querySelector('.steps ol');
