@@ -347,12 +347,6 @@ ul.dash.tiles li { transition: transform .2s ease, border-color .2s ease, backgr
 .js ul.dash.tiles li.rv.in { transition: opacity .6s ease var(--d, 0ms), transform .6s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
 .js ul.dash.tiles li.rv.done { transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
 
-/* terminal screenshots become program windows, as in sample No.5 */
-figure.shot.term::before { content: ""; display: block; position: sticky; left: 0; height: 30px; border-radius: 10px 10px 0 0; background-color: #1d242d;
-  background-image: radial-gradient(circle 5px, #ff5f57 98%, transparent), radial-gradient(circle 5px, #febc2e 98%, transparent), radial-gradient(circle 5px, #28c840 98%, transparent);
-  background-size: 12px 12px; background-repeat: no-repeat; background-position: 12px center, 30px center, 48px center; }
-figure.shot.term img { border-top-left-radius: 0; border-top-right-radius: 0; }
-
 /* price: the old figure gets crossed out in front of the reader */
 .js .price .old { text-decoration: none; position: relative; }
 .js .price .old::after { content: ""; position: absolute; left: -3px; right: -3px; top: 54%; height: 2px; background: #e0242b; transform: scaleX(0); transform-origin: left; transition: transform .55s ease .35s; }
@@ -424,7 +418,11 @@ figure.shot.term img { border-top-left-radius: 0; border-top-right-radius: 0; }
 .day-range::-webkit-slider-thumb { -webkit-appearance: none; width: 8px; height: 52px; border-radius: 4px; background: #fff; box-shadow: 0 0 0 3px rgba(0,229,204,.4); }
 .day-range::-moz-range-thumb { width: 8px; height: 52px; border: 0; border-radius: 4px; background: #fff; box-shadow: 0 0 0 3px rgba(0,229,204,.4); }
 .day-range:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 8px; }
-.day-hours { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,.5); font-variant-numeric: tabular-nums; margin-bottom: 12px; }
+/* Labels sit at their true share of the day so they line up with the marks; the end ones stay inside the frame */
+.day-hours { position: relative; height: 20px; font-size: 12px; color: rgba(255,255,255,.5); font-variant-numeric: tabular-nums; margin-bottom: 12px; }
+.day-hours span { position: absolute; left: var(--x); transform: translateX(-50%); }
+.day-hours span:first-child { transform: none; }
+.day-hours span:last-child { transform: translateX(-100%); }
 .day-next { min-height: 76px; margin: 0 0 14px; padding: 13px 15px; border-radius: 12px; background: rgba(0,229,204,.09); color: rgba(255,255,255,.85); }
 .day-next b { display: block; color: var(--hero-fg); font-size: 17px; }
 .day-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
@@ -691,14 +689,13 @@ figure.shot.term img { border-top-left-radius: 0; border-top-right-radius: 0; }
         <div class="day-live">
           <div class="day-now"><span class="day-clock">12:00</span><span class="day-when">сейчас у тебя на часах</span><button class="day-back" type="button" hidden>вернуть моё время</button></div>
           <div class="day-track"><div class="day-sky"></div><input class="day-range" type="range" min="0" max="1439" step="5" value="720" aria-label="Время суток"></div>
-          <div class="day-hours"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+          <div class="day-hours"><span style="--x:0%">00:00</span><span style="--x:25%">06:00</span><span style="--x:50%">12:00</span><span style="--x:75%">18:00</span><span style="--x:100%">24:00</span></div>
           <p class="day-next" aria-live="polite"></p>
         </div>
         <ol class="day-list">
-          <li><time>03:00</time><div><b>Проверка места.</b> <span>Кончается — придёт тревога в Telegram</span></div></li>
+          <li><time>03:00</time><div><b>Проверка места.</b> <span>И дальше каждые 6 часов. Кончается — придёт тревога в Telegram</span></div></li>
           <li><time>06:00</time><div><b>Бэкап.</b> <span>Навыки, второй мозг, проекты и правила уходят в твой приватный GitHub</span></div></li>
           <li><time>09:00</time><div><b>Утренний отчёт.</b> <span>О чём болит у твоей аудитории</span></div></li>
-          <li><time>15:00</time><div><b>Снова проверка места.</b> <span>Каждые 6 часов, без твоего участия</span></div></li>
           <li><time>21:00</time><div><b>Вечерний отчёт.</b> <span>Что сделано за день</span></div></li>
         </ol>
         <p class="day-foot">Время московское, как на моём сервере. Сдвину под твой часовой пояс.</p>
