@@ -293,13 +293,11 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
 <nav class="steps gutter" aria-label="Шаги">
   <ol>
-    <li><a href="#register" class="on"><span class="n">1</span>Регистрация</a></li>
-    <li><a href="#server"><span class="n">2</span>Сервер</a></li>
-    <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
-    <li><a href="#access"><span class="n">4</span>Доступ</a></li>
-    <li><a href="#card"><span class="n">5</span>Карта</a></li>
-    <li><a href="#panel"><span class="n">6</span>Панель</a></li>
-    <li><a href="#login"><span class="n">7</span>Вход в Claude</a></li>
+    <li><a href="#register" class="on"><span class="n">1</span>Регистрация сервера</a></li>
+    <li><a href="#access"><span class="n">2</span>Доступ</a></li>
+    <li><a href="#card"><span class="n">3</span>Карта</a></li>
+    <li><a href="#panel"><span class="n">4</span>Панель</a></li>
+    <li><a href="#login"><span class="n">5</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
   </ol>
@@ -311,8 +309,8 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       <span class="finish-mark" aria-hidden="true">1</span>
       <div>
         <p class="finish-eyebrow">Шаг 1</p>
-        <h2>Регистрация</h2>
-        <p class="finish-sub">3 мин</p>
+        <h2>Регистрация сервера</h2>
+        <p class="finish-sub">10 мин</p>
       </div>
     </div>
     <ol class="do">
@@ -328,22 +326,12 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       <li>Заполни логин, почту и пароль два раза. Нажми <b>«Зарегистрироваться»</b>. Если на почту придёт письмо, подтверди её.</li>
     </ol>
     <figure class="shot"><img src="img/4vps/05-register.png" alt="Форма регистрации: логин, почта, пароль, повтор пароля" width="1366" height="900" loading="lazy"></figure>
-  </section>
-
-  <section id="server" class="block">
-    <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">2</span>
-      <div>
-        <p class="finish-eyebrow">Шаг 2</p>
-        <h2>Выбор сервера</h2>
-        <p class="finish-sub">3 мин</p>
-      </div>
-    </div>
-    <ol class="do">
+    <h3 class="sub-h" id="server">Выбор сервера</h3>
+    <ol class="do" style="--start: 3">
       <li>Вернись на главную <b>4vps.su</b> и в разделе «Начни с выбора Дата-Центра» нажми <b>«Нидерланды»</b>.</li>
     </ol>
     <figure class="shot"><img src="img/4vps/01-country.png" alt="Список стран, Нидерланды обведены" width="1366" height="900" loading="lazy"></figure>
-    <ol class="do" style="--start: 1">
+    <ol class="do" style="--start: 4">
       <li>Ниже проверь, что выбрано. Разбираться в этих словах не нужно, просто сверь:
         <ul class="check">
           <li><b>Нидерланды, Амстердам SkyLink</b></li>
@@ -353,7 +341,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       </li>
     </ol>
     <figure class="shot"><img src="img/4vps/02-options.png" alt="Выбраны локация SkyLink, процессор AMD EPYC и период 1 месяц" width="1366" height="900" loading="lazy"></figure>
-    <ol class="do" style="--start: 2">
+    <ol class="do" style="--start: 5">
       <li>В списке тарифов найди строку <b>NL-cx31</b> и нажми <b>«Арендовать»</b>.</li>
     </ol>
     <figure class="shot"><img src="img/4vps/03-tariff.png" alt="Тариф NL-cx31 обведён" width="1366" height="900" loading="lazy"></figure>
@@ -361,66 +349,36 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       <span class="lbl">Про оплату</span>
       <p>Цена указана в той же строке. Платить нужно каждый месяц: если не продлить, сервер отключат вместе с Claude.</p>
     </div>
-  </section>
-
-  <section id="pay" class="block">
-    <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">3</span>
-      <div>
-        <p class="finish-eyebrow">Шаг 3</p>
-        <h2>Оформление и оплата</h2>
-        <p class="finish-sub">5 мин</p>
-      </div>
-    </div>
-    <ol class="do">
+    <h3 class="sub-h" id="pay">Оформление и оплата</h3>
+    <ol class="do" style="--start: 6">
       <li>Если спросят операционную систему, выбирай <b>Ubuntu 24.04</b>.</li>
-      <li>Если есть поле <b>«SSH-ключ»</b>, вставь в него эту строку целиком:</li>
-    </ol>
-    <div class="code">
-      <pre id="key">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN82tAc768iLxq0GttSyIyd/UfzhqvtAz46DoRH/Ap17 clients</pre>
-      <button class="copy" type="button" data-target="key">Копировать</button>
-    </div>
-    <p>Это мой ключ-пропуск: по нему я зайду на сервер без твоего пароля. Как закончим, я его удалю.</p>
-    <ol class="do" style="--start: 2">
       <li>Всё остальное, что предлагают за доплату (панели, лицензии, бэкапы), не отмечай.</li>
       <li>Оплати российской картой или по СБП.</li>
       <li>Через несколько минут в личном кабинете или в письме появятся данные сервера: <b>IP-адрес</b> (четыре числа через точку, например <code>185.12.34.56</code>) и <b>пароль</b>.</li>
     </ol>
     <div class="note warn">
       <span class="lbl">Пароль никому не отправляй</span>
-      <p>Ни мне, ни в поддержку. Сохрани его у себя в заметках. Вводить его в своё окно с командой (шаг 4) можно, это не отправка.</p>
+      <p>Ни мне, ни в поддержку. Сохрани его у себя в заметках. Вводить его в своё окно с командой (шаг 2) можно, это не отправка.</p>
     </div>
   </section>
 
   <section id="access" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">4</span>
+      <span class="finish-mark" aria-hidden="true">2</span>
       <div>
-        <p class="finish-eyebrow">Шаг 4</p>
+        <p class="finish-eyebrow">Шаг 2</p>
         <h2>Доступ для меня</h2>
         <p class="finish-sub">2–5 мин</p>
       </div>
     </div>
-    <p>Пришли мне <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">в Telegram</a> <b>только IP-адрес</b> и напиши, было ли поле «SSH-ключ».</p>
-    <div class="forks">
-      <div class="fork">
-        <span class="tag">Вариант А</span>
-        <h3>Поле было, ключ вставлен</h3>
-        <p>Готово, дальше я сам.</p>
-      </div>
-      <div class="fork">
-        <span class="tag">Вариант Б</span>
-        <h3>Поля не было</h3>
-        <p>Я пришлю одну готовую команду. Вставь её так:</p>
-        <ol class="do">
-          <li>Открой программу для команд. <b>Windows</b>: «Пуск» → набери <b>PowerShell</b>. <b>Mac</b>: Cmd + Пробел → набери <b>Терминал</b>.</li>
-          <li>Вставь мою команду и нажми Enter.</li>
-          <li>Если появится <code>Are you sure you want to continue connecting</code>, напиши <code>yes</code> и нажми Enter.</li>
-          <li>Когда попросит <code>password</code>, вставь пароль от сервера и нажми Enter.</li>
-          <li>Окно ничего не написало и снова ждёт ввода — всё получилось.</li>
-        </ol>
-      </div>
-    </div>
+    <p>Пришли мне <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">в Telegram</a> <b>только IP-адрес</b>. Я пришлю одну готовую команду. Вставь её так:</p>
+    <ol class="do">
+      <li>Открой программу для команд. <b>Windows</b>: «Пуск» → набери <b>PowerShell</b>. <b>Mac</b>: Cmd + Пробел → набери <b>Терминал</b>.</li>
+      <li>Вставь мою команду и нажми Enter.</li>
+      <li>Если появится <code>Are you sure you want to continue connecting</code>, напиши <code>yes</code> и нажми Enter.</li>
+      <li>Когда попросит <code>password</code>, вставь пароль от сервера и нажми Enter.</li>
+      <li>Окно ничего не написало и снова ждёт ввода — всё получилось.</li>
+    </ol>
     <div class="note">
       <span class="lbl">Совет</span>
       <p>Пароль при вводе не видно, даже звёздочек нет. Так и должно быть: просто вставь и нажми Enter.</p>
@@ -429,9 +387,9 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   <section id="card" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">5</span>
+      <span class="finish-mark" aria-hidden="true">3</span>
       <div>
-        <p class="finish-eyebrow">Шаг 5</p>
+        <p class="finish-eyebrow">Шаг 3</p>
         <h2>Зарубежная карта</h2>
         <p class="finish-sub">10 мин</p>
       </div>
@@ -470,9 +428,9 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   <section id="panel" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">6</span>
+      <span class="finish-mark" aria-hidden="true">4</span>
       <div>
-        <p class="finish-eyebrow">Шаг 6</p>
+        <p class="finish-eyebrow">Шаг 4</p>
         <h2>Твоя панель</h2>
         <p class="finish-sub">5 мин</p>
       </div>
@@ -502,9 +460,9 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   <section id="login" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">7</span>
+      <span class="finish-mark" aria-hidden="true">5</span>
       <div>
-        <p class="finish-eyebrow">Шаг 7</p>
+        <p class="finish-eyebrow">Шаг 5</p>
         <h2>Вход в Claude</h2>
         <p class="finish-sub">3 мин</p>
       </div>
@@ -570,7 +528,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     <details>
       <summary>Ты будешь заходить в мои аккаунты?</summary>
       <p>Нет. Пароли от твоих аккаунтов мне не нужны: регистрируешься, платишь и входишь в Claude ты сам.</p>
-      <p>Мне нужен только временный ключ доступа к серверу (<a href="#access">шаг 4</a>). После настройки я удаляю его и присылаю подтверждение, что больше не могу зайти.</p>
+      <p>Мне нужен только временный ключ доступа к серверу (<a href="#access">шаг 2</a>). После настройки я удаляю его и присылаю подтверждение, что больше не могу зайти.</p>
       <p>Аккаунт оформлен на тебя, и управляешь им только ты. Так безопаснее: никто, кроме тебя, его не потеряет и не закроет.</p>
     </details>
     <details>
@@ -580,7 +538,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     <details>
       <summary>Сколько ещё платить, кроме моей работы?</summary>
       <p>Подписку Claude и сервер, оба каждый месяц. Платишь за них сам, деньги идут напрямую сервисам, не мне. Цены у них меняются, поэтому пишу актуальные в переписке.</p>
-      <p>Нет зарубежной карты — как её выпустить, написано в <a href="#card">шаге 5</a>.</p>
+      <p>Нет зарубежной карты — как её выпустить, написано в <a href="#card">шаге 3</a>.</p>
     </details>
     <details>
       <summary>Я сразу смогу пользоваться? Научишь?</summary>
@@ -591,7 +549,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       <summary>Claude сможет делать ролики как в образце — с озвучкой и субтитрами?</summary>
       <p>Сам Claude не говорит и не рисует — для этого нужны отдельные нейросети. НО монтаж и субтитры он собирает сам: у меня так монтируются Reels.</p>
       <p>Нейросети подключаем к Claude: голос — например, ElevenLabs, картинки — другие сервисы. Claude сам отправляет им запросы и собирает результат.</p>
-      <p>Подписка на них отдельная и платная, какая нужна — зависит от задачи. Платишь так же, зарубежной картой (<a href="#card">шаг 5</a>).</p>
+      <p>Подписка на них отдельная и платная, какая нужна — зависит от задачи. Платишь так же, зарубежной картой (<a href="#card">шаг 3</a>).</p>
       <p>Пришли пример, который нравится, — честно скажу, что получится.</p>
     </details>
   </section>
