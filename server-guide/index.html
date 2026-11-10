@@ -298,7 +298,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     <li><a href="#pay"><span class="n">3</span>Оплата</a></li>
     <li><a href="#access"><span class="n">4</span>Доступ</a></li>
     <li><a href="#card"><span class="n">5</span>Карта</a></li>
-    <li><a href="#termius"><span class="n">6</span>Termius</a></li>
+    <li><a href="#panel"><span class="n">6</span>Панель</a></li>
     <li><a href="#login"><span class="n">7</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
@@ -468,43 +468,35 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     </div>
   </section>
 
-  <section id="termius" class="block">
+  <section id="panel" class="block">
     <div class="finish step">
       <span class="finish-mark" aria-hidden="true">6</span>
       <div>
         <p class="finish-eyebrow">Шаг 6</p>
-        <h2>Программа Termius</h2>
+        <h2>Твоя панель</h2>
         <p class="finish-sub">5 мин</p>
       </div>
     </div>
-    <p>Termius — бесплатная программа-«пульт» для сервера. Через неё ты войдёшь в свой Claude в шаге 7. Поставь её, пока я настраиваю сервер.</p>
+    <p>Начинай, когда я напишу «сервер готов». Вместе с этим я пришлю <b>адрес твоей панели</b> (похож на <code>https://12-34-56-78.sslip.io</code>) и <b>пароль от неё</b>.</p>
+    <p>Панель — это твой Claude в окне браузера: чат, файлы и всё остальное. В браузере ничего ставить не нужно.</p>
     <ol class="do">
-      <li>Открой страницу скачивания для своего компьютера:
-        <ul class="check">
-          <li><b>Windows</b> — <a href="https://termius.com/download/windows" target="_blank" rel="noopener">termius.com/download/windows</a></li>
-          <li><b>Mac</b> — <a href="https://termius.com/download/macos" target="_blank" rel="noopener">termius.com/download/macos</a></li>
-        </ul>
-      </li>
-      <li>Нажми синюю кнопку: <b>Download .EXE</b> на Windows или <b>Download .DMG</b> на Mac.</li>
+      <li>Открой адрес панели в браузере: Chrome, Яндекс Браузер, Safari — любой.</li>
+      <li>Введи пароль и нажми «Войти».</li>
     </ol>
-    <figure class="shot"><img src="img/termius/06-termius-windows.png" alt="Страница Termius для Windows, кнопка Download .EXE обведена" width="1366" height="520" loading="lazy"><figcaption>Windows</figcaption></figure>
-    <figure class="shot"><img src="img/termius/07-termius-macos.png" alt="Страница Termius для Mac, кнопка Download .DMG обведена" width="1366" height="520" loading="lazy"><figcaption>Mac</figcaption></figure>
-    <ol class="do" style="--start: 2">
-      <li>Установи как обычную программу.
-        <ul class="check">
-          <li><b>Windows</b> — открой скачанный файл и жми «Далее», пока не появится «Готово».</li>
-          <li><b>Mac</b> — открой скачанный файл и перетащи значок Termius в папку «Программы».</li>
-        </ul>
-      </li>
-      <li>Открой Termius. Он предложит зарегистрироваться: войди через почту или Google, это бесплатно.</li>
+    <h3 class="sub-h">На Windows — своя программа</h3>
+    <p>С программой Claude открывается отдельным окном со значком на рабочем столе и сам пишет, когда закончил задачу. Не хочешь ставить — работай в браузере.</p>
+    <ol class="do" style="--start: 3">
+      <li>Вверху панели нажми <b>💻 Приложение для Windows</b>. Скачается файл <b>ClaudeRU-Setup</b>.</li>
+      <li>Открой его и жми «Далее», пока не появится «Готово». Если Windows покажет синее окно «Система защитила компьютер», нажми «Подробнее» → «Выполнить в любом случае».</li>
+      <li>Программа откроется сама. Адрес сервера в ней уже вписан, введи только пароль.</li>
     </ol>
     <div class="note">
-      <span class="lbl">Совет</span>
-      <p>Платный тариф не нужен. Если Termius предложит пробный период Pro, пропусти. На Mac программу можно поставить и через App Store: в поиске набери «Termius».</p>
+      <span class="lbl">Mac и телефон</span>
+      <p>Отдельной программы для них нет: открывай адрес панели в браузере, работает так же. Чтобы не искать адрес, добавь его в закладки.</p>
     </div>
     <div class="note warn">
-      <span class="lbl">Если не скачивается</span>
-      <p>Ничего страшного. Обойдёмся тем, что уже есть в компьютере: PowerShell на Windows или Терминал на Mac. Как войти через них, написано в конце шага 7.</p>
+      <span class="lbl">Пароль от панели никому не отправляй</span>
+      <p>С ним можно управлять твоим сервером. Поменять пароль можно в панели: вкладка «Безопасность».</p>
     </div>
   </section>
 
@@ -514,59 +506,24 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       <div>
         <p class="finish-eyebrow">Шаг 7</p>
         <h2>Вход в Claude</h2>
-        <p class="finish-sub">10 мин</p>
+        <p class="finish-sub">3 мин</p>
       </div>
     </div>
-    <p>Начинай, когда я напишу «сервер готов». Войти в аккаунт Claude можешь только ты: в чужие аккаунты я не захожу.</p>
-
-    <h3 class="sub-h">Подключись к серверу</h3>
+    <p>Войти в аккаунт Claude можешь только ты: в чужие аккаунты я не захожу.</p>
     <ol class="do">
-      <li>В Termius нажми <b>New Host</b> (новый сервер).</li>
-      <li>Заполни поля:
-        <ul class="check">
-          <li><b>Address</b> — IP-адрес сервера</li>
-          <li><b>Label</b> — любое название, например «Мой Claude»</li>
-          <li><b>Username</b> (имя пользователя) — напиши <code>root</code>, так зовут главного пользователя сервера</li>
-          <li><b>Password</b> — пароль от сервера из твоих заметок (шаг 3)</li>
-        </ul>
-      </li>
-      <li>Сохрани и дважды нажми на новый сервер в списке. Если Termius спросит, доверять ли серверу, нажми <b>Continue</b> (продолжить).</li>
-      <li>Откроется чёрное окно с мигающим курсором. Ты на сервере.</li>
+      <li>Вверху панели будет полоса «Claude ещё не подключён к вашему аккаунту». Нажми в ней <b>Войти в Claude</b>. Полосы нет? Открой вкладку «Безопасность» → карточка «Аккаунт Claude» → <b>Войти в Claude</b>.</li>
+      <li>Нажми <b>Открыть страницу входа</b>. Откроется сайт Claude.</li>
+      <li>Войди в аккаунт, где оплачена подписка Claude Pro, и нажми <b>Authorize</b> (разрешить).</li>
+      <li>Сайт покажет код. Скопируй его, вернись в панель, вставь в поле «Код со страницы входа» и нажми <b>Готово</b>.</li>
+      <li>Появится «✓ Вход выполнен» и почта твоего аккаунта. Всё, Claude подключён.</li>
     </ol>
-
-    <h3 class="sub-h">Запусти Claude</h3>
-    <p class="hint-phone">На телефоне картинки ниже можно листать пальцем вбок.</p>
-    <ol class="do" style="--start: 4">
-      <li>Напиши <code>claude</code> и нажми Enter.</li>
-      <li>Claude предложит выбрать оформление. Просто нажми Enter.</li>
-    </ol>
-    <figure class="shot term"><img src="img/claude/08-theme.png" alt="Экран выбора оформления, выбран Dark mode" width="1100" height="286" loading="lazy"></figure>
-    <ol class="do" style="--start: 6">
-      <li>Способ входа: первый вариант, <b>Claude account with subscription</b> (вход по подписке), уже выбран. Нажми Enter.</li>
-    </ol>
-    <figure class="shot term"><img src="img/claude/09-login-method.png" alt="Выбор способа входа, выбран Claude account with subscription" width="1100" height="205" loading="lazy"></figure>
-    <ol class="do" style="--start: 7">
-      <li>Появится длинная ссылка. Нажми клавишу <code>c</code>, и ссылка скопируется. Если не скопировалась, выдели её мышкой целиком и скопируй.</li>
-    </ol>
-    <figure class="shot term"><img src="img/claude/10-login-link.png" alt="Ссылка для входа и строка Paste code here" width="1301" height="245" loading="lazy"></figure>
-    <ol class="do" style="--start: 8">
-      <li>Открой ссылку в браузере на компьютере. Войди в свой аккаунт Claude, где оплачена подписка Claude Pro (не Termius), и нажми <b>Authorize</b> (разрешить).</li>
-      <li>Сайт покажет код. Скопируй его, вернись в Termius, вставь после <code>Paste code here</code> и нажми Enter.</li>
-      <li>Появится <b>Login successful</b>. Нажми Enter — и на следующих вопросах тоже.</li>
-      <li><b>Кроме одного.</b> Claude спросит, доверять ли папке (<code>Accessing workspace</code>). Здесь уже выбран <b>No, exit</b>, и Enter закроет Claude. Нажми стрелку вниз, выбери <b>Yes, I trust this folder</b> и только потом Enter.</li>
-    </ol>
-    <figure class="shot term"><img src="img/claude/12-trust-folder.png" alt="Вопрос Accessing workspace: варианты No, exit и Yes, I trust this folder" width="1301" height="387" loading="lazy"><figcaption>Выбери второй вариант: Yes, I trust this folder</figcaption></figure>
-    <div class="note">
-      <span class="lbl">Если Claude закрылся</span>
-      <p>Ничего не сломалось. Напиши <code>claude</code>, нажми Enter, дойди до вопроса про папку и выбери <b>Yes, I trust this folder</b>.</p>
-    </div>
     <div class="note warn">
-      <span class="lbl">Ссылку и код никому не отправляй</span>
-      <p>Даже мне. По ним входят в твой аккаунт Claude.</p>
+      <span class="lbl">Код никому не отправляй</span>
+      <p>Даже мне. По нему входят в твой аккаунт Claude.</p>
     </div>
     <div class="note">
-      <span class="lbl">Без Termius</span>
-      <p>Открой PowerShell (Windows) или Терминал (Mac), напиши <code>ssh root@IP-адрес</code>, нажми Enter и введи пароль от сервера. Дальше всё так же, с пункта 5.</p>
+      <span class="lbl">Если появилась ошибка</span>
+      <p>Нажми «Отмена» и начни заново с пункта 1: код действует несколько минут. Не помогло — пришли мне скриншот.</p>
     </div>
   </section>
 
@@ -580,7 +537,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       </div>
     </div>
     <div class="next">
-      <p>Когда войдёшь в Claude, напиши ему «привет» и дай первую задачу своими словами. Например: «помоги составить план постов на неделю».</p>
+      <p>Когда войдёшь в Claude, на вкладке «Claude» напиши ему «привет» и дай первую задачу своими словами. Например: «помоги составить план постов на неделю».</p>
       <p>Потом <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> «готово». Я удалю свой доступ к твоему серверу и пришлю подтверждение, что больше не могу на него зайти.</p>
       <p><b>Что-то не получается — <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> и пришли скриншот экрана.</b> Разберёмся в переписке.</p>
     </div>
