@@ -414,16 +414,16 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
     <h3 class="sub-h" id="gh-repo">Хранилище для копии</h3>
     <ol class="do" style="--start: 3">
       <li>Открой <a class="tg" href="https://github.com/new?name=server-backup&amp;visibility=private" target="_blank" rel="noopener"><b>эту ссылку</b></a> — название и закрытый доступ уже подставлены.</li>
-      <li>Проверь, что в названии стоит <code>server-backup</code> и выбрано <b>Private</b>. Это важно: так копию не увидит никто, кроме тебя и твоего сервера.</li>
-      <li>Нажми зелёную кнопку <b>Create repository</b>.</li>
+      <li>Проверь, что в названии (<b>Repository name</b>) стоит <code>server-backup</code> и в видимости выбрано <b>Private</b>. Это важно: так копию не увидит никто, кроме тебя и твоего сервера.</li>
+      <li>Нажми зелёную кнопку <b>Create repository</b> («Создать репозиторий»).</li>
     </ol>
-    <div class="ghmock" role="img" aria-label="github.com/new"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com/new</span></div><div class="ghbody"><div class="ghh">Create a new repository</div><div class="ghfield"><div class="ghlabel">Repository name*</div><div class="ghinput hl">server-backup</div></div><div class="ghfield"><div class="ghlabel">Visibility</div><div class="ghradio"><span>○ Public</span><span class="on hl">◉ Private</span></div></div><div class="ghbtn hl">Create repository</div></div></div>
+    <figure class="shot"><img src="img/github/01-new-repo.png" alt="Создание хранилища: название server-backup, видимость Private и кнопка «Создать репозиторий» обведены" width="960" height="980" loading="lazy"></figure>
 
     <h3 class="sub-h" id="gh-login">Пришли мне логин</h3>
     <ol class="do" style="--start: 6">
-      <li>Найди свой логин: нажми на аватарку справа вверху на github.com.</li>
+      <li>Найди свой логин: открой <a class="tg" href="https://github.com" target="_blank" rel="noopener"><b>github.com</b></a> — он написан в приветствии. Или нажми на аватарку справа вверху: логин стоит первым в меню.</li>
     </ol>
-    <div class="ghmock" role="img" aria-label="github.com"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com</span></div><div class="ghbody"><div class="ghmenu"><span class="ghava">A</span><span><b class="hlt">anna-claude</b><br><small>Anna</small></span></div><p class="ghsmall">Нажми на свою аватарку справа вверху — логин написан жирным в начале меню.</p></div></div>
+    <figure class="shot"><img src="img/github/02-login.png" alt="Приветствие на github.com, логин обведён" width="1168" height="100" loading="lazy"></figure>
     <ol class="do" style="--start: 7">
       <li>Скопируй шаблон, впиши логин и <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">пришли мне в Telegram</a>. В ответ я пришлю ключ — длинную строку, которая начинается с <code>ssh-ed25519</code>.</li>
     </ol>
@@ -435,12 +435,12 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
         <div class="ghgen"><input id="ghLoginIn" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="твой логин на GitHub" aria-label="Логин на GitHub"><a id="ghKeyLink" class="ghgo" href="https://github.com/settings/profile" target="_blank" rel="noopener" aria-disabled="true">Открыть страницу ключа ↗</a></div>
         <small class="ghhint">Не открылось? В хранилище <b>server-backup</b>: <b>Settings</b> → слева <b>Deploy keys</b> → <b>Add deploy key</b>.</small>
       </li>
-      <li>В поле <b>Title</b> напиши <code>server</code>.</li>
-      <li>В поле <b>Key</b> вставь мой ключ целиком, одной строкой.</li>
-      <li>Поставь галочку <b>Allow write access</b>. Без неё сервер не сможет сохранять копию.</li>
-      <li>Нажми <b>Add key</b> и напиши мне «готово».</li>
+      <li>В поле <b>Title</b> («Название») напиши <code>server</code>.</li>
+      <li>В поле <b>Key</b> («Ключ») вставь мой ключ целиком, одной строкой.</li>
+      <li>Поставь галочку <b>Allow write access</b> («Разрешить доступ на запись»). Без неё сервер не сможет сохранять копию.</li>
+      <li>Нажми <b>Add key</b> («Добавить ключ») и напиши мне «готово».</li>
     </ol>
-    <div class="ghmock" role="img" aria-label="github.com/ЛОГИН/server-backup/settings/keys/new"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com/ЛОГИН/server-backup/settings/keys/new</span></div><div class="ghbody"><div class="ghh">Add new deploy key</div><div class="ghfield"><div class="ghlabel">Title</div><div class="ghinput hl">server</div></div><div class="ghfield"><div class="ghlabel">Key</div><div class="ghinput hl area">ssh-ed25519 AAAAC3Nza… backup</div></div><div class="ghcheck hl">☑ Allow write access</div><div class="ghbtn hl">Add key</div></div></div>
+    <figure class="shot"><img src="img/github/03-deploy-key.png" alt="Форма добавления ключа: название server, ключ, галочка доступа на запись и кнопка обведены" width="1196" height="652" loading="lazy"></figure>
         </div>
       </details>
     </section>
