@@ -294,10 +294,9 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 <nav class="steps gutter" aria-label="Шаги">
   <ol>
     <li><a href="#register" class="on"><span class="n">1</span>Регистрация сервера</a></li>
-    <li><a href="#access"><span class="n">2</span>Доступ</a></li>
-    <li><a href="#card"><span class="n">3</span>Карта</a></li>
-    <li><a href="#panel"><span class="n">4</span>Панель</a></li>
-    <li><a href="#login"><span class="n">5</span>Вход в Claude</a></li>
+    <li><a href="#card"><span class="n">2</span>Карта</a></li>
+    <li><a href="#panel"><span class="n">3</span>Панель</a></li>
+    <li><a href="#login"><span class="n">4</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
   </ol>
@@ -358,38 +357,15 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     </ol>
     <div class="note warn">
       <span class="lbl">Пароль никому не отправляй</span>
-      <p>Ни мне, ни в поддержку. Сохрани его у себя в заметках. Вводить его в своё окно с командой (шаг 2) можно, это не отправка.</p>
-    </div>
-  </section>
-
-  <section id="access" class="block">
-    <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">2</span>
-      <div>
-        <p class="finish-eyebrow">Шаг 2</p>
-        <h2>Доступ для меня</h2>
-        <p class="finish-sub">2–5 мин</p>
-      </div>
-    </div>
-    <p>Пришли мне <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">в Telegram</a> <b>только IP-адрес</b>. Я пришлю одну готовую команду. Вставь её так:</p>
-    <ol class="do">
-      <li>Открой программу для команд. <b>Windows</b>: «Пуск» → набери <b>PowerShell</b>. <b>Mac</b>: Cmd + Пробел → набери <b>Терминал</b>.</li>
-      <li>Вставь мою команду и нажми Enter.</li>
-      <li>Если появится <code>Are you sure you want to continue connecting</code>, напиши <code>yes</code> и нажми Enter.</li>
-      <li>Когда попросит <code>password</code>, вставь пароль от сервера и нажми Enter.</li>
-      <li>Окно ничего не написало и снова ждёт ввода — всё получилось.</li>
-    </ol>
-    <div class="note">
-      <span class="lbl">Совет</span>
-      <p>Пароль при вводе не видно, даже звёздочек нет. Так и должно быть: просто вставь и нажми Enter.</p>
+      <p>Ни мне, ни в поддержку. Сохрани его у себя в заметках.</p>
     </div>
   </section>
 
   <section id="card" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">3</span>
+      <span class="finish-mark" aria-hidden="true">2</span>
       <div>
-        <p class="finish-eyebrow">Шаг 3</p>
+        <p class="finish-eyebrow">Шаг 2</p>
         <h2>Зарубежная карта</h2>
         <p class="finish-sub">10 мин</p>
       </div>
@@ -428,9 +404,9 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   <section id="panel" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">4</span>
+      <span class="finish-mark" aria-hidden="true">3</span>
       <div>
-        <p class="finish-eyebrow">Шаг 4</p>
+        <p class="finish-eyebrow">Шаг 3</p>
         <h2>Твоя панель</h2>
         <p class="finish-sub">5 мин</p>
       </div>
@@ -460,9 +436,9 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   <section id="login" class="block">
     <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">5</span>
+      <span class="finish-mark" aria-hidden="true">4</span>
       <div>
-        <p class="finish-eyebrow">Шаг 5</p>
+        <p class="finish-eyebrow">Шаг 4</p>
         <h2>Вход в Claude</h2>
         <p class="finish-sub">3 мин</p>
       </div>
@@ -528,7 +504,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     <details>
       <summary>Ты будешь заходить в мои аккаунты?</summary>
       <p>Нет. Пароли от твоих аккаунтов мне не нужны: регистрируешься, платишь и входишь в Claude ты сам.</p>
-      <p>Мне нужен только временный ключ доступа к серверу (<a href="#access">шаг 2</a>). После настройки я удаляю его и присылаю подтверждение, что больше не могу зайти.</p>
+      <p>Мне нужен только временный доступ к серверу на время настройки. После настройки я удаляю его и присылаю подтверждение, что больше не могу зайти.</p>
       <p>Аккаунт оформлен на тебя, и управляешь им только ты. Так безопаснее: никто, кроме тебя, его не потеряет и не закроет.</p>
     </details>
     <details>
@@ -538,7 +514,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     <details>
       <summary>Сколько ещё платить, кроме моей работы?</summary>
       <p>Подписку Claude и сервер, оба каждый месяц. Платишь за них сам, деньги идут напрямую сервисам, не мне. Цены у них меняются, поэтому пишу актуальные в переписке.</p>
-      <p>Нет зарубежной карты — как её выпустить, написано в <a href="#card">шаге 3</a>.</p>
+      <p>Нет зарубежной карты — как её выпустить, написано в <a href="#card">шаге 2</a>.</p>
     </details>
     <details>
       <summary>Я сразу смогу пользоваться? Научишь?</summary>
@@ -549,7 +525,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       <summary>Claude сможет делать ролики как в образце — с озвучкой и субтитрами?</summary>
       <p>Сам Claude не говорит и не рисует — для этого нужны отдельные нейросети. НО монтаж и субтитры он собирает сам: у меня так монтируются Reels.</p>
       <p>Нейросети подключаем к Claude: голос — например, ElevenLabs, картинки — другие сервисы. Claude сам отправляет им запросы и собирает результат.</p>
-      <p>Подписка на них отдельная и платная, какая нужна — зависит от задачи. Платишь так же, зарубежной картой (<a href="#card">шаг 3</a>).</p>
+      <p>Подписка на них отдельная и платная, какая нужна — зависит от задачи. Платишь так же, зарубежной картой (<a href="#card">шаг 2</a>).</p>
       <p>Пришли пример, который нравится, — честно скажу, что получится.</p>
     </details>
   </section>
