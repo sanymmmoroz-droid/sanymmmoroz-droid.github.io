@@ -340,7 +340,9 @@ details.stepbox[open] .finish { margin-bottom: 22px; }
 details.stepbox[open] .toggle { background: rgba(255,255,255,.08); color: var(--hero-fg); }
 details.stepbox[open] .toggle::before { content: "Свернуть"; }
 details.stepbox[open] .toggle::after { transform: rotate(180deg); }
-@media (max-width: 520px) { .finish { flex-wrap: wrap; } .toggle { margin-left: 70px; } }
+@media (max-width: 520px) { .finish { flex-wrap: wrap; } .toggle { margin-left: 0; } }
+/* Anchored parts inside a step sat flush under the sticky bar: give them air */
+.sub-h { scroll-margin-top: 24px; }
 </style>
 </head>
 <body>
