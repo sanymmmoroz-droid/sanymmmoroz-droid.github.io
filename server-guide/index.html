@@ -138,8 +138,8 @@ figure.shot.term img { border-color: transparent; background: #141a21; }
 /* Red twin of the banner for steps: reuses the same look but sets steps apart from my part and the finish */
 .finish.step { --accent: var(--warn); --accent-ink: var(--warn); --tip-bg: var(--warn-bg); margin-bottom: 22px; border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
 /* The banner has its own frame, so the grey divider above it would read as a double edge */
-section.block:has(> .finish.step) { border-top: 0; padding-top: 0; margin-top: 56px; }
-@media (max-width: 700px) { section.block:has(> .finish.step) { margin-top: 44px; } }
+section.block:has(.finish.step) { border-top: 0; padding-top: 0; margin-top: 56px; }
+@media (max-width: 700px) { section.block:has(.finish.step) { margin-top: 44px; } }
 .next { background: var(--chip); border-radius: 14px; padding: 22px 24px; }
 .next p { margin: 0 0 10px; }
 .next p:last-child { margin: 0; }
@@ -291,7 +291,7 @@ a { color: var(--hero-accent); }
 .finish.step { --accent: var(--hero-accent); --accent-ink: var(--hero-accent); --tip-bg: rgba(0,229,204,.08); border-color: rgba(0,229,204,.35); }
 .finish { background: radial-gradient(120% 140% at 100% 0%, rgba(0,229,204,.2), transparent 60%), rgba(255,255,255,.03); box-shadow: 0 26px 70px -36px rgba(0,229,204,.55); }
 .finish-mark { color: #080a0f; }
-section.block + section.block:not(:has(> .finish.step)) { border-top-color: rgba(0,229,204,.25); }
+section.block + section.block:not(:has(.finish.step)) { border-top-color: rgba(0,229,204,.25); }
 .sub-h { display: flex; align-items: center; gap: 12px; color: var(--hero-fg); }
 .sub-h::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,229,204,.45), transparent); }
 figure.shot img { box-shadow: 0 0 0 1px rgba(0,229,204,.1), 0 22px 60px -30px rgba(0,229,204,.45); }
@@ -326,6 +326,21 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
   .js .rv, .js .rv.in { opacity: 1; transform: none; transition: none; }
   .hero::before, .ticker-track { animation: none !important; }
 }
+
+/* Steps are closed boxes: the reader opens each one by hand, so the guide stops at the end of a step instead of running on into the next */
+details.stepbox > summary { list-style: none; cursor: pointer; border-radius: 16px; }
+details.stepbox > summary::-webkit-details-marker { display: none; }
+details.stepbox > summary:focus-visible { outline: 2px solid var(--hero-accent); outline-offset: 4px; }
+details.stepbox .finish { margin-bottom: 0; transition: border-color .2s ease, transform .2s ease; }
+details.stepbox[open] .finish { margin-bottom: 22px; }
+@media (hover: hover) { details.stepbox > summary:hover .finish { border-color: rgba(0,229,204,.7); } }
+.toggle { margin-left: auto; flex: none; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: #080a0f; background: var(--hero-accent); border-radius: 999px; padding: 8px 14px; white-space: nowrap; }
+.toggle::before { content: "Открыть"; }
+.toggle::after { content: "▾"; transition: transform .2s ease; }
+details.stepbox[open] .toggle { background: rgba(255,255,255,.08); color: var(--hero-fg); }
+details.stepbox[open] .toggle::before { content: "Свернуть"; }
+details.stepbox[open] .toggle::after { transform: rotate(180deg); }
+@media (max-width: 520px) { .finish { flex-wrap: wrap; } .toggle { margin-left: 70px; } }
 </style>
 </head>
 <body>
@@ -345,7 +360,7 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
 
 <nav class="steps gutter" aria-label="Шаги">
   <ol>
-    <li><a href="#register" class="on"><span class="n">1</span>Регистрация сервера</a></li>
+    <li><a href="#register" class="on"><span class="n">1</span>Регистрация на 4VPS</a></li>
     <li><a href="#card"><span class="n">2</span>Карта</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
@@ -354,14 +369,19 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
 
 <main class="gutter">
   <section id="register" class="block">
+    <details class="stepbox">
+    <summary>
     <div class="finish step">
       <span class="finish-mark" aria-hidden="true">1</span>
       <div>
         <p class="finish-eyebrow">Шаг 1</p>
-        <h2>Регистрация сервера</h2>
+        <h2>Регистрация на 4VPS</h2>
         <p class="finish-sub">10 мин</p>
       </div>
+      <span class="toggle" aria-hidden="true"></span>
     </div>
+    </summary>
+    <div class="stepbody">
     <ol class="do">
       <li>Открой <a href="https://4vps.su/r/vUHkU9EgKOFS" target="_blank" rel="noopener"><b>4vps.su по этой ссылке</b></a> и нажми <b>«Войти»</b> справа вверху.</li>
       <li>Нажми <b>«Создать аккаунт»</b>.</li>
@@ -418,9 +438,13 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
     <ol class="do" style="--start: 13">
       <li>Скопируй IP-адрес и пароль и <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">пришли мне в Telegram</a>.</li>
     </ol>
+    </div>
+    </details>
   </section>
 
   <section id="card" class="block">
+    <details class="stepbox">
+    <summary>
     <div class="finish step">
       <span class="finish-mark" aria-hidden="true">2</span>
       <div>
@@ -428,7 +452,10 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
         <h2>Зарубежная карта</h2>
         <p class="finish-sub">10 мин</p>
       </div>
+      <span class="toggle" aria-hidden="true"></span>
     </div>
+    </summary>
+    <div class="stepbody">
     <p>Уже платишь за Claude и оплата проходит — пропусти этот шаг.</p>
     <p>Claude принимает только зарубежные карты: российские Visa, Mastercard и МИР не проходят. Выпусти карту в сервисе «Плати по миру». Всё онлайн, без документов. Пополняешь рублями по СБП.</p>
     <p>Честно: выпуск карты платный, цена — на сайте сервиса. Первый год обслуживания бесплатный.</p>
@@ -459,9 +486,13 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
       <span class="lbl">Данные карты никому не отправляй</span>
       <p>Ни мне, ни в поддержку. Номер, срок и CVC вводи только на claude.ai.</p>
     </div>
+    </div>
+    </details>
   </section>
 
   <section id="next" class="block">
+    <details class="stepbox">
+    <summary>
     <div class="finish">
       <span class="finish-mark" aria-hidden="true">✓</span>
       <div>
@@ -469,11 +500,16 @@ footer { max-width: none; border-top: 1px solid rgba(0,229,204,.25); background:
         <h2>Что дальше</h2>
         <p class="finish-sub">Ещё пара шагов — и Claude работает на тебя</p>
       </div>
+      <span class="toggle" aria-hidden="true"></span>
     </div>
+    </summary>
+    <div class="stepbody">
     <div class="next">
       <p>Когда сделаешь оба шага, <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> «готово». Дальше настрою я. Как закончу, удалю свой доступ к твоему серверу и пришлю подтверждение, что больше не могу на него зайти.</p>
       <p><b>Что-то не получается — <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> и пришли скриншот экрана.</b> Разберёмся в переписке.</p>
     </div>
+    </div>
+    </details>
   </section>
 
   <p class="handoff"><b>✓</b> Инструкция закончена</p>
@@ -586,6 +622,22 @@ document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
   const paint = () => { queued = false; const max = document.documentElement.scrollHeight - innerHeight; steps.style.setProperty('--p', max > 0 ? Math.min(scrollY / max, 1) : 0); };
   addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(paint); } }, { passive: true });
   paint();
+})();
+
+// Closed steps: open the box that holds the link target, so anchors and the step bar still land on the right place
+(() => {
+  const openFor = id => {
+    const el = id && document.getElementById(id);
+    if (!el) return;
+    const box = el.closest('details.stepbox') || el.querySelector('details.stepbox');
+    if (box && !box.open) box.open = true;
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) openFor(decodeURIComponent(a.getAttribute('href').slice(1)));
+  });
+  addEventListener('hashchange', () => openFor(decodeURIComponent(location.hash.slice(1))));
+  if (location.hash) { openFor(decodeURIComponent(location.hash.slice(1))); const t = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t) requestAnimationFrame(() => t.scrollIntoView()); }
 })();
 </script>
 </body>
