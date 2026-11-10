@@ -116,6 +116,33 @@ html.dark .note.warn .lbl { color: #141413; }
 
 /* The skip line must be seen before anyone starts issuing a card they do not need */
 .note.skip { margin-top: 0; background: var(--accent); border-color: var(--accent); color: #fff; }
+/* Bots step: a drawn BotFather chat shows exactly what the client will see, without anyone's real data */
+.botlist { margin: 0 0 16px; padding-left: 20px; display: grid; gap: 6px; }
+.tgchat { max-width: 580px; margin: 14px 0 6px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); background: #DCE5EC; font-size: 14.5px; line-height: 1.45; }
+html.dark .tgchat { background: #0F1A24; }
+.tgbar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--card); border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.25; }
+.tgbar small { color: var(--muted); }
+.tgava { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #2AABEE; color: #fff; font-weight: 800; font-size: 13px; flex: none; }
+.tgcheck { display: inline-grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; background: #2AABEE; color: #fff; font-size: 10px; font-weight: 800; vertical-align: 1px; }
+.tgbody { display: flex; flex-direction: column; gap: 10px; padding: 18px; }
+.b { max-width: 86%; padding: 8px 12px; border-radius: 14px; overflow-wrap: anywhere; color: #161514; }
+.b.out { align-self: flex-end; background: #E2FFC7; border-bottom-right-radius: 4px; }
+.b.in { align-self: flex-start; background: #fff; border-bottom-left-radius: 4px; }
+html.dark .b.out { background: #2B5278; color: #fff; }
+html.dark .b.in { background: #182533; color: #fff; }
+.b code { background: rgba(0,0,0,.07); }
+.tok { display: inline-block; margin: 4px 0; padding: 3px 7px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(217,101,72,.16); outline: 2px solid var(--accent); color: inherit; }
+.tgnote { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+.bottable { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 10px 0 8px; font-size: 14.5px; }
+.bottable .row { display: grid; grid-template-columns: 1fr 1.3fr 1.4fr; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--border); align-items: center; }
+.bottable .row:first-child { border-top: 0; }
+.bottable .row.head { background: var(--paper); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+@media (max-width: 560px) { .bottable .row { grid-template-columns: 1fr 1fr; } .bottable .row > :nth-child(2) { display: none; } }
+.tpl { position: relative; margin: 12px 0 8px; border-radius: 16px; background: #161514; color: #F5F2EB; }
+html.dark .tpl { background: #050505; border: 1px solid rgba(255,255,255,.22); }
+.tpl pre { margin: 0; padding: 16px 18px; padding-right: 130px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
+.copy { position: absolute; top: 10px; right: 10px; padding: 8px 14px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 800; font-size: 12.5px; }
+.copy:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 footer { margin-top: 56px; padding: 26px 0 40px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--muted); }
 footer a { color: var(--accent-dark); font-weight: 700; }
 /* Terracotta text on the dark page was dim: links get the soft tint there */
@@ -261,6 +288,79 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
         </div>
       </details>
     </section>
+    <section id="bots" class="step">
+      <details class="stepbox">
+        <summary>
+          <span class="step-num">03</span>
+          <span class="step-head">
+            <span class="step-label">Шаг 3 · 15 мин · для тарифа «Профи»</span>
+            <span class="step-title">Четыре Telegram-бота</span>
+          </span>
+          <span class="toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="stepbody">
+    <p>Через этих ботов Claude будет работать с тобой прямо в Telegram:</p>
+    <ul class="botlist">
+      <li><b>Главный</b> — пишешь задачу, Claude выполняет её на сервере.</li>
+      <li><b>Файлы</b> — присылает отчёты и готовые файлы, принимает голосовые.</li>
+      <li><b>Рилсы</b> — присылаешь ссылку на рилс, получаешь разбор и идеи.</li>
+      <li><b>Насмотренность</b> — присылаешь удачный дизайн, Claude запоминает образцы.</li>
+    </ul>
+    <div class="note warn">
+      <span class="lbl">Start в новых ботах пока не нажимай</span>
+      <p>Хозяином бота становится тот, кто первым нажмёт Start. Я напишу, когда пора. Start нужен только у BotFather.</p>
+    </div>
+
+    <h3 class="sub-h" id="bots-how">Как создать одного бота</h3>
+    <ol class="do">
+      <li>Открой <a class="tg" href="https://t.me/BotFather" target="_blank" rel="noopener"><b>@BotFather</b></a> в Telegram. Проверь, что рядом с именем синяя галочка: это официальный бот Telegram, остальные — подделки. Нажми <b>Start</b>.</li>
+      <li>Отправь ему команду <code>/newbot</code>.</li>
+    </ol>
+    <div class="tgchat" role="img" aria-label="Переписка с BotFather"><div class="tgbar"><span class="tgava">BF</span><span><b>BotFather</b> <span class="tgcheck" title="Официальный">✓</span><br><small>бот</small></span></div><div class="tgbody"><div class="b out">/newbot</div><div class="b in">Alright, a new bot. How are we going to call it? Please choose a name for your bot.</div></div></div>
+    <p class="tgnote">По-русски: «Как назовём бота? Придумай ему имя».</p>
+    <ol class="do" style="--start: 2">
+      <li>Напиши <b>имя</b> бота — его видно в чате, можно по-русски. Например: <code>Анна Главный</code>.</li>
+    </ol>
+    <div class="tgchat" role="img" aria-label="Переписка с BotFather"><div class="tgbar"><span class="tgava">BF</span><span><b>BotFather</b> <span class="tgcheck" title="Официальный">✓</span><br><small>бот</small></span></div><div class="tgbody"><div class="b out">Анна Главный</div><div class="b in">Good. Now let's choose a username for your bot. It must end in <code>bot</code>. Like this, for example: TetrisBot or tetris_bot.</div></div></div>
+    <p class="tgnote">По-русски: «Теперь придумай адрес. Он должен заканчиваться на bot».</p>
+    <ol class="do" style="--start: 3">
+      <li>Напиши <b>адрес</b> бота латиницей, без пробелов, в конце обязательно <code>bot</code>. Например: <code>anna_main_bot</code>. Если ответит, что адрес занят, — придумай другой.</li>
+    </ol>
+    <div class="tgchat" role="img" aria-label="Переписка с BotFather"><div class="tgbar"><span class="tgava">BF</span><span><b>BotFather</b> <span class="tgcheck" title="Официальный">✓</span><br><small>бот</small></span></div><div class="tgbody"><div class="b out">anna_main_bot</div><div class="b in">Done! Congratulations on your new bot. You will find it at t.me/anna_main_bot.<br><br>Use this token to access the HTTP API:<br><span class="tok">1234567890:AAExampleTokenExampleToken</span><br>Keep your token secure and store it safely, it can be used by anyone to control your bot.</div></div></div>
+    <p class="tgnote">Токен — длинная строка из цифр, двоеточия и букв (выделена). Это ключ от бота: нажми на него, и Telegram скопирует его целиком.</p>
+    <ol class="do" style="--start: 4">
+      <li>Сохрани токен у себя в заметках и подпиши, какой это бот.</li>
+    </ol>
+
+    <h3 class="sub-h" id="bots-four">Повтори для всех четырёх</h3>
+    <p>Снова <code>/newbot</code> у BotFather — и так четыре раза. Имена и адреса — любые твои, вот пример:</p>
+    <div class="bottable">
+      <div class="row head"><span>Бот</span><span>Имя</span><span>Адрес</span></div>
+      <div class="row"><span>Главный</span><span>Анна Главный</span><span><code>anna_main_bot</code></span></div>
+      <div class="row"><span>Файлы</span><span>Анна Файлы</span><span><code>anna_files_bot</code></span></div>
+      <div class="row"><span>Рилсы</span><span>Анна Рилсы</span><span><code>anna_reels_bot</code></span></div>
+      <div class="row"><span>Насмотренность</span><span>Анна Насмотренность</span><span><code>anna_design_bot</code></span></div>
+    </div>
+
+    <h3 class="sub-h" id="bots-send">Что прислать мне</h3>
+    <ol class="do" style="--start: 5">
+      <li>Скопируй шаблон ниже, вставь вместо точек свои четыре токена и <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">пришли мне в Telegram</a> одним сообщением.</li>
+    </ol>
+    <div class="tpl">
+      <pre id="botsTpl">Главный: ...
+Файлы: ...
+Рилсы: ...
+Насмотренность: ...</pre>
+      <button class="copy" type="button" data-target="botsTpl">Копировать</button>
+    </div>
+    <div class="note warn">
+      <span class="lbl">Токены — только мне</span>
+      <p>По токену любой может управлять ботом. Не публикуй их и не отправляй никому, кроме меня. Ссылки на ботов тоже не раздавай.</p>
+    </div>
+    <p>Как подключу ботов, напишу, когда нажать <b>Start</b> в каждом. После этого в бота «Файлы» придёт проверочное сообщение — значит, всё работает.</p>
+        </div>
+      </details>
+    </section>
 </main>
 
 <footer class="container">Александр Морозов — настройка Claude Code · <a href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">@MorozoW_NEURO</a></footer>
@@ -294,6 +394,14 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
     shut(); addEventListener("load", shut, { once: true });
   }
 })();
+
+// Copy must run inside the click itself; where the clipboard is refused, select the text instead
+document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", () => {
+  const el = document.getElementById(btn.dataset.target);
+  const done = () => { btn.textContent = "Скопировано"; setTimeout(() => btn.textContent = "Копировать", 1800); };
+  const select = () => { const r = document.createRange(); r.selectNodeContents(el); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = "Выделено — скопируй"; };
+  try { navigator.clipboard.writeText(el.textContent.trim()).then(done, select); } catch (e) { select(); }
+}));
 </script>
 </body>
 </html>
