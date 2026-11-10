@@ -143,6 +143,36 @@ html.dark .tpl { background: #050505; border: 1px solid rgba(255,255,255,.22); }
 .tpl pre { margin: 0; padding: 16px 18px; padding-right: 130px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
 .copy { position: absolute; top: 10px; right: 10px; padding: 8px 14px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 800; font-size: 12.5px; }
 .copy:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+/* GitHub step: drawn forms show the fields to fill; red frame = where to type or click */
+.ghmock { max-width: 580px; margin: 14px 0 22px; border-radius: 16px; overflow: hidden; border: 1px solid #d1d9e0; box-shadow: var(--shadow); background: #fff; color: #1f2328; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; }
+html.dark .ghmock { background: #0d1117; color: #f0f6fc; border-color: #3d444d; }
+.ghbar { display: flex; align-items: center; gap: 10px; padding: 9px 14px; background: #f6f8fa; border-bottom: 1px solid #d1d9e0; font-size: 12.5px; }
+html.dark .ghbar { background: #151b23; border-color: #3d444d; }
+.ghlogo { font-weight: 800; }
+.ghurl { color: #59636e; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; overflow-wrap: anywhere; }
+html.dark .ghurl { color: #9198a1; }
+.ghbody { padding: 18px; display: grid; gap: 12px; }
+.ghh { font-size: 18px; font-weight: 700; }
+.ghlabel { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.ghinput { border: 1px solid #d1d9e0; border-radius: 6px; padding: 6px 10px; min-height: 32px; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-wrap: anywhere; }
+html.dark .ghinput { border-color: #3d444d; }
+.ghinput.area { min-height: 64px; }
+.ghradio { display: flex; gap: 18px; }
+.ghradio span { padding: 4px 8px; border-radius: 6px; }
+.ghcheck { padding: 6px 10px; border-radius: 6px; font-weight: 600; width: max-content; max-width: 100%; }
+.ghbtn { justify-self: start; padding: 6px 16px; border-radius: 6px; background: #1f883d; color: #fff; font-weight: 600; }
+.ghmenu { display: flex; align-items: center; gap: 10px; }
+.ghava { width: 36px; height: 36px; border-radius: 50%; background: #8250df; color: #fff; display: grid; place-items: center; font-weight: 800; }
+.ghsmall { margin: 0; font-size: 13px; color: #59636e; }
+html.dark .ghsmall { color: #9198a1; }
+.ghmock .hl, .ghmock .hlt { outline: 3px solid #E0242B; outline-offset: 2px; border-radius: 6px; }
+.sub-h .opt { font-size: 12px; font-weight: 700; color: var(--muted); background: var(--paper); padding: 2px 8px; border-radius: 999px; }
+.ghgen { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 6px; }
+.ghgen input { flex: 1 1 220px; min-width: 0; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--ink); font: 600 14px 'JetBrains Mono', monospace; }
+.ghgen input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.ghgo { padding: 10px 16px; border-radius: 12px; background: var(--accent); color: #fff !important; text-decoration: none !important; font-weight: 800; font-size: 13px; white-space: nowrap; }
+.ghgo[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+.ghhint { display: block; color: var(--muted); font-size: 13.5px; }
 footer { margin-top: 56px; padding: 26px 0 40px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--muted); }
 footer a { color: var(--accent-dark); font-weight: 700; }
 /* Terracotta text on the dark page was dim: links get the soft tint there */
@@ -172,7 +202,6 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
     <span class="badge-pill"><span class="badge-tag">ИНСТРУКЦИЯ</span><span>Подготовка сервера под Claude Code</span></span>
     <h1 class="h1-editorial">Подготовь <span class="serif">свой сервер</span></h1>
     <p class="lead-text">Твоя часть — около 20 минут. Открывай шаги по очереди. Остальное я сделаю сам.</p>
-    <ul class="chips"><li>4vps.su</li><li>NL-cx31</li><li>Ubuntu 24.04</li><li>Нидерланды</li></ul>
   </section>
 
     <section id="register" class="step">
@@ -361,6 +390,60 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
         </div>
       </details>
     </section>
+    <section id="github" class="step">
+      <details class="stepbox">
+        <summary>
+          <span class="step-num">04</span>
+          <span class="step-head">
+            <span class="step-label">Шаг 4 · 10 мин · для тарифа «Профи»</span>
+            <span class="step-title">GitHub — копия твоих данных</span>
+          </span>
+          <span class="toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="stepbody">
+    <p>GitHub — сервис, куда каждую ночь будет сохраняться копия всего, что есть на твоём сервере. Если с сервером что-то случится, всё восстановим из неё. Пароль от GitHub мне не нужен.</p>
+
+    <h3 class="sub-h" id="gh-account">Аккаунт <span class="opt">если ещё нет</span></h3>
+    <ol class="do">
+      <li>Открой <a class="tg" href="https://github.com/signup" target="_blank" rel="noopener"><b>github.com/signup</b></a>.</li>
+      <li>Впиши почту, придумай пароль и <b>логин</b> (Username) — латиницей, например <code>anna-claude</code>. Нажми <b>Continue</b>.</li>
+      <li>Пройди проверку «я не робот» и введи код из письма, которое придёт на почту.</li>
+    </ol>
+    <div class="ghmock" role="img" aria-label="github.com/signup"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com/signup</span></div><div class="ghbody"><div class="ghh">Sign up to GitHub</div><div class="ghfield"><div class="ghlabel">Email*</div><div class="ghinput hl">anna@mail.ru</div></div><div class="ghfield"><div class="ghlabel">Password*</div><div class="ghinput hl">••••••••••••</div></div><div class="ghfield"><div class="ghlabel">Username*</div><div class="ghinput hl">anna-claude</div></div><div class="ghfield"><div class="ghlabel">Your Country/Region*</div><div class="ghinput">Russia</div></div><div class="ghbtn hl">Continue ›</div></div></div>
+
+    <h3 class="sub-h" id="gh-repo">Хранилище для копии</h3>
+    <ol class="do" style="--start: 3">
+      <li>Открой <a class="tg" href="https://github.com/new?name=server-backup&amp;visibility=private" target="_blank" rel="noopener"><b>эту ссылку</b></a> — название и закрытый доступ уже подставлены.</li>
+      <li>Проверь, что в названии стоит <code>server-backup</code> и выбрано <b>Private</b>. Это важно: так копию не увидит никто, кроме тебя и твоего сервера.</li>
+      <li>Нажми зелёную кнопку <b>Create repository</b>.</li>
+    </ol>
+    <div class="ghmock" role="img" aria-label="github.com/new"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com/new</span></div><div class="ghbody"><div class="ghh">Create a new repository</div><div class="ghfield"><div class="ghlabel">Repository name*</div><div class="ghinput hl">server-backup</div></div><div class="ghfield"><div class="ghlabel">Visibility</div><div class="ghradio"><span>○ Public</span><span class="on hl">◉ Private</span></div></div><div class="ghbtn hl">Create repository</div></div></div>
+
+    <h3 class="sub-h" id="gh-login">Пришли мне логин</h3>
+    <ol class="do" style="--start: 6">
+      <li>Найди свой логин: нажми на аватарку справа вверху на github.com.</li>
+    </ol>
+    <div class="ghmock" role="img" aria-label="github.com"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com</span></div><div class="ghbody"><div class="ghmenu"><span class="ghava">A</span><span><b class="hlt">anna-claude</b><br><small>Anna</small></span></div><p class="ghsmall">Нажми на свою аватарку справа вверху — логин написан жирным в начале меню.</p></div></div>
+    <ol class="do" style="--start: 7">
+      <li>Скопируй шаблон, впиши логин и <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">пришли мне в Telegram</a>. В ответ я пришлю ключ — длинную строку, которая начинается с <code>ssh-ed25519</code>.</li>
+    </ol>
+    <div class="tpl"><pre id="ghTpl">Мой логин на GitHub: ...</pre><button class="copy" type="button" data-target="ghTpl">Копировать</button></div>
+
+    <h3 class="sub-h" id="gh-key">Вставь мой ключ</h3>
+    <ol class="do" style="--start: 8">
+      <li>Впиши сюда свой логин — ниже появится ссылка прямо на нужную страницу:
+        <div class="ghgen"><input id="ghLoginIn" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="твой логин на GitHub" aria-label="Логин на GitHub"><a id="ghKeyLink" class="ghgo" href="https://github.com/settings/profile" target="_blank" rel="noopener" aria-disabled="true">Открыть страницу ключа ↗</a></div>
+        <small class="ghhint">Не открылось? В хранилище <b>server-backup</b>: <b>Settings</b> → слева <b>Deploy keys</b> → <b>Add deploy key</b>.</small>
+      </li>
+      <li>В поле <b>Title</b> напиши <code>server</code>.</li>
+      <li>В поле <b>Key</b> вставь мой ключ целиком, одной строкой.</li>
+      <li>Поставь галочку <b>Allow write access</b>. Без неё сервер не сможет сохранять копию.</li>
+      <li>Нажми <b>Add key</b> и напиши мне «готово».</li>
+    </ol>
+    <div class="ghmock" role="img" aria-label="github.com/ЛОГИН/server-backup/settings/keys/new"><div class="ghbar"><span class="ghlogo">GitHub</span><span class="ghurl">github.com/ЛОГИН/server-backup/settings/keys/new</span></div><div class="ghbody"><div class="ghh">Add new deploy key</div><div class="ghfield"><div class="ghlabel">Title</div><div class="ghinput hl">server</div></div><div class="ghfield"><div class="ghlabel">Key</div><div class="ghinput hl area">ssh-ed25519 AAAAC3Nza… backup</div></div><div class="ghcheck hl">☑ Allow write access</div><div class="ghbtn hl">Add key</div></div></div>
+        </div>
+      </details>
+    </section>
 </main>
 
 <footer class="container">Александр Морозов — настройка Claude Code · <a href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">@MorozoW_NEURO</a></footer>
@@ -402,6 +485,27 @@ document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", 
   const select = () => { const r = document.createRange(); r.selectNodeContents(el); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = "Выделено — скопируй"; };
   try { navigator.clipboard.writeText(el.textContent.trim()).then(done, select); } catch (e) { select(); }
 }));
+
+// GitHub key page: the client types the login once and gets a direct link to their own deploy-key form
+(() => {
+  const inp = document.getElementById("ghLoginIn"), a = document.getElementById("ghKeyLink");
+  if (!inp) return;
+  const upd = () => {
+    const v = inp.value.trim().replace(/^@/, "").replace(/^https?:\/\/github\.com\//, "").split("/")[0];
+    const ok = /^[A-Za-z0-9-]{1,39}$/.test(v);
+    a.setAttribute("aria-disabled", String(!ok));
+    if (ok) a.href = "https://github.com/" + v + "/server-backup/settings/keys/new";
+  };
+  inp.addEventListener("input", upd); upd();
+})();
+// Share links for one step: ?open=github opens just that step; a plain link still shows every step closed
+(() => {
+  const id = new URLSearchParams(location.search).get("open");
+  const box = id && document.querySelector("#" + CSS.escape(id) + " details.stepbox");
+  if (!box) return;
+  const go = () => { box.open = true; box.closest(".step").scrollIntoView(); };
+  go(); addEventListener("load", go, { once: true });
+})();
 </script>
 </body>
 </html>
