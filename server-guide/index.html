@@ -282,7 +282,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 <header class="hero gutter">
   <p class="eyebrow">Настройка Claude Code</p>
   <h1>Подготовь <em>свой сервер</em></h1>
-  <p class="sub">Твоя часть — около 40 минут. Остальное я сделаю сам</p>
+  <p class="sub">Твоя часть — около 20 минут. Остальное я сделаю сам</p>
   <ul class="pills">
     <li>4vps.su</li><li>NL-cx31</li><li>Ubuntu 24.04</li><li>Нидерланды</li>
   </ul>
@@ -295,8 +295,6 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   <ol>
     <li><a href="#register" class="on"><span class="n">1</span>Регистрация сервера</a></li>
     <li><a href="#card"><span class="n">2</span>Карта</a></li>
-    <li><a href="#panel"><span class="n">3</span>Панель</a></li>
-    <li><a href="#login"><span class="n">4</span>Вход в Claude</a></li>
     <li><a href="#next"><span class="n">✓</span>Дальше</a></li>
     <li><a href="#faq"><span class="n">?</span>Вопросы</a></li>
   </ol>
@@ -402,65 +400,6 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     </div>
   </section>
 
-  <section id="panel" class="block">
-    <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">3</span>
-      <div>
-        <p class="finish-eyebrow">Шаг 3</p>
-        <h2>Твоя панель</h2>
-        <p class="finish-sub">5 мин</p>
-      </div>
-    </div>
-    <p>Начинай, когда я напишу «сервер готов». Вместе с этим я пришлю <b>адрес твоей панели</b> (похож на <code>https://12-34-56-78.sslip.io</code>) и <b>пароль от неё</b>.</p>
-    <p>Панель — это твой Claude в окне браузера: чат, файлы и всё остальное. В браузере ничего ставить не нужно.</p>
-    <ol class="do">
-      <li>Открой адрес панели в браузере: Chrome, Яндекс Браузер, Safari — любой.</li>
-      <li>Введи пароль и нажми «Войти».</li>
-    </ol>
-    <h3 class="sub-h">На Windows — своя программа</h3>
-    <p>С программой Claude открывается отдельным окном со значком на рабочем столе и сам пишет, когда закончил задачу. Не хочешь ставить — работай в браузере.</p>
-    <ol class="do" style="--start: 3">
-      <li>Вверху панели нажми <b>💻 Приложение для Windows</b>. Скачается файл <b>ClaudeRU-Setup</b>.</li>
-      <li>Открой его и жми «Далее», пока не появится «Готово». Если Windows покажет синее окно «Система защитила компьютер», нажми «Подробнее» → «Выполнить в любом случае».</li>
-      <li>Программа откроется сама. Адрес сервера в ней уже вписан, введи только пароль.</li>
-    </ol>
-    <div class="note">
-      <span class="lbl">Mac и телефон</span>
-      <p>Отдельной программы для них нет: открывай адрес панели в браузере, работает так же. Чтобы не искать адрес, добавь его в закладки.</p>
-    </div>
-    <div class="note warn">
-      <span class="lbl">Пароль от панели никому не отправляй</span>
-      <p>С ним можно управлять твоим сервером. Поменять пароль можно в панели: вкладка «Безопасность».</p>
-    </div>
-  </section>
-
-  <section id="login" class="block">
-    <div class="finish step">
-      <span class="finish-mark" aria-hidden="true">4</span>
-      <div>
-        <p class="finish-eyebrow">Шаг 4</p>
-        <h2>Вход в Claude</h2>
-        <p class="finish-sub">3 мин</p>
-      </div>
-    </div>
-    <p>Войти в аккаунт Claude можешь только ты: в чужие аккаунты я не захожу.</p>
-    <ol class="do">
-      <li>Вверху панели будет полоса «Claude ещё не подключён к вашему аккаунту». Нажми в ней <b>Войти в Claude</b>. Полосы нет? Открой вкладку «Безопасность» → карточка «Аккаунт Claude» → <b>Войти в Claude</b>.</li>
-      <li>Нажми <b>Открыть страницу входа</b>. Откроется сайт Claude.</li>
-      <li>Войди в аккаунт, где оплачена подписка Claude Pro, и нажми <b>Authorize</b> (разрешить).</li>
-      <li>Сайт покажет код. Скопируй его, вернись в панель, вставь в поле «Код со страницы входа» и нажми <b>Готово</b>.</li>
-      <li>Появится «✓ Вход выполнен» и почта твоего аккаунта. Всё, Claude подключён.</li>
-    </ol>
-    <div class="note warn">
-      <span class="lbl">Код никому не отправляй</span>
-      <p>Даже мне. По нему входят в твой аккаунт Claude.</p>
-    </div>
-    <div class="note">
-      <span class="lbl">Если появилась ошибка</span>
-      <p>Нажми «Отмена» и начни заново с пункта 1: код действует несколько минут. Не помогло — пришли мне скриншот.</p>
-    </div>
-  </section>
-
   <section id="next" class="block">
     <div class="finish">
       <span class="finish-mark" aria-hidden="true">✓</span>
@@ -471,8 +410,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
       </div>
     </div>
     <div class="next">
-      <p>Когда войдёшь в Claude, на вкладке «Claude» напиши ему «привет» и дай первую задачу своими словами. Например: «помоги составить план постов на неделю».</p>
-      <p>Потом <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> «готово». Я удалю свой доступ к твоему серверу и пришлю подтверждение, что больше не могу на него зайти.</p>
+      <p>Когда сделаешь оба шага, <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> «готово». Дальше настрою я. Как закончу, удалю свой доступ к твоему серверу и пришлю подтверждение, что больше не могу на него зайти.</p>
       <p><b>Что-то не получается — <a class="tg" href="https://t.me/MorozoW_NEURO" target="_blank" rel="noopener">напиши мне в Telegram</a> и пришли скриншот экрана.</b> Разберёмся в переписке.</p>
     </div>
   </section>
@@ -509,7 +447,7 @@ ul.dash.tiles li:last-child:nth-child(odd) { grid-column: 1 / -1; }
     </details>
     <details>
       <summary>Сколько времени это займёт?</summary>
-      <p>Твоя часть — около 40 минут по этой инструкции. Моя — 40–60 минут, без тебя. Целый день выделять не нужно.</p>
+      <p>Твоя часть — около 20 минут по этой инструкции. Моя — 40–60 минут, без тебя. Целый день выделять не нужно.</p>
     </details>
     <details>
       <summary>Сколько ещё платить, кроме моей работы?</summary>
