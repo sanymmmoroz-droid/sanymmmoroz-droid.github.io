@@ -284,9 +284,12 @@ html.dark .stepbody a.tg, html.dark .stepbody a[href^="http"], html.dark footer 
   };
   document.addEventListener("click", e => { const a = e.target.closest('a[href^="#"]'); if (a) openFor(decodeURIComponent(a.getAttribute("href").slice(1))); });
   addEventListener("hashchange", () => openFor(decodeURIComponent(location.hash.slice(1))));
+  // Every step starts closed, even when the link carries a #part: the reader opens steps by hand
+  // Chrome itself opens a closed box when the link points inside it, so close them again once the page has loaded
   if (location.hash) {
-    const id = decodeURIComponent(location.hash.slice(1)); openFor(id);
-    const t = document.getElementById(id); if (t) requestAnimationFrame(() => t.scrollIntoView());
+    history.replaceState(null, "", location.pathname + location.search);
+    const shut = () => { document.querySelectorAll("details.stepbox").forEach(d => d.open = false); scrollTo(0, 0); };
+    shut(); addEventListener("load", shut, { once: true });
   }
 })();
 </script>
