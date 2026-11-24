@@ -1,8 +1,8 @@
 {
- "version": "17.18",
- "notes": "«Джарвис, открой гугл» голосом: команда после имени больше не требует имени второй раз",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.18.exe",
- "sha256": "aecf5d8d21a90ad484b27bc55ecd1cb14676bb8d04a1f461de086fbe086520ed",
- "size": 86874360,
- "sig": "MEUCIQC1u614J0ZKhl2YnthVxiIMGCH/3nSYPxh74ut90kLNwwIgOkMA68n4/Sj5Arjeu0VEelg08WIYWRtTNkCD3F1tjtU="
+ "version": "17.19",
+ "notes": "Ключи нейросетей, Telegram-бота и ElevenLabs теперь хранятся зашифрованными (защита Windows)",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.19.exe",
+ "sha256": "674f20b7a1f1212d1770f0675b8e694ee8c5efa0d26530dd8360dc16bb45a392",
+ "size": 86875686,
+ "sig": "MEQCIHNBbThxPPZxBJOpSOWDvyCJWBK6bVvCnuhwCL7z0KQMAiAWZ1aGaOJsm9SMgA50TZaxuEFhGnFKv9SknvL5Kd8ttA=="
 }
