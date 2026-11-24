@@ -1,8 +1,8 @@
 {
- "version": "17.1",
- "notes": "Документы и таблицы снова открываются; модель речи не зависает на «Скачиваю…»",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.1.exe",
- "sha256": "598cfb2fb55b441e7f6a0b1dd392a3e7a6e1590642c873cc733807f4a9bd0f48",
- "size": 86767364,
- "sig": "MEQCIFiSA6DVKZXQ42jzcyjxEobz3EJTmBIUhm1pHrC71SwmAiB+/ARZBFfy/9WXdYqREk3FEYGpGSWiFmnXb+dD40z2mw=="
+ "version": "17.2",
+ "notes": "Автозагрузка запускает новую версию, а не старый файл",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.2.exe",
+ "sha256": "69d06df86ad3d255e38934bd7f81a6407d089218eb229f48f2ddac6a146bb5ea",
+ "size": 86767392,
+ "sig": "MEUCIBdsQsSJsP15Hb24w6OHl/oCy8Bjflm2v6b4kUl6B9xEAiEA/m+8aDBKjZBL6geV3Lhf9hXFm9ch3upu7Va1GmKj6CI="
 }
