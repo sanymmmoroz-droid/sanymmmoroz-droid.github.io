@@ -1,8 +1,8 @@
 {
- "version": "17.6",
- "notes": "Плавное усиление микрофона, запись фразы для проверки",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.6.exe",
- "sha256": "ea6da852adca68dd77f65d58a748f1c9c0b9344ee9bfa10563713e90c6435560",
- "size": 86768640,
- "sig": "MEUCIBPzxzrYs0mkJ7T47qYSJYwNgtttpJcB0gp63ycPz4O6AiEAvaqZQjE1xhskZhdP7wzMeLZN1mSrEeoE8O1nBNxHLs0="
+ "version": "17.7",
+ "notes": "Микрофон через WASAPI, как в браузере",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.7.exe",
+ "sha256": "aed5ced7e877ce0311462c5fc39771a6b30f04691b5b6537ad0a0c871af79751",
+ "size": 86846205,
+ "sig": "MEQCIFkZvhJcSWV+1Sj+AlWL12QXWlNo3+ggth4wt5EzNxYKAiBe6vAXa2jQGz75KFiy9Bg0QCTXMckDnd9wyXG1GV1WCQ=="
 }
