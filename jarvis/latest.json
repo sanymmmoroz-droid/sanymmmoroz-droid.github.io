@@ -1,8 +1,8 @@
 {
- "version": "17.3",
- "notes": "Джарвис слышит микрофон, выбранный в Windows; не зависает на «Слушаю»",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.3.exe",
- "sha256": "ea1cf072e3ed2286fd25683a9617c9d0481d0d9744e29b1708c0b4a1206fe5bf",
- "size": 86767546,
- "sig": "MEUCIQCCg5kdLCKwezGucR58puwV6lRPfh1bdNzwwqfbM4g7QgIgHfs6yFtB3qjWmvclwhVz0pVkuhy4QOZ8npjQ8vt8SZQ="
+ "version": "17.4",
+ "notes": "Диагностика голоса в журнале",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.4.exe",
+ "sha256": "91d4cecd6e6ac4724bd5fa027bbd291bc2f2b818fecbe9cc7616ed447720ebed",
+ "size": 86767634,
+ "sig": "MEYCIQCdLJrCssCYpF/3puLs5gP1+JrE5wqjWZsXL4wxMF3eUwIhANFdcq6l9eAfCth3M531FVY6x8+MP8Ork63+omwmbnQr"
 }
