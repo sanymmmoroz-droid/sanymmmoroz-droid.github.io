@@ -1,8 +1,8 @@
 {
- "version": "17.8",
- "notes": "Микрофон: Джарвис сам выбирает источник звука и слышит имя; «Джарвис, который час» одной фразой",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.8.exe",
- "sha256": "a239b0955ebe6a862562169dacfca6362a6d3e52d2b4aed195376f04ee3ea223",
- "size": 86860519,
- "sig": "MEUCIF3Gp3+SO7tTZxliiSVt00UxqnWLqmPfaIBlixH5bPmMAiEAkg5obugJGc9RjRXTx6ltCYptY6IJiJLyueeXR57AG5g="
+ "version": "17.9",
+ "notes": "Микрофон: запись не тормозит, громкость голоса Джарвиса 100%, сохраняется сырой звук для диагностики",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.9.exe",
+ "sha256": "141d16e82d4f1e90698525b8e5e0b258922d8d5fb3201af9caa7ed21cffe5697",
+ "size": 86868375,
+ "sig": "MEQCICOxHX8UU7yfCTYrmqMEPtMlLZOSQXvTRPWxAYfLGopnAiBMSKMfbx3yWFAABxop6swwM7Tt4IofBS1wSMjkpHvdTA=="
 }
