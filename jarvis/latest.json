@@ -1,8 +1,8 @@
 {
- "version": "17.12",
- "notes": "Слышит обычную речь без крика, имя «Джарвис» срабатывает надёжнее",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.12.exe",
- "sha256": "0bbe14dce3c249ab44d982a5bd99f88a4229146a064685ca414a981496223e5f",
- "size": 86869982,
- "sig": "MEQCIB7LciFPS1mlvsI5Cpi1O7EdMmHwqK6rw1LX5jgt7EChAiAy+s36mzZ68oRUR1N6D+F9gQV9FrR/Mn/NxMfiUtabUg=="
+ "version": "17.13",
+ "notes": "Убрана полоса «Готов слушать» сверху",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.13.exe",
+ "sha256": "9037d3d561de383921564385d06387b880f6959c2befb0c77254c3423360ea78",
+ "size": 86870067,
+ "sig": "MEUCIQDZ191/YCZYUtgjttXhas8l0z3oP8LOx1bUSwUPagyV6gIgIWgGouEuuKzbsShJkeSFJ2TGACU7ZP35ETpVWLmnf70="
 }
