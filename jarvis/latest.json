@@ -1,8 +1,8 @@
 {
- "version": "17.5",
- "notes": "Джарвис слышит тихий микрофон",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.5.exe",
- "sha256": "b4c6073000afcf809811257d312ec65ed4259d6663cf51a80a19eb8d2a0159c3",
- "size": 86767944,
- "sig": "MEYCIQC+okxGUikT1JFx7udHA9safpVZV3AKJdPPpXB0pt0i5AIhAJGfs4zmnlznrqkPuZ4T9Iq+3HtksQy9sk2cwNXOV8WN"
+ "version": "17.6",
+ "notes": "Плавное усиление микрофона, запись фразы для проверки",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.6.exe",
+ "sha256": "ea6da852adca68dd77f65d58a748f1c9c0b9344ee9bfa10563713e90c6435560",
+ "size": 86768640,
+ "sig": "MEUCIBPzxzrYs0mkJ7T47qYSJYwNgtttpJcB0gp63ycPz4O6AiEAvaqZQjE1xhskZhdP7wzMeLZN1mSrEeoE8O1nBNxHLs0="
 }
