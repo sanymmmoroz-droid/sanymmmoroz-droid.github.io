@@ -1,8 +1,8 @@
 {
- "version": "17.17",
- "notes": "Команды голосом после «Джарвис» расслышиваются точнее («открой гугл»)",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.17.exe",
- "sha256": "0e06aaa8843b19d11fdcff0b1e7064f2caebf6101b521839690226d41ed5b7ce",
- "size": 86874092,
- "sig": "MEUCIA4B6TH01IJNt4KeKb/nJb+cZ+syssq3lIAuncvpa6XtAiEAl6EaOip92gh3Ogct+FrcrFCkfjHNGxDiS1ABydoBrKw="
+ "version": "17.18",
+ "notes": "«Джарвис, открой гугл» голосом: команда после имени больше не требует имени второй раз",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.18.exe",
+ "sha256": "aecf5d8d21a90ad484b27bc55ecd1cb14676bb8d04a1f461de086fbe086520ed",
+ "size": 86874360,
+ "sig": "MEUCIQC1u614J0ZKhl2YnthVxiIMGCH/3nSYPxh74ut90kLNwwIgOkMA68n4/Sj5Arjeu0VEelg08WIYWRtTNkCD3F1tjtU="
 }
