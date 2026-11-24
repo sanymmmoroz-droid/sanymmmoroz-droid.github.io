@@ -1,8 +1,8 @@
 {
- "version": "17.9",
- "notes": "Микрофон: запись не тормозит, громкость голоса Джарвиса 100%, сохраняется сырой звук для диагностики",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.9.exe",
- "sha256": "141d16e82d4f1e90698525b8e5e0b258922d8d5fb3201af9caa7ed21cffe5697",
- "size": 86868375,
- "sig": "MEQCICOxHX8UU7yfCTYrmqMEPtMlLZOSQXvTRPWxAYfLGopnAiBMSKMfbx3yWFAABxop6swwM7Tt4IofBS1wSMjkpHvdTA=="
+ "version": "17.10",
+ "notes": "Микрофон через встроенный браузер (как на странице), журнал громкости",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.10.exe",
+ "sha256": "8553801c22353d5f06e8b7166ffa7dde88300016bd48182b55162e910d36e2b1",
+ "size": 86868788,
+ "sig": "MEUCIQD9fo/K3DWbx0TYUf7erLrMPDMdo/y/kMgsGd0rVu57WQIgRCwi9JbT6o7kSFX5EKtoAds14OIOeLQ8zdQRhRTNFp4="
 }
