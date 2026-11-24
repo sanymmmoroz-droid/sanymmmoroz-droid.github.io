@@ -1,8 +1,8 @@
 {
- "version": "17.10",
- "notes": "Микрофон через встроенный браузер (как на странице), журнал громкости",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.10.exe",
- "sha256": "8553801c22353d5f06e8b7166ffa7dde88300016bd48182b55162e910d36e2b1",
- "size": 86868788,
- "sig": "MEUCIQD9fo/K3DWbx0TYUf7erLrMPDMdo/y/kMgsGd0rVu57WQIgRCwi9JbT6o7kSFX5EKtoAds14OIOeLQ8zdQRhRTNFp4="
+ "version": "17.11",
+ "notes": "Микрофон через встроенный браузер: снят старый запрет",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.11.exe",
+ "sha256": "0b8f200df81850388de75f52ed31c5b7b80532061033fa3742dbc07d07c4fd62",
+ "size": 86868949,
+ "sig": "MEYCIQDCr/4xJcoIWvgHO6QoqKxEQ7gMu6qWzitpzU5bkyk+BAIhALRuDWfW2zaoBpCWIeDmwjvQTccj4bLmsXyQkk0/jvnC"
 }
