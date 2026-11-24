@@ -1,8 +1,8 @@
 {
- "version": "17.4",
- "notes": "Диагностика голоса в журнале",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.4.exe",
- "sha256": "91d4cecd6e6ac4724bd5fa027bbd291bc2f2b818fecbe9cc7616ed447720ebed",
- "size": 86767634,
- "sig": "MEYCIQCdLJrCssCYpF/3puLs5gP1+JrE5wqjWZsXL4wxMF3eUwIhANFdcq6l9eAfCth3M531FVY6x8+MP8Ork63+omwmbnQr"
+ "version": "17.5",
+ "notes": "Джарвис слышит тихий микрофон",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.5.exe",
+ "sha256": "b4c6073000afcf809811257d312ec65ed4259d6663cf51a80a19eb8d2a0159c3",
+ "size": 86767944,
+ "sig": "MEYCIQC+okxGUikT1JFx7udHA9safpVZV3AKJdPPpXB0pt0i5AIhAJGfs4zmnlznrqkPuZ4T9Iq+3HtksQy9sk2cwNXOV8WN"
 }
