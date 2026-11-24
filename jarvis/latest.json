@@ -1,8 +1,8 @@
 {
- "version": "17.16",
- "notes": "Имя «Джарвис» снова срабатывает на русской Windows",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.16.exe",
- "sha256": "2fa9cd3630772fbc672e67a4b6ea710d720b9cedf6cabdb519aa838a1ac86b66",
- "size": 86874060,
- "sig": "MEYCIQDx4ODYnMZ3N/fd840CmL6jF1qSC8ld0SektUPZgsuycQIhAPbNzUJhC23Bex4YD+MVhjbvJClleoRt/YynAb3Yr0cz"
+ "version": "17.17",
+ "notes": "Команды голосом после «Джарвис» расслышиваются точнее («открой гугл»)",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.17.exe",
+ "sha256": "0e06aaa8843b19d11fdcff0b1e7064f2caebf6101b521839690226d41ed5b7ce",
+ "size": 86874092,
+ "sig": "MEUCIA4B6TH01IJNt4KeKb/nJb+cZ+syssq3lIAuncvpa6XtAiEAl6EaOip92gh3Ogct+FrcrFCkfjHNGxDiS1ABydoBrKw="
 }
