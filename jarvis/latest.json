@@ -1,8 +1,8 @@
 {
- "version": "17.15",
- "notes": "Окно «Доступно обновление!» на любой странице, с прогрессом",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.15.exe",
- "sha256": "bf88d69d5ff0be749b7db573e4896820723fed6d67f2066939536fdb869e287f",
- "size": 86873234,
- "sig": "MEUCIFPQXCfYXhmwpMOTG3lWfltIZeShfD+ofGSFNBqyJeS1AiEAzYinkWBH4SZPUgFReWvbbt2jDdowiCflSlgrtgy8foQ="
+ "version": "17.16",
+ "notes": "Имя «Джарвис» снова срабатывает на русской Windows",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.16.exe",
+ "sha256": "2fa9cd3630772fbc672e67a4b6ea710d720b9cedf6cabdb519aa838a1ac86b66",
+ "size": 86874060,
+ "sig": "MEYCIQDx4ODYnMZ3N/fd840CmL6jF1qSC8ld0SektUPZgsuycQIhAPbNzUJhC23Bex4YD+MVhjbvJClleoRt/YynAb3Yr0cz"
 }
