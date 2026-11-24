@@ -1,8 +1,8 @@
 {
- "version": "17.11",
- "notes": "Микрофон через встроенный браузер: снят старый запрет",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.11.exe",
- "sha256": "0b8f200df81850388de75f52ed31c5b7b80532061033fa3742dbc07d07c4fd62",
- "size": 86868949,
- "sig": "MEYCIQDCr/4xJcoIWvgHO6QoqKxEQ7gMu6qWzitpzU5bkyk+BAIhALRuDWfW2zaoBpCWIeDmwjvQTccj4bLmsXyQkk0/jvnC"
+ "version": "17.12",
+ "notes": "Слышит обычную речь без крика, имя «Джарвис» срабатывает надёжнее",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.12.exe",
+ "sha256": "0bbe14dce3c249ab44d982a5bd99f88a4229146a064685ca414a981496223e5f",
+ "size": 86869982,
+ "sig": "MEQCIB7LciFPS1mlvsI5Cpi1O7EdMmHwqK6rw1LX5jgt7EChAiAy+s36mzZ68oRUR1N6D+F9gQV9FrR/Mn/NxMfiUtabUg=="
 }
