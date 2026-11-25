@@ -1,8 +1,8 @@
 {
- "version": "17.20",
- "notes": "Новый раздел «Моя AI-система»: своя папка с правилами и знаниями, чат и задачи «из идеи в тексты» прямо на компьютере",
- "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.20.exe",
- "sha256": "c75a5eef303985ed143b839faf13edec7c49dda86497f7687f57e9fcb120ebe8",
- "size": 87017704,
- "sig": "MEUCIEgK6onIxtYDyMb+8ZbzmdMLXajnd+m/EucCLZjq7+BpAiEAhg/NofHlGrdGVSgXC97EiNEVmwIGZSPN112gzLS9RAM="
+ "version": "17.21",
+ "notes": "Новый раздел «Моя AI-система»: своя папка с правилами и знаниями, чат и задачи «из идеи в тексты» прямо на компьютере. Перед очисткой корзины и выключением компьютера Джарвис спрашивает «точно?»",
+ "url": "https://sanymmmoroz-droid.github.io/jarvis/Jarvis-17.21.exe",
+ "sha256": "ea35fed7aa0e1677a3ccbabf72c83f0eb00575716f7db9fe8dfb7f1aa845364a",
+ "size": 87018940,
+ "sig": "MEUCIDJoXoAjp/6zX+ac+3v1S/bTy6EkDDM7tyTu3z9ungfzAiEAxemaS6IXQXdCXZ1TqnHvT1uqegubqbpACw3HXr3goyE="
 }
